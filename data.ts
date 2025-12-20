@@ -55,7 +55,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.SOBRADO,
     area: '84.40m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/b54h0ewi_Sobrado%20de%2084.40m%C2%B2.png'
     ],
     description: 'Sobrado moderno e espaçoso com 84.40m² de área construída. Perfeito equilíbrio entre conforto e economia, com distribuição inteligente dos ambientes.',
     featured: false
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.SOBRADO,
     area: '61.97m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/bfon4clr_Sobrado%20de%2061.97m%C2%B2.png'
     ],
     description: 'Sobrado moderno e bem planejado com 61.97m² de área construída. Compacto mas extremamente funcional, perfeito para terrenos menores.',
     featured: false
@@ -90,8 +90,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '90m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png',
-      'https://casaspinheirao.com.br/medias/Casa-de-Alvenaria-6m-x-10m-60m%C2%B2-com-Varanda-e-Garagem.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/754fqtty_Casa%20de%20Alvenaria%2090m%C2%B2.png'
     ],
     description: 'Casa de alvenaria 6m x 10m com 90m², incluindo varanda aconchegante e garagem. Projeto completo e funcional para toda a família.',
     featured: true
@@ -102,8 +101,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '75m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png',
-      'https://casaspinheirao.com.br/medias/Casa-de-Alvenaria-6m-x-10m-60m%C2%B2-com-Varanda-e-Garagem-Coberta.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/ldjt2zen_Casa%20de%20Alvenaria%2075m%C2%B2.png'
     ],
     description: 'Casa de alvenaria 6m x 10m com 75m², varanda e garagem coberta. Proteção completa para seu veículo e espaço de convivência ao ar livre.',
     featured: false
@@ -114,7 +112,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '72m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/0tyjoq2r_Casa%20de%20Alvenaria%2069m%C2%B2.png'
     ],
     description: 'Casa de alvenaria medindo 6m x 9m com 72m². Design compacto e eficiente, ideal para quem busca praticidade e conforto.',
     featured: false

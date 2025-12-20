@@ -10,10 +10,25 @@ export default defineConfig(({ mode }) => {
         host: '0.0.0.0',
         allowedHosts: ['pinheirao-catalog.preview.emergentagent.com', 'localhost', '.emergentagent.com']
       },
+      preview: {
+        port: 3000,
+        host: '0.0.0.0'
+      },
       plugins: [react()],
       define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
+        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || '')
+      },
+      build: {
+        outDir: 'dist',
+        sourcemap: false,
+        minify: 'esbuild',
+        target: 'esnext',
+        rollupOptions: {
+          output: {
+            manualChunks: undefined
+          }
+        }
       },
       resolve: {
         alias: {

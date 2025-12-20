@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Ruler, MapPin, CheckCircle, Sparkles,
-  ShieldCheck, TrendingUp, Award, CreditCard
+  ShieldCheck, TrendingUp, Award, CreditCard,
+  Maximize2, X, ChevronLeft, ChevronRight, MessageSquare
 } from 'lucide-react';
 import { Project } from '../types';
 

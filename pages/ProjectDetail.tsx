@@ -3,8 +3,9 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { PROJECTS } from '../data';
 import { ConstructionType, Project } from '../types';
-import { 
-  Square, Bed, Bath, X, ChevronLeft, ChevronRight, 
+import { PremiumCustomSection } from '../components/PremiumCustomSection';
+import {
+  Square, Bed, Bath, X, ChevronLeft, ChevronRight,
   Maximize2, ArrowLeft, Send, Home, Ruler, ShieldCheck,
   CheckCircle, MessageSquare
 } from 'lucide-react';
@@ -212,39 +213,7 @@ export const ProjectDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Prominent CTA Section */}
-      <section className="bg-pinheirao-black py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-concrete-pattern opacity-5"></div>
-        <div className="max-w-5xl mx-auto px-4 relative z-10">
-          <div className="bg-white p-12 md:p-20 shadow-2xl rounded-sm flex flex-col md:flex-row items-center gap-12">
-             <div className="flex-1 text-center md:text-left">
-               <h2 className="text-3xl md:text-4xl font-black text-pinheirao-black mb-6 uppercase tracking-tighter italic">Transforme este projeto no <span className="text-pinheirao-green">seu novo lar.</span></h2>
-               <p className="text-pinheirao-gray font-medium leading-relaxed mb-8">
-                 Gostou do layout mas precisa de um quarto extra? Ou prefere uma varanda maior? 
-                 Nossa equipe técnica pode ajustar cada centímetro desta planta para se adequar perfeitamente ao seu terreno e estilo de vida.
-               </p>
-               <div className="flex flex-wrap justify-center md:justify-start gap-6">
-                  <button 
-                    onClick={handleQuoteRequest}
-                    className="bg-pinheirao-green text-white px-10 py-5 rounded-sm font-black text-[10px] uppercase tracking-widest shadow-lg hover:bg-pinheirao-deep transition-all hover:-translate-y-1"
-                  >
-                    Personalizar este Modelo
-                  </button>
-                  <Link to="/contato" className="border-2 border-pinheirao-black text-pinheirao-black px-10 py-5 rounded-sm font-black text-[10px] uppercase tracking-widest hover:bg-pinheirao-black hover:text-white transition-all">
-                    Visitar Showroom
-                  </Link>
-               </div>
-             </div>
-             <div className="hidden lg:block w-1/3">
-               <img 
-                src="https://images.unsplash.com/photo-1449156003053-96432b250f09?auto=format&fit=crop&q=80&w=600" 
-                alt="Construction" 
-                className="rounded-sm shadow-2xl rotate-3 scale-110" 
-               />
-             </div>
-          </div>
-        </div>
-      </section>
+      <PremiumCustomSection project={project} />
 
       {/* Related Projects Section */}
       {relatedProjects.length > 0 && (

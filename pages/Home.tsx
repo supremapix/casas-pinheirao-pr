@@ -241,6 +241,93 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* CTA com Vídeo - Realize Seu Sonho */}
+      <section className="py-24 bg-gradient-to-br from-white via-pinheirao-concrete/10 to-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Coluna do Vídeo */}
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-pinheirao-green/20 to-purple-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-pinheirao-black rounded-2xl overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-all duration-500">
+                <div className="aspect-[9/16] relative">
+                  <iframe 
+                    src="https://www.youtube.com/embed/3ZXzDpzvKRw" 
+                    title="Casas Pinheirão - Realize Seu Sonho"
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+
+            {/* Coluna do Conteúdo */}
+            <div className="space-y-8">
+              <div>
+                <span className="inline-block text-[10px] font-black uppercase tracking-[0.3em] text-pinheirao-green mb-4 px-4 py-2 bg-pinheirao-green/10 rounded-sm">
+                  Construção Rápida e Econômica
+                </span>
+                <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                  Não é Milagre, é <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pinheirao-green">Casas Pinheirão!</span>
+                </h2>
+                <p className="text-lg text-pinheirao-gray mb-8 leading-relaxed font-medium">
+                  Cansado de pagar aluguel e sonhar com a casa própria? Transformamos seu terreno em um lar completo em tempo recorde, com qualidade garantida e preço que cabe no seu bolso.
+                </p>
+              </div>
+
+              {/* Benefícios */}
+              <div className="space-y-4">
+                {[
+                  'Construção completa em até 45 dias',
+                  'Projetos personalizados sem custo extra',
+                  'Materiais de primeira linha garantidos',
+                  'Financiamento facilitado em até 240x'
+                ].map((benefit, idx) => (
+                  <div key={idx} className="flex items-start space-x-3 group/item">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-pinheirao-green to-purple-500 flex items-center justify-center transform group-hover/item:scale-110 transition-transform">
+                      <CheckCircle size={14} className="text-white" />
+                    </div>
+                    <span className="text-pinheirao-black font-semibold text-base group-hover/item:text-pinheirao-green transition-colors">
+                      {benefit}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link 
+                  to="/envie-seu-projeto"
+                  className="group/btn relative overflow-hidden bg-gradient-to-r from-purple-600 via-pinheirao-green to-yellow-500 text-white px-8 py-5 rounded-lg font-black text-xs uppercase tracking-widest transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    ✨ Quero Minha Casa Assim!
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-pinheirao-green to-purple-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></div>
+                </Link>
+                
+                <Link 
+                  to="/projetos"
+                  className="border-2 border-pinheirao-green text-pinheirao-green hover:bg-pinheirao-green hover:text-white px-8 py-5 rounded-lg font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center"
+                >
+                  Conhecer os Projetos
+                </Link>
+              </div>
+
+              {/* Trust Badge */}
+              <div className="flex items-center space-x-4 pt-4 border-t border-pinheirao-concrete/30">
+                <Shield size={24} className="text-pinheirao-green" />
+                <span className="text-xs text-pinheirao-gray font-semibold">
+                  Mais de 20 anos realizando sonhos em Curitiba e Região
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* CTA Final */}
       <section className="py-24 bg-pinheirao-black text-white text-center relative overflow-hidden">
         <div className="bg-concrete-pattern absolute inset-0"></div>

@@ -4,11 +4,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    const isProduction = mode === 'production';
+    
     return {
       server: {
         port: 3000,
         host: '0.0.0.0',
-        allowedHosts: ['pinheirao-catalog.preview.emergentagent.com', 'localhost', '.emergentagent.com']
+        allowedHosts: ['pinheirao-catalog.preview.emergentagent.com', 'localhost', '.emergentagent.com', '.vercel.app']
       },
       preview: {
         port: 3000,
@@ -22,11 +24,15 @@ export default defineConfig(({ mode }) => {
       build: {
         outDir: 'dist',
         sourcemap: false,
-        minify: 'esbuild',
-        target: 'esnext',
+        minify: isProduction ? 'esbuild' : false,
+        target: 'es2015',
+        chunkSizeWarningLimit: 1000,
         rollupOptions: {
           output: {
-            manualChunks: undefined
+            manualChunks: undefined,
+            assetFileNames: 'assets/[name].[hash][extname]',
+            chunkFileNames: 'assets/[name].[hash].js',
+            entryFileNames: 'assets/[name].[hash].js'
           }
         }
       },

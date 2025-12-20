@@ -134,7 +134,7 @@ export const Projects: React.FC = () => {
                 backgroundSize: '1.5rem'
               }}
             >
-              <option value="all">📦 Todos os Projetos</option>
+              <option value="ALL">📦 Todos os Projetos</option>
               <option value={ConstructionType.WOOD}>🌲 Casas de Madeira</option>
               <option value={ConstructionType.MASONRY}>🏗️ Casas de Alvenaria</option>
               <option value={ConstructionType.SOBRADO}>🏘️ Sobrados</option>

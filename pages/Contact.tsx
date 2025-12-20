@@ -133,28 +133,50 @@ export const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="h-[500px] relative border-t border-pinheirao-concrete">
-        <div className="absolute inset-0 bg-pinheirao-concrete/20 flex items-center justify-center overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1920&grayscale" 
-            alt="Localização no Mapa" 
-            className="w-full h-full object-cover opacity-30" 
+      {/* Visite Nossa Sede Section */}
+      <section className="h-[600px] md:h-[700px] relative border-t border-pinheirao-concrete overflow-hidden">
+        <div className="absolute inset-0 bg-pinheirao-black/20 flex items-center justify-center">
+          {/* Imagem de fundo da sede */}
+          <img
+            src="/visite-nossa-sede.png"
+            alt="Casas Pinheirão - Visite Nossa Sede em Pinhais"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute z-10 bg-white p-10 rounded-sm shadow-2xl border border-pinheirao-concrete text-center max-w-sm mx-4">
-            <div className="bg-pinheirao-green text-white p-5 rounded-full w-fit mx-auto mb-6 shadow-lg">
-              <MapPin size={32} />
+          {/* Overlay para melhor legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black/90 via-pinheirao-black/40 to-transparent"></div>
+
+          {/* Card de informações */}
+          <div className="absolute z-10 bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl mx-auto">
+            <div className="bg-white/95 backdrop-blur-sm p-8 sm:p-12 rounded-lg shadow-2xl border border-pinheirao-concrete/20 text-center">
+              <div className="bg-gradient-to-br from-pinheirao-green to-pinheirao-deep text-white p-6 rounded-full w-fit mx-auto mb-6 shadow-xl">
+                <MapPin size={36} />
+              </div>
+              <h4 className="font-black text-2xl sm:text-3xl mb-4 uppercase tracking-tight text-pinheirao-black">Visite Nossa Sede</h4>
+              <p className="text-pinheirao-gray text-base sm:text-lg mb-3 leading-relaxed font-semibold">
+                Av. Jacob Macanhan, 1369
+              </p>
+              <p className="text-pinheirao-gray/80 text-sm mb-8 font-medium">
+                Jardim Claudia, Pinhais - PR, 83321-000
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://www.google.com/maps/dir//Av.+Jacob+Macanhan,+1369+-+Jardim+Claudia,+Pinhais+-+PR,+83321-000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-pinheirao-green text-white px-8 py-4 rounded-full font-black text-xs uppercase tracking-wider hover:bg-pinheirao-deep hover:-translate-y-1 transition-all shadow-lg"
+                >
+                  <MapPin size={18} />
+                  <span>Abrir Google Maps</span>
+                </a>
+                <a
+                  href="tel:4136678015"
+                  className="inline-flex items-center justify-center gap-2 bg-pinheirao-black text-white px-8 py-4 rounded-full font-black text-xs uppercase tracking-wider hover:bg-pinheirao-green hover:-translate-y-1 transition-all shadow-lg"
+                >
+                  <Phone size={18} />
+                  <span>(41) 3667-8015</span>
+                </a>
+              </div>
             </div>
-            <h4 className="font-black text-xl mb-3 uppercase tracking-tighter">Visite Nossa Sede</h4>
-            <p className="text-pinheirao-gray text-sm mb-6 leading-relaxed font-medium">Av. Jacob Macanhan, 1369 - Jardim Claudia, Pinhais - PR, 83321-000</p>
-            <a 
-              href="https://www.google.com/maps/dir//Av.+Jacob+Macanhan,+1369+-+Jardim+Claudia,+Pinhais+-+PR,+83321-000" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block bg-pinheirao-black text-white px-8 py-3 rounded-sm font-black text-[10px] uppercase tracking-widest hover:bg-pinheirao-green transition-all"
-            >
-              Abrir Google Maps
-            </a>
           </div>
         </div>
       </section>

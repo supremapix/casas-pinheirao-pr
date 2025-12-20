@@ -8,9 +8,14 @@ export const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  
-  // Hero image from uploaded assets
-  const heroImage = "https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/u9zireyc_hero-image.png";
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Hero images slider
+  const heroImages = [
+    "/hero-home.png",
+    "https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/u9zireyc_hero-image.png",
+    "/sobrados.png"
+  ];
 
   // Textos para o efeito máquina de escrever
   const heroTexts = [
@@ -19,6 +24,15 @@ export const Hero: React.FC = () => {
     "Seu Novo Lar Te Espera Aqui",
     "Financiamento Facilitado"
   ];
+
+  // Slider automático
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Troca a cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Efeito máquina de escrever
   useEffect(() => {
@@ -46,19 +60,42 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative h-screen min-h-[600px] md:min-h-[700px] flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-pinheirao-black">
-        {/* Background Image */}
+        {/* Background Image Slider */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img
-            src={heroImage}
-            alt="Casa Pinheirão - Especialista em Casas Pré-Fabricadas"
-            onLoad={() => setIsLoaded(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 animate-slow-zoom ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-            loading="eager"
-          />
+          {heroImages.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Casa Pinheirão - Especialista em Casas Pré-Fabricadas ${index + 1}`}
+              onLoad={() => index === 0 && setIsLoaded(true)}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${
+                index === currentSlide
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-105'
+              }`}
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          ))}
         </div>
-        
+
         {/* Overlay escuro para contraste WCAG AA */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+
+        {/* Indicadores do Slider */}
+        <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? 'bg-pinheirao-green w-8'
+                  : 'bg-white/30 hover:bg-white/50'
+              }`}
+              aria-label={`Ir para slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">

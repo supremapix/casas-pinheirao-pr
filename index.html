@@ -58,6 +58,106 @@
         opacity: 0.1;
       }
       .vertical-text { writing-mode: vertical-rl; }
+      
+      /* Efeitos Globais de Botões */
+      button, a[class*="btn"], a[class*="bg-pinheirao-green"], a[class*="border-pinheirao-green"] {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      button:hover, a[class*="btn"]:hover, a[class*="bg-pinheirao-green"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      }
+      
+      button:active, a[class*="btn"]:active, a[class*="bg-pinheirao-green"]:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      }
+      
+      /* Efeito de ondulação ao clicar */
+      button::after, a[class*="btn"]::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+      
+      button:active::after, a[class*="btn"]:active::after {
+        width: 300px;
+        height: 300px;
+      }
+      
+      /* Animação de Scroll Reveal para Cards */
+      .property-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+      
+      .property-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Hover nos Cards */
+      .property-card {
+        transition: all 0.3s ease;
+      }
+      
+      .property-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      }
+      
+      .property-card img {
+        transition: transform 0.5s ease;
+      }
+      
+      .property-card:hover img {
+        transform: scale(1.1);
+      }
+      
+      /* Gradiente Animado para Botões CTA Principais */
+      .btn-gradient {
+        background: linear-gradient(45deg, #0BB597, #7c3aed);
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+      }
+      
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      /* Acessibilidade - Foco visível */
+      button:focus-visible, a:focus-visible {
+        outline: 3px solid #0BB597;
+        outline-offset: 2px;
+      }
+      
+      /* Contraste WCAG AA - Textos sobre fundos escuros */
+      .bg-pinheirao-black, .bg-black, [class*="bg-black"] {
+        color: #FFFFFF;
+      }
+      
+      .bg-pinheirao-black h1, .bg-pinheirao-black h2, .bg-pinheirao-black h3,
+      .bg-black h1, .bg-black h2, .bg-black h3 {
+        color: #FFFFFF;
+        font-weight: 600;
+      }
+      
+      .bg-pinheirao-black p, .bg-black p {
+        color: #E5E5E5;
+      }
     </style>
   <script type="importmap">
 {

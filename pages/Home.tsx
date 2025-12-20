@@ -234,14 +234,16 @@ export const Home: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 pt-3 sm:pt-4">
                 <Link
                   to="/envie-seu-projeto"
-                  className="group relative inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-4 sm:py-4.5 bg-gradient-to-r from-[#8B5CF6] via-[#D946EF] to-[#F97316] text-white font-bold text-sm sm:text-base rounded-full shadow-[0_8px_20px_rgba(139,92,246,0.4)] hover:shadow-[0_12px_28px_rgba(139,92,246,0.5)] hover:-translate-y-1 transition-all overflow-hidden"
+                  className="group relative inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-4 sm:py-4.5 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green text-white font-bold text-sm sm:text-base rounded-full shadow-[0_8px_20px_rgba(11,181,151,0.5)] hover:shadow-[0_12px_28px_rgba(11,181,151,0.7)] hover:-translate-y-1 hover:scale-105 transition-all overflow-hidden animate-pulse-slow"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <span>Quero Minha Casa Assim!</span>
-                    <span className="text-xl">🏠</span>
+                    <span className="text-xl animate-bounce-slow">🏠</span>
                   </span>
                   {/* Efeito de brilho animado */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                  {/* Anel pulsante */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep rounded-full opacity-30 blur-md animate-pulse-ring"></div>
                 </Link>
 
                 <Link
@@ -286,6 +288,35 @@ export const Home: React.FC = () => {
             100% { background-position: 0% 50%; }
           }
 
+          @keyframes pulse-slow {
+            0%, 100% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0.95;
+            }
+          }
+
+          @keyframes bounce-slow {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-3px);
+            }
+          }
+
+          @keyframes pulse-ring {
+            0%, 100% {
+              opacity: 0.3;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 0.5;
+              transform: scale(1.05);
+            }
+          }
+
           .animate-float {
             animation: float 10s ease-in-out infinite;
           }
@@ -297,6 +328,18 @@ export const Home: React.FC = () => {
           .animate-gradient {
             background-size: 200% auto;
             animation: gradient 3s ease infinite;
+          }
+
+          .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+          }
+
+          .animate-bounce-slow {
+            animation: bounce-slow 2s ease-in-out infinite;
+          }
+
+          .animate-pulse-ring {
+            animation: pulse-ring 2s ease-in-out infinite;
           }
 
           .bg-gradient-radial {
@@ -478,30 +521,72 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-24 bg-pinheirao-black text-white text-center relative overflow-hidden">
-        {/* Imagem de fundo */}
+      {/* CTA Final - Construa seu Futuro */}
+      <section className="py-20 sm:py-24 md:py-28 bg-pinheirao-black text-white text-center relative overflow-hidden">
+        {/* Imagem de fundo com overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="/fundo_cta_casas_pinheirao.png"
             alt="Casas Pinheirão - Construa seu futuro"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-pinheirao-black/80 via-pinheirao-black/70 to-pinheirao-black/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-pinheirao-black/85 via-pinheirao-black/75 to-pinheirao-black/90"></div>
         </div>
-        <div className="bg-concrete-pattern absolute inset-0 opacity-20"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Construa o seu futuro sobre uma <span className="text-pinheirao-green underline">base sólida.</span></h2>
-          <p className="text-lg text-white/90 mb-12 max-w-2xl mx-auto font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-            Agende uma visita técnica or peça seu orçamento hoje mesmo. Equipe especializada em Pinhais pronta para lhe atender.
+
+        {/* Efeitos decorativos */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-pinheirao-green/10 to-transparent top-[-200px] left-1/2 -translate-x-1/2 blur-3xl"></div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Badge superior */}
+          <div className="inline-flex items-center gap-2 bg-pinheirao-green/10 border border-pinheirao-green/30 px-5 py-2.5 rounded-full backdrop-blur-sm mb-8">
+            <span className="text-2xl">🏡</span>
+            <span className="text-pinheirao-green font-bold text-sm tracking-wider uppercase">Última Chance de Garantir Sua Casa!</span>
+          </div>
+
+          {/* Título principal */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
+            Construa o seu futuro sobre uma{' '}
+            <span className="relative inline-block">
+              <span className="text-pinheirao-green">base sólida.</span>
+              <span className="absolute bottom-0 left-0 w-full h-2 sm:h-3 bg-pinheirao-green/30 -z-10"></span>
+            </span>
+          </h2>
+
+          {/* Descrição */}
+          <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-10 sm:mb-12 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            Agende uma visita técnica ou peça seu orçamento hoje mesmo. Equipe especializada em Pinhais pronta para lhe atender.
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/envie-seu-projeto" className="bg-pinheirao-green hover:bg-pinheirao-deep text-white px-12 py-5 rounded-sm font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl">
-              Calcular Meu Projeto
+
+          {/* Botões de ação */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-8">
+            <Link
+              to="/envie-seu-projeto"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 sm:px-14 py-5 sm:py-6 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-full shadow-[0_10px_30px_rgba(11,181,151,0.6)] hover:shadow-[0_15px_40px_rgba(11,181,151,0.8)] hover:-translate-y-2 hover:scale-105 transition-all overflow-hidden animate-pulse-slow"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <span>Calcular Meu Projeto Agora!</span>
+                <span className="text-2xl animate-bounce-slow">🚀</span>
+              </span>
+              {/* Efeito de brilho */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+              {/* Anel pulsante */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep rounded-full opacity-30 blur-lg animate-pulse-ring"></div>
             </Link>
-            <a href="tel:4136678015" className="border-2 border-white/20 hover:border-pinheirao-green text-white px-12 py-5 rounded-sm font-black text-xs uppercase tracking-[0.2em] transition-all flex items-center">
-              (41) 3667-8015
+
+            <a
+              href="tel:4136678015"
+              className="inline-flex items-center justify-center gap-2 px-10 sm:px-14 py-5 sm:py-6 bg-white/5 backdrop-blur-sm text-white font-black text-sm sm:text-base uppercase tracking-wider border-2 border-pinheirao-green/50 rounded-full hover:bg-pinheirao-green/10 hover:border-pinheirao-green hover:-translate-y-2 transition-all"
+            >
+              <span>📞</span>
+              <span>(41) 3667-8015</span>
             </a>
+          </div>
+
+          {/* Urgência/escassez */}
+          <div className="inline-flex items-center gap-2 text-pinheirao-green/80 text-sm font-semibold">
+            <span className="w-2 h-2 bg-pinheirao-green rounded-full animate-pulse"></span>
+            <span>Vagas limitadas para novos projetos em 2025</span>
           </div>
         </div>
       </section>

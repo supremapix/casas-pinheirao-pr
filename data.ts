@@ -9,7 +9,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.TRIPLEX,
     area: '200m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/ivt3txaj_triplex-de-200m.png'
     ],
     description: 'Triplex impressionante com 200m², projetado para oferecer um estilo de vida sofisticado e espaçoso. Suíte master com closet e sacada, 2 dormitórios amplos, sala com pé-direito alto, cozinha com ilha central, espaço gourmet, terraço e garagem para 2 carros.',
     featured: true
@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.TRIPLEX,
     area: '148.05m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/toqi9yld_triplex-de-148.05m%C2%B2.png'
     ],
     description: 'Triplex deslumbrante com 148.05m², projetado para oferecer um estilo de vida luxuoso e confortável. Espaços bem distribuídos em três pavimentos com suíte ampla, sacada privativa e acabamentos de primeira linha.',
     featured: true
@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.SOBRADO,
     area: '119.91m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/1vofj6k0_sobrado-de-119.91m%C2%B2.png'
     ],
     description: 'Sobrado excepcional com 119.91m², projetado para oferecer um espaço amplo e confortável, ideal para famílias que buscam qualidade e estilo. Aproveitamento inteligente de espaço em dois pavimentos.',
     featured: true
@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.SOBRADO,
     area: '98.74m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/ci94bf83_Sobrado%20de%20Alvenaria%20-%2098.74m%C2%B2.png'
     ],
     description: 'Sobrado espaçoso e bem projetado com 98.74m², ideal para quem busca um lar que combine conforto, estilo e praticidade. Design moderno com funcionalidade excepcional.',
     featured: true
@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.SOBRADO,
     area: '80m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/cjx8mu1v_Sobrado%20de%20Alvenaria%20Casas%20Pinheir%C3%A3o%20-%2080m%C2%B2.png'
     ],
     description: 'Sobrado de alvenaria com 80m², projetado para oferecer o máximo de conforto e funcionalidade. Ideal para famílias que buscam praticidade sem abrir mão do espaço.',
     featured: false

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Award, Users, Shield, Target, Eye, Heart, LayoutTemplate, Briefcase, Boxes, Eye as EyeIcon } from 'lucide-react';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 
 export const About: React.FC = () => {
   const ourServices = [
@@ -28,6 +29,12 @@ export const About: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <EnhancedSEO
+        title="Sobre a Empresa - Nossa História e Valores"
+        description="Conheça a Casas Pinheirão: mais de 20 anos de experiência em casas pré-fabricadas de madeira e alvenaria. Tradição, qualidade e comprometimento com o sonho da casa própria."
+        canonical="/empresa"
+        keywords="empresa casas pré-fabricadas, história Casas Pinheirão, tradição casas madeira, casas pré-fabricadas Pinhais, empresa construção Curitiba"
+      />
       {/* Page Header */}
       <section className="bg-pinheirao-concrete/30 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

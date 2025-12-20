@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { PROJECTS } from '../data';
 import { ConstructionType, Project } from '../types';
-import { 
-  Maximize2, Bed, Bath, Square, ArrowRight, 
+import {
+  Maximize2, Bed, Bath, Square, ArrowRight,
   X, ChevronLeft, ChevronRight, Image as ImageIcon,
   ExternalLink, ZoomIn
 } from 'lucide-react';
@@ -81,6 +82,12 @@ export const Projects: React.FC = () => {
 
   return (
     <div className="pt-20 md:pt-20 pt-16">
+      <EnhancedSEO
+        title="Nossos Projetos e Modelos de Casas"
+        description="Conheça nossos modelos de casas pré-fabricadas: casas de madeira, alvenaria, sobrados e triplex. Projetos personalizados para realizar seu sonho da casa própria em Pinhais e Curitiba."
+        canonical="/projetos"
+        keywords="projetos casas pré-fabricadas, modelos casas madeira, casas alvenaria, sobrados pré-fabricados, triplex Pinhais, projetos personalizados"
+      />
       {/* Hero Section - Reduzido em mobile */}
       <section className="bg-pinheirao-concrete/30 py-12 md:py-24 border-b border-pinheirao-concrete">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

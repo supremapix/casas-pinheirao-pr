@@ -2,17 +2,65 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 import { PROJECTS, TESTIMONIALS } from '../data';
 import { ConstructionType } from '../types';
-import { 
-  CheckCircle, Shield, Award, Users, Star, 
-  Clock, Package, HardHat, PencilRuler, 
+import {
+  CheckCircle, Shield, Award, Users, Star,
+  Clock, Package, HardHat, PencilRuler,
   ClipboardList, Truck, ChevronRight,
-  MessageSquare, Home as HomeIcon, Key, 
+  MessageSquare, Home as HomeIcon, Key,
   MapPin, Settings, CreditCard, LayoutTemplate, Briefcase, Boxes, Eye
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Casas Pinheirão',
+    description: 'Especialista em Casas Pré-Fabricadas de Madeira e Alvenaria em Curitiba e Região. Mais de 20 anos realizando o sonho da casa própria.',
+    image: 'https://casaspinheirao.com.br/medias/elementor/thumbs/Casas-Pinheirao-Pinhais-As-casas-pre-fabricadas-mais-baratas-do-Brasil-qu5yw0ge1u5iqut4a4yuh23advi1ysrdau4a0yqoe8.png',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Av. Jacob Macanhan, 1369',
+      addressLocality: 'Pinhais',
+      addressRegion: 'PR',
+      postalCode: '83323-060',
+      addressCountry: 'BR'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: -25.4447,
+      longitude: -49.1916
+    },
+    url: 'https://casaspinheirao.com.br',
+    telephone: '+55-41-3667-8015',
+    priceRange: '$$',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:30',
+        closes: '18:00'
+      },
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '13:00'
+      }
+    ],
+    sameAs: [
+      'https://www.facebook.com/casasprefabricadapinheirao',
+      'https://www.instagram.com/casas_pinheirao'
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '300'
+    }
+  };
+
   const constructionTypes = [
     { type: ConstructionType.WOOD, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/f3o4r464_casa-madeia.jpg', desc: 'Conforto térmico e beleza natural das madeiras de lei.' },
     { type: ConstructionType.MASONRY, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/he62fkak_casa-alvenaria.png', desc: 'Solidez e durabilidade da construção tradicional.' },
@@ -69,6 +117,13 @@ export const Home: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
+      <EnhancedSEO
+        title="Realize o Sonho da Casa Própria"
+        description="Casas Pinheirão: Especialista em casas pré-fabricadas de madeira e alvenaria em Curitiba e Região. Mais de 20 anos de tradição e qualidade. Financiamento facilitado."
+        canonical="/"
+        keywords="casas pré-fabricadas, casas de madeira, casas de alvenaria, sobrados, casas Pinhais, casas Curitiba, casa própria Pinhais, financiamento casa, casas pré-fabricadas Curitiba, casas de madeira Pinhais"
+        structuredData={structuredData}
+      />
       <Hero />
 
       {/* Nova Seção de Vídeo com Mockup de Celular */}

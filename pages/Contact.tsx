@@ -1,10 +1,17 @@
 
 import React from 'react';
 import { Mail, Phone, MessageSquare, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 
 export const Contact: React.FC = () => {
   return (
     <div className="pt-20">
+      <EnhancedSEO
+        title="Contato - Fale Conosco"
+        description="Entre em contato com a Casas Pinheirão. Estamos em Pinhais, Curitiba/PR. Telefone: (41) 3667-8015 | WhatsApp: (41) 99630-1028. Atendimento de segunda a sábado."
+        canonical="/contato"
+        keywords="contato Casas Pinheirão, telefone casas pré-fabricadas Pinhais, WhatsApp Casas Pinheirão, endereço Pinhais, orçamento casa pré-fabricada"
+      />
       {/* Page Header */}
       <section className="bg-pinheirao-concrete/30 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

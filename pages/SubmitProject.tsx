@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Send, Upload, Info, MessageSquare } from 'lucide-react';
+import { EnhancedSEO } from '../components/EnhancedSEO';
 
 export const SubmitProject: React.FC = () => {
   const location = useLocation();
@@ -49,6 +50,12 @@ export const SubmitProject: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <EnhancedSEO
+        title="Solicitar Orçamento - Envie seu Projeto"
+        description="Solicite um orçamento sem compromisso para sua casa pré-fabricada. Envie seu projeto e receba uma proposta personalizada da Casas Pinheirão. Atendimento rápido e eficiente."
+        canonical="/envie-seu-projeto"
+        keywords="solicitar orçamento casa pré-fabricada, enviar projeto casa madeira, orçamento personalizado Pinhais, proposta casa pré-fabricada"
+      />
       {/* Header */}
       <section className="bg-pinheirao-concrete/30 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-pinheirao-gray border-t border-white/5 pt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-pinheirao-gray border-t border-white/5 pt-12 gap-4">
           <p className="mb-4 md:mb-0 text-center md:text-left">
             © 2024 Casas Pinheirão. Todos os direitos reservados.
           </p>
@@ -121,11 +121,32 @@ export const Footer: React.FC = () => {
             <span className="text-white/20 italic">Preços sujeitos a alteração</span>
             <Link to="#" className="hover:text-white transition-colors">Política de Privacidade</Link>
           </div>
-          <p className="opacity-40">
-            Design por Suprema Mídia
-          </p>
+          <a
+            href="https://supremasite.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-pinheirao-green transition-colors group"
+          >
+            <span className="text-white/70 normal-case tracking-normal font-medium">Desenvolvido</span>
+            <span className="text-red-500 animate-heartbeat inline-block">❤️</span>
+            <span className="text-white/70 normal-case tracking-normal font-medium">por</span>
+            <span className="text-white group-hover:text-pinheirao-green transition-colors font-bold">Suprema Sites Express</span>
+          </a>
         </div>
       </div>
+
+      <style>{`
+        @keyframes heartbeat {
+          0%, 100% { transform: scale(1); }
+          10%, 30% { transform: scale(1.1); }
+          20% { transform: scale(0.9); }
+        }
+
+        .animate-heartbeat {
+          animation: heartbeat 1.5s ease-in-out infinite;
+          display: inline-block;
+        }
+      `}</style>
     </footer>
   );
 };

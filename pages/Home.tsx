@@ -14,10 +14,10 @@ import {
 
 export const Home: React.FC = () => {
   const constructionTypes = [
-    { type: ConstructionType.WOOD, image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=600', desc: 'Conforto térmico e beleza natural das madeiras de lei.' },
-    { type: ConstructionType.MASONRY, image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&q=80&w=600', desc: 'Solidez e durabilidade da construção tradicional.' },
-    { type: ConstructionType.SOBRADO, image: 'https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=600', desc: 'Aproveitamento inteligente de espaço em dois pavimentos.' },
-    { type: ConstructionType.TRIPLEX, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=600', desc: 'O máximo em amplitude e luxo para sua família.' },
+    { type: ConstructionType.WOOD, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/f3o4r464_casa-madeia.jpg', desc: 'Conforto térmico e beleza natural das madeiras de lei.' },
+    { type: ConstructionType.MASONRY, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/he62fkak_casa-alvenaria.png', desc: 'Solidez e durabilidade da construção tradicional.' },
+    { type: ConstructionType.SOBRADO, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/mmuv5tox_sobrados.png', desc: 'Aproveitamento inteligente de espaço em dois pavimentos.' },
+    { type: ConstructionType.TRIPLEX, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/21ubrgoy_triplex.png', desc: 'O máximo em amplitude e luxo para sua família.' },
   ];
 
   const steps = [

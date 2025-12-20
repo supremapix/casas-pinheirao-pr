@@ -124,8 +124,8 @@ export const Projects: React.FC = () => {
           {/* Mobile - Select Dropdown */}
           <div className="md:hidden">
             <select
-              value={activeFilter}
-              onChange={(e) => setActiveFilter(e.target.value as ConstructionType | 'all')}
+              value={filter}
+              onChange={(e) => setFilter(e.target.value as ConstructionType | 'ALL')}
               className="w-full px-4 py-3 text-sm font-bold uppercase tracking-wide bg-pinheirao-green text-white border-2 border-pinheirao-green rounded-lg shadow-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-pinheirao-green focus:ring-offset-2"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,

@@ -109,9 +109,9 @@ export const Projects: React.FC = () => {
             {Object.values(ConstructionType).map((type) => (
               <button
                 key={type}
-                onClick={() => setActiveFilter(type)}
+                onClick={() => setFilter(type)}
                 className={`px-8 py-3 text-[10px] font-black uppercase tracking-widest transition-all rounded-sm border ${
-                  activeFilter === type 
+                  filter === type 
                     ? 'bg-pinheirao-green text-white border-pinheirao-green shadow-lg' 
                     : 'bg-white text-pinheirao-gray border-gray-200 hover:bg-gray-50'
                 }`}

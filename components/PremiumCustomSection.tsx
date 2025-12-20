@@ -14,24 +14,30 @@ export const PremiumCustomSection: React.FC<PremiumCustomSectionProps> = ({ proj
   const navigate = useNavigate();
   const [activeImage, setActiveImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [showLightbox, setShowLightbox] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const projectImages = [
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/f3o4r464_casa-madeia.jpg',
-      label: 'Cozinha Personalizada'
+      url: '/planta-1.jpg',
+      label: 'Planta 3 Quartos - Vista Completa',
+      description: 'Planta residencial com 3 quartos bem distribuídos, sala integrada com cozinha, área de serviço e 1 banheiro completo. Layout otimizado para aproveitamento máximo do espaço com circulação funcional. Ideal para famílias que buscam conforto e praticidade. Dimensões: 2 quartos com armários embutidos + 1 suíte, cozinha com área gourmet integrada, varanda frontal ampla.'
     },
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/he62fkak_casa-alvenaria.png',
-      label: 'Sala Ampliada'
+      url: '/planta-2.jpg',
+      label: 'Planta Técnica com Medidas',
+      description: 'Planta técnica detalhada com todas as medidas precisas: 2 quartos (2,65m x 3,00m e 2,65m x 4,00m), sala de estar integrada (3,50m x 4,00m), cozinha funcional, WC completo (1,50m x 2,00m) e varanda frontal (5,30m x 2,00m). Dimensões totais: 5,30m x 8,00m + varanda. Perfeita para terrenos compactos com máximo aproveitamento. Todas as cotas em centímetros para facilitar execução.'
     },
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/mmuv5tox_sobrados.png',
-      label: 'Quartos Especiais'
+      url: '/planta-3.jpg',
+      label: 'Layout Inteligente e Funcional',
+      description: 'Conforto, praticidade e excelente aproveitamento de espaço em destaque! Esta planta apresenta distribuição inteligente dos ambientes: 2 quartos espaçosos, sala integrada com cozinha para melhor convívio familiar, corredor funcional e banheiro estrategicamente posicionado. Varanda frontal generosa para momentos de lazer. Design pensado para otimizar cada metro quadrado.'
     },
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/21ubrgoy_triplex.png',
-      label: 'Área Gourmet'
+      url: '/planta-4.jpg',
+      label: 'Planta Inteligente 37,5m²',
+      description: 'Planta Inteligente com 37,5m² certificada CREA-PR: 2 quartos (2,50m cada), sala central, cozinha compacta (0,50m), WC completo, abrigo externo coberto (5,00m x 3,50m). Layout extremamente funcional com circulação otimizada. Ideal para terrenos menores ou como casa de praia/campo. Todos os ambientes bem dimensionados apesar da metragem compacta. Registro profissional garantido.'
     }
   ];
 
@@ -73,8 +79,38 @@ export const PremiumCustomSection: React.FC<PremiumCustomSectionProps> = ({ proj
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!showLightbox) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextLightboxImage();
+      if (e.key === 'ArrowLeft') prevLightboxImage();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showLightbox, lightboxImage]);
+
   const handleQuoteRequest = () => {
     navigate(`/envie-seu-projeto?title=${encodeURIComponent(project.title)}&type=${encodeURIComponent(project.type)}`);
+  };
+
+  const openLightbox = (index: number) => {
+    setLightboxImage(index);
+    setShowLightbox(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setShowLightbox(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const nextLightboxImage = () => {
+    setLightboxImage((prev) => (prev + 1) % projectImages.length);
+  };
+
+  const prevLightboxImage = () => {
+    setLightboxImage((prev) => (prev - 1 + projectImages.length) % projectImages.length);
   };
 
   return (
@@ -203,7 +239,10 @@ export const PremiumCustomSection: React.FC<PremiumCustomSectionProps> = ({ proj
             <div className="absolute -inset-4 bg-gradient-to-br from-pinheirao-green/30 to-pinheirao-deep/30 blur-3xl scale-110 rounded-3xl"></div>
 
             <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700/50">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl mb-6 group cursor-pointer">
+              <div
+                className="relative aspect-[3/4] overflow-hidden rounded-xl mb-6 group cursor-pointer"
+                onClick={() => openLightbox(activeImage)}
+              >
                 {projectImages.map((img, idx) => (
                   <div
                     key={idx}
@@ -214,16 +253,28 @@ export const PremiumCustomSection: React.FC<PremiumCustomSectionProps> = ({ proj
                     <img
                       src={img.url}
                       alt={img.label}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain bg-white p-4"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
                   </div>
                 ))}
-                <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-md px-5 py-3 rounded-lg border border-white/10 transition-transform group-hover:scale-105">
+
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="bg-white/90 p-5 rounded-full text-gray-900 shadow-2xl scale-90 group-hover:scale-100 transition-transform">
+                    <Maximize2 size={32} />
+                  </div>
+                </div>
+
+                <div className="absolute top-4 right-4 bg-pinheirao-green text-white px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 animate-pulse-slow">
+                  <Maximize2 size={16} />
+                  Clique para Ampliar
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-md px-5 py-3 rounded-lg border border-pinheirao-green/30 transition-transform group-hover:scale-105">
                   <p className="text-white font-bold text-base">
                     {projectImages[activeImage].label}
                   </p>
-                  <p className="text-gray-400 text-xs">Exemplo de personalização</p>
+                  <p className="text-pinheirao-green text-xs font-semibold">Clique para ver detalhes completos</p>
                 </div>
               </div>
 
@@ -264,6 +315,113 @@ export const PremiumCustomSection: React.FC<PremiumCustomSectionProps> = ({ proj
           </div>
         </div>
       </div>
+
+      {showLightbox && (
+        <div
+          className="fixed inset-0 z-[200] bg-black/98 flex items-center justify-center animate-fade-in"
+          onClick={closeLightbox}
+        >
+          <div className="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-center z-[210]">
+            <div className="flex flex-col">
+              <span className="text-white text-sm font-bold uppercase tracking-wider mb-1">
+                {projectImages[lightboxImage].label}
+              </span>
+              <span className="text-pinheirao-green text-xs font-semibold uppercase tracking-wider">
+                Planta {lightboxImage + 1} de {projectImages.length}
+              </span>
+            </div>
+            <button
+              className="bg-white/10 hover:bg-pinheirao-green text-white p-3 rounded-full transition-all shadow-xl group"
+              onClick={closeLightbox}
+              title="Fechar (Esc)"
+            >
+              <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
+            </button>
+          </div>
+
+          <div
+            className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-16 lg:p-20 max-w-7xl mx-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {projectImages.length > 1 && (
+              <>
+                <button
+                  className="absolute left-6 md:left-12 z-[210] text-white hover:text-pinheirao-green bg-white/5 hover:bg-white/10 p-5 rounded-full transition-all shadow-2xl backdrop-blur-sm hidden md:block"
+                  onClick={prevLightboxImage}
+                  title="Anterior (Seta Esquerda)"
+                >
+                  <ChevronLeft size={32} />
+                </button>
+                <button
+                  className="absolute right-6 md:right-12 z-[210] text-white hover:text-pinheirao-green bg-white/5 hover:bg-white/10 p-5 rounded-full transition-all shadow-2xl backdrop-blur-sm hidden md:block"
+                  onClick={nextLightboxImage}
+                  title="Próxima (Seta Direita)"
+                >
+                  <ChevronRight size={32} />
+                </button>
+              </>
+            )}
+
+            <div className="relative flex-1 w-full flex items-center justify-center mb-6 overflow-hidden">
+              <img
+                src={projectImages[lightboxImage].url}
+                alt={projectImages[lightboxImage].label}
+                className="max-w-full max-h-[60vh] md:max-h-[65vh] object-contain shadow-2xl rounded-lg animate-fade-in bg-white p-4"
+              />
+            </div>
+
+            <div className="w-full bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 md:p-8 shadow-2xl border border-pinheirao-green/30 max-w-4xl backdrop-blur-md">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="bg-pinheirao-green p-3 rounded-lg flex-shrink-0">
+                  <Ruler size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-white text-xl md:text-2xl font-black uppercase tracking-tight mb-2">
+                    {projectImages[lightboxImage].label}
+                  </h3>
+                  <div className="h-1 w-16 bg-pinheirao-green rounded-full mb-3"></div>
+                  <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                    {projectImages[lightboxImage].description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 mt-6 pt-6 border-t border-gray-700">
+                <button
+                  onClick={() => {
+                    closeLightbox();
+                    handleQuoteRequest();
+                  }}
+                  className="flex-1 bg-pinheirao-green hover:bg-pinheirao-deep text-white px-6 py-4 rounded-lg font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                >
+                  <Ruler size={18} />
+                  Personalizar Esta Planta
+                </button>
+                <a
+                  href={`https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Gostaria de mais informações sobre a ${projectImages[lightboxImage].label}`}
+                  className="flex-1 bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 py-4 rounded-lg font-bold text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageSquare size={18} />
+                  Tirar Dúvidas
+                </a>
+              </div>
+            </div>
+
+            {projectImages.length > 1 && (
+              <div className="flex md:hidden gap-4 mt-6">
+                <button onClick={prevLightboxImage} className="bg-white/10 p-4 rounded-full text-white hover:bg-white/20 transition-all">
+                  <ChevronLeft size={24} />
+                </button>
+                <button onClick={nextLightboxImage} className="bg-white/10 p-4 rounded-full text-white hover:bg-white/20 transition-all">
+                  <ChevronRight size={24} />
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes float-slow {

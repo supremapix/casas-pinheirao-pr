@@ -12,6 +12,7 @@ import {
 export const Projects: React.FC = () => {
   const [filter, setFilter] = useState<ConstructionType | 'ALL'>('ALL');
   const [lightbox, setLightbox] = useState<{ project: Project; index: number } | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const filteredProjects = filter === 'ALL' 
     ? PROJECTS 

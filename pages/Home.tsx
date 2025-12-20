@@ -238,8 +238,8 @@ export const Home: React.FC = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
               <img 
-                src="https://images.unsplash.com/photo-1449156003053-96432b250f09?auto=format&fit=crop&q=80&w=800" 
-                alt="História Casas Pinheirão" 
+                src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/z2afcddr_historia_casas_pinheirao_v3.png" 
+                alt="História Casas Pinheirão - Tradição e Qualidade" 
                 className="rounded-xl shadow-2xl w-full h-[450px] object-cover" 
               />
             </div>

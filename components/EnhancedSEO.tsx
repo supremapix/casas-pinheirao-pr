@@ -1,6 +1,5 @@
 
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 interface EnhancedSEOProps {
   title: string;
@@ -25,95 +24,80 @@ export const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
   const fullTitle = `${title} | Casas Pinheirão`;
 
-  const defaultStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Casas Pinheirão',
-    description: 'Especialista em Casas Pré-Fabricadas de Madeira e Alvenaria em Curitiba e Região',
-    image: ogImage,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Av. Jacob Macanhan, 1369',
-      addressLocality: 'Pinhais',
-      addressRegion: 'PR',
-      postalCode: '83323-060',
-      addressCountry: 'BR'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: -25.4447,
-      longitude: -49.1916
-    },
-    url: siteUrl,
-    telephone: '+55-41-3667-8015',
-    priceRange: '$$',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:30',
-        closes: '18:00'
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '13:00'
+  useEffect(() => {
+    // Update title
+    document.title = fullTitle;
+
+    // Update or create meta tags
+    const updateMetaTag = (property: string, content: string, isProperty = false) => {
+      const attribute = isProperty ? 'property' : 'name';
+      let element = document.querySelector(`meta[${attribute}="${property}"]`) as HTMLMetaElement;
+
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, property);
+        document.head.appendChild(element);
       }
-    ],
-    sameAs: [
-      'https://www.facebook.com/casasprefabricadapinheirao',
-      'https://www.instagram.com/casas_pinheirao'
-    ]
-  };
+      element.content = content;
+    };
 
-  return (
-    <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <link rel="canonical" href={fullCanonical} />
+    // Update canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.rel = 'canonical';
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.href = fullCanonical;
 
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={fullCanonical} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:locale" content="pt_BR" />
-      <meta property="og:site_name" content="Casas Pinheirão" />
+    // Basic Meta Tags
+    updateMetaTag('description', description);
+    updateMetaTag('keywords', keywords);
 
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={fullCanonical} />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+    // Open Graph / Facebook
+    updateMetaTag('og:type', ogType, true);
+    updateMetaTag('og:url', fullCanonical, true);
+    updateMetaTag('og:title', fullTitle, true);
+    updateMetaTag('og:description', description, true);
+    updateMetaTag('og:image', ogImage, true);
+    updateMetaTag('og:image:width', '1200', true);
+    updateMetaTag('og:image:height', '630', true);
+    updateMetaTag('og:locale', 'pt_BR', true);
+    updateMetaTag('og:site_name', 'Casas Pinheirão', true);
 
-      {/* Additional SEO Meta Tags */}
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="googlebot" content="index, follow" />
-      <meta name="author" content="Casas Pinheirão" />
-      <meta name="language" content="Portuguese" />
-      <meta name="revisit-after" content="7 days" />
-      <meta name="geo.region" content="BR-PR" />
-      <meta name="geo.placename" content="Pinhais" />
-      <meta name="geo.position" content="-25.4447;-49.1916" />
-      <meta name="ICBM" content="-25.4447, -49.1916" />
+    // Twitter
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:url', fullCanonical);
+    updateMetaTag('twitter:title', fullTitle);
+    updateMetaTag('twitter:description', description);
+    updateMetaTag('twitter:image', ogImage);
 
-      {/* Resource Hints - Performance Optimization */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link rel="dns-prefetch" href="https://www.youtube.com" />
-      <link rel="dns-prefetch" href="https://casaspinheirao.com.br" />
+    // Additional SEO Meta Tags
+    updateMetaTag('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    updateMetaTag('googlebot', 'index, follow');
+    updateMetaTag('author', 'Casas Pinheirão');
+    updateMetaTag('geo.region', 'BR-PR');
+    updateMetaTag('geo.placename', 'Pinhais');
+    updateMetaTag('geo.position', '-25.4447;-49.1916');
+    updateMetaTag('ICBM', '-25.4447, -49.1916');
 
-      {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData || defaultStructuredData)}
-      </script>
-    </Helmet>
-  );
+    // Structured Data
+    if (structuredData) {
+      let scriptTag = document.querySelector('script[type="application/ld+json"]');
+      if (!scriptTag) {
+        scriptTag = document.createElement('script');
+        scriptTag.type = 'application/ld+json';
+        document.head.appendChild(scriptTag);
+      }
+      scriptTag.textContent = JSON.stringify(structuredData);
+    }
+
+    // Cleanup function
+    return () => {
+      // Optionally reset title on unmount
+      document.title = 'Casas Pinheirão - Realize o Sonho da Casa Própria';
+    };
+  }, [fullTitle, description, fullCanonical, ogType, ogImage, keywords, structuredData]);
+
+  return null;
 };

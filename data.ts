@@ -125,7 +125,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '60m²',
     images: [
-      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0031-768x576.jpg'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/f1cak0a3_Casa%20de%20Alvenaria%2060m%C2%B2.jpg'
     ],
     description: 'Casa de alvenaria modelo abrigo 5m x 8m com 60m². Projeto econômico e funcional, perfeito para quem está começando.',
     featured: false
@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '48m²',
     images: [
-      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0032-768x576.jpg'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/d2hb63zo_Casa%20de%20Alvenaria%20-%2048m%C2%B2.jpg'
     ],
     description: 'Casa de alvenaria 6m x 8m com 48m². Solução inteligente para terrenos compactos sem abrir mão do conforto.',
     featured: false
@@ -147,7 +147,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '42m²',
     images: [
-      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0034-768x576.jpg'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/440wr5xy_Casa%20de%20Alvenaria%20-%2042m%C2%B2.jpg'
     ],
     description: 'Casa de alvenaria 6m x 7m com 42m². Seu sonho de ter a casa própria está mais perto do que você imagina! Projeto compacto e acessível.',
     featured: false
@@ -158,7 +158,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '40m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/c04br41z_1080X1350%20KV2.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/diuos880_Casa%20de%20Alvenaria%2040m%C2%B2.png'
     ],
     description: 'Casa de alvenaria 5m x 8m com 40m². Compacta, econômica e perfeita para quem busca o primeiro imóvel próprio.',
     featured: false
@@ -171,7 +171,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.WOOD,
     area: '126.50m²',
     images: [
-      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/73ti4aab_1080X1350%20KV1%20%281%29.png'
+      'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/abulrdni_Casa%20de%20madeira%20de%20pinus%20medindo%20126%2C50m%C2%B2.png'
     ],
     description: 'Casa de madeira de pinus medindo 126.50m². Ampla, elegante e com o charme natural da madeira nobre. Conforto térmico superior e beleza atemporal.',
     featured: true

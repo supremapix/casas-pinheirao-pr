@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <div className="mb-8">
               <img 
-                src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/ieo6365s_logo-rodape%20%282%29.png" 
+                src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/rdj2t1qt_logo-rodape%20%282%29.png" 
                 alt="Casas Pinheirão Logo" 
                 className="h-20 w-auto object-contain"
               />

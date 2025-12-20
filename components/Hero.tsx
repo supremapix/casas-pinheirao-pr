@@ -6,50 +6,21 @@ import { ArrowRight, CheckCircle, ShieldCheck } from 'lucide-react';
 export const Hero: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   
-  // High-quality image ID from Unsplash
-  const unsplashId = "photo-1449156003053-96432b250f09";
-  
-  // Optimization constants
-  const lowRes = `https://images.unsplash.com/${unsplashId}?auto=format&fit=crop&q=10&w=50&blur=10`;
-  const highResBase = `https://images.unsplash.com/${unsplashId}?auto=format&fit=crop`;
+  // Hero image from uploaded assets
+  const heroImage = "https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/u9zireyc_hero-image.png";
 
   return (
     <section className="relative h-screen min-h-[700px] flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-pinheirao-black">
-        {/* Blur-up Background */}
+        {/* Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          {/* Placeholder */}
           <img
-            src={lowRes}
-            alt=""
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 scale-105 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}
-            aria-hidden="true"
+            src={heroImage}
+            alt="Casa Pinheirão - Especialista em Casas Pré-Fabricadas"
+            onLoad={() => setIsLoaded(true)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 animate-slow-zoom ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            loading="eager"
           />
-          
-          <picture>
-            {/* Desktop WebP - High DPI */}
-            <source 
-              media="(min-width: 1024px)"
-              srcSet={`${highResBase}&w=1920&q=80&fm=webp 1x, ${highResBase}&w=2560&q=70&fm=webp 2x`} 
-              type="image/webp" 
-            />
-            {/* Mobile/Tablet WebP */}
-            <source 
-              media="(max-width: 1023px)"
-              srcSet={`${highResBase}&w=1024&q=75&fm=webp 1x, ${highResBase}&w=1536&q=65&fm=webp 2x`} 
-              type="image/webp" 
-            />
-            {/* Fallback Image with fetchpriority */}
-            <img
-              src={`${highResBase}&w=1920&q=80`}
-              alt="Casa Pinheirão - Especialista em Casas Pré-Fabricadas"
-              onLoad={() => setIsLoaded(true)}
-              // fetchpriority="high" is a recent standard for hero images
-              {...({ fetchpriority: "high" } as any)}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 animate-slow-zoom ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-              loading="eager"
-            />
-          </picture>
         </div>
         
         {/* Contrast Overlay */}

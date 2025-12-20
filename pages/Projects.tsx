@@ -97,9 +97,9 @@ export const Projects: React.FC = () => {
           {/* Desktop - Botões em linha */}
           <div className="hidden md:flex flex-wrap justify-center gap-4">
             <button
-              onClick={() => setActiveFilter('all')}
+              onClick={() => setFilter('ALL')}
               className={`px-8 py-3 text-[10px] font-black uppercase tracking-widest transition-all rounded-sm border ${
-                activeFilter === 'all' 
+                filter === 'ALL' 
                   ? 'bg-pinheirao-green text-white border-pinheirao-green shadow-lg' 
                   : 'bg-white text-pinheirao-gray border-gray-200 hover:bg-gray-50'
               }`}

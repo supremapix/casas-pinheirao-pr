@@ -60,8 +60,8 @@ export const About: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-4 relative">
               <div className="absolute -inset-4 border-2 border-pinheirao-green/10 -z-10 rounded-2xl"></div>
-              <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=400" alt="Obra Casas Pinheirão" className="rounded-sm shadow-lg mt-8" />
-              <img src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=400" alt="Equipe Casas Pinheirão" className="rounded-sm shadow-lg" />
+              <img src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/z3k4qhra_empresa-1.png" alt="Obra Casas Pinheirão" className="rounded-sm shadow-lg mt-8" />
+              <img src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/k9ar5mj9_empresa-2.png" alt="Equipe Casas Pinheirão" className="rounded-sm shadow-lg" />
             </div>
           </div>
         </div>

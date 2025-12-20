@@ -171,8 +171,8 @@ export const Home: React.FC = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
               <img
-                src="/sobrados.png"
-                alt="História Casas Pinheirão - Tradição e Qualidade"
+                src="/casas-pinheirao-1.jpg"
+                alt="História Casas Pinheirão - Tradição e Qualidade em Construção de Casas Pré-Fabricadas"
                 className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
               />
             </div>

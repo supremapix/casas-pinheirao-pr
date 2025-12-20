@@ -1,26 +1,37 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Ruler, MapPin, Users, CheckCircle, Sparkles, ArrowRight, Building2, HardHat, ShieldCheck, CreditCard } from 'lucide-react';
+import { Ruler, MapPin, Users, CheckCircle, Sparkles, ArrowRight, Building2, HardHat, ShieldCheck, CreditCard, X, Maximize2 } from 'lucide-react';
 
 export const CustomHomeSection: React.FC = () => {
   const [activeImage, setActiveImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(0);
 
   const projectImages = [
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/f3o4r464_casa-madeia.jpg',
-      label: 'Cozinha Personalizada'
+      url: '/casas-pinheirao-1.jpg',
+      label: 'Casa dos Sonhos sem Sair do Orçamento',
+      description: 'Realize o sonho da casa própria com projetos completos e personalizados. Na Casas Pinheirão, você constrói sem comprometer seu orçamento, com qualidade garantida e acabamentos premium. Transforme sua família em proprietários do lar perfeito!'
     },
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/he62fkak_casa-alvenaria.png',
-      label: 'Sala Ampliada'
+      url: '/casas-pinheirao-2.jpg',
+      label: 'Pronta Entrega ou Sob Medida',
+      description: 'Você escolhe! Precisa de agilidade? Temos casas prontas para entrega imediata. Quer algo único? Desenvolvemos projetos totalmente personalizados sob medida para suas necessidades. Flexibilidade total para realizar seu sonho da forma que você preferir!'
     },
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/mmuv5tox_sobrados.png',
-      label: 'Quartos Especiais'
+      url: '/casas-pinheirao-3.jpg',
+      label: 'Visualize Antes de Construir',
+      description: 'Veja sua casa ganhar vida em projetos 3D ultra-realistas antes mesmo de começar a construção. Tecnologia de ponta para você visualizar cada detalhe, fazer ajustes e ter certeza absoluta de que está construindo exatamente o que sempre sonhou!'
     },
     {
-      url: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/21ubrgoy_triplex.png',
-      label: 'Área Gourmet'
+      url: '/casas-pinheirao-4.jpg',
+      label: 'Condições Especiais de Pagamento',
+      description: 'Facilitamos a realização do seu sonho com condições de pagamento especiais e personalizadas. Parcelamento flexível, financiamento aprovado e opções que cabem no seu bolso. Construa agora e pague de forma inteligente!'
+    },
+    {
+      url: '/casas-pinheirao-5.jpg',
+      label: 'Do Terreno Vazio à Casa dos Sonhos',
+      description: 'Acompanhe a transformação completa! Do terreno vazio até a entrega das chaves da sua casa pronta. Gestão total da obra, qualidade em cada etapa e o resultado que você sempre sonhou. Sua nova vida começa aqui!'
     }
   ];
 
@@ -147,7 +158,7 @@ export const CustomHomeSection: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-pinheirao-green/20 to-pinheirao-deep/20 blur-3xl scale-110"></div>
 
             <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-2xl">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg mb-4">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg mb-4 group cursor-pointer" onClick={() => { setLightboxImage(activeImage); setLightboxOpen(true); }}>
                 {projectImages.map((img, idx) => (
                   <img
                     key={idx}
@@ -162,6 +173,9 @@ export const CustomHomeSection: React.FC = () => {
                   <p className="text-white font-bold text-sm">
                     {projectImages[activeImage].label}
                   </p>
+                </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
+                  <Maximize2 size={48} className="text-white opacity-0 group-hover:opacity-100 transition-all transform scale-75 group-hover:scale-100" />
                 </div>
               </div>
 
@@ -191,6 +205,72 @@ export const CustomHomeSection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {lightboxOpen && (
+        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fadeIn" onClick={() => setLightboxOpen(false)}>
+          <button
+            onClick={() => setLightboxOpen(false)}
+            className="absolute top-4 right-4 text-white hover:text-pinheirao-green transition-colors z-10"
+            aria-label="Fechar"
+          >
+            <X size={32} />
+          </button>
+
+          <div className="max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="relative">
+              <img
+                src={projectImages[lightboxImage].url}
+                alt={projectImages[lightboxImage].label}
+                className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+              />
+
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-6 rounded-b-lg">
+                <h3 className="text-white text-2xl font-bold mb-2">
+                  {projectImages[lightboxImage].label}
+                </h3>
+                <p className="text-gray-200 text-base leading-relaxed">
+                  {projectImages[lightboxImage].description}
+                </p>
+              </div>
+
+              {lightboxImage > 0 && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); setLightboxImage(lightboxImage - 1); }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+                  aria-label="Imagem anterior"
+                >
+                  <ArrowRight size={24} className="rotate-180" />
+                </button>
+              )}
+
+              {lightboxImage < projectImages.length - 1 && (
+                <button
+                  onClick={(e) => { e.stopPropagation(); setLightboxImage(lightboxImage + 1); }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+                  aria-label="Próxima imagem"
+                >
+                  <ArrowRight size={24} />
+                </button>
+              )}
+            </div>
+
+            <div className="flex gap-2 justify-center mt-4">
+              {projectImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setLightboxImage(idx)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    idx === lightboxImage
+                      ? 'bg-pinheirao-green w-8'
+                      : 'bg-gray-500 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Ver imagem ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes float {
@@ -222,6 +302,11 @@ export const CustomHomeSection: React.FC = () => {
           animation: gradient 3s ease infinite;
         }
         .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-fadeIn { animation: fadeIn 0.3s ease-out; }
       `}</style>
     </section>
   );

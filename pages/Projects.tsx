@@ -180,18 +180,18 @@ export const Projects: React.FC = () => {
       {/* Grid Page Lightbox - Fully Responsive & Interactive */}
       {lightbox && (
         <div 
-          className="fixed inset-0 z-[100] bg-pinheirao-black/98 flex flex-col items-center justify-center animate-fade-in backdrop-blur-sm"
+          className="fixed inset-0 z-[100] bg-black/85 flex flex-col items-center justify-center animate-fade-in backdrop-blur-sm"
           onClick={closeLightbox}
         >
           {/* Top Interface */}
           <div className="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-[110]">
              <div className="flex flex-col animate-fade-in-down">
-               <span className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-1">{lightbox.project.title}</span>
+               <span className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-1 drop-shadow-lg">{lightbox.project.title}</span>
                <div className="flex items-center space-x-3">
                  <span className="bg-pinheirao-green text-white text-[9px] font-black px-3 py-1 rounded-sm uppercase tracking-widest">
                    {lightbox.project.type}
                  </span>
-                 <span className="text-pinheirao-gray text-[9px] font-bold uppercase tracking-widest">
+                 <span className="text-white/80 text-[9px] font-bold uppercase tracking-widest">
                    Imagem {lightbox.index + 1} de {lightbox.project.images.length}
                  </span>
                </div>
@@ -206,11 +206,11 @@ export const Projects: React.FC = () => {
                  Ver Ficha Técnica <ExternalLink size={14} className="ml-2 group-hover:rotate-12 transition-transform" />
                </Link>
                <button 
-                className="bg-white/10 hover:bg-pinheirao-green text-white p-4 rounded-full transition-all shadow-xl hover:rotate-90 duration-300"
+                className="bg-white hover:bg-gray-100 text-black p-4 rounded-full transition-all shadow-xl hover:rotate-90 duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 onClick={closeLightbox}
                 aria-label="Fechar Galeria"
               >
-                <X size={24} />
+                <X size={24} strokeWidth={3} />
               </button>
              </div>
           </div>

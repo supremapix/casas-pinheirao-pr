@@ -12,9 +12,9 @@ export const Hero: React.FC = () => {
 
   // Hero images slider
   const heroImages = [
-    "/hero-home.png",
-    "https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/u9zireyc_hero-image.png",
-    "/hero-imagem-3.png"
+    "/tradicao-em-pinhais.jpg",
+    "/tradicao-em-pinhais.jpg",
+    "/tradicao-em-pinhais.jpg"
   ];
 
   // Textos para o efeito máquina de escrever

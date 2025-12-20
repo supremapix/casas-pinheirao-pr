@@ -44,7 +44,7 @@ export const Hero: React.FC = () => {
   }, [displayText, isDeleting, textIndex]);
 
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center pt-20 overflow-hidden">
+    <section className="relative h-screen min-h-[600px] md:min-h-[700px] flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-pinheirao-black">
         {/* Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -63,47 +63,47 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-3 bg-pinheirao-green/20 backdrop-blur-md border border-pinheirao-green/30 px-4 py-2 mb-8 rounded-sm animate-fade-in-down">
-            <ShieldCheck size={16} className="text-pinheirao-green" />
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white">Qualidade e tradição desde 2004</span>
+          <div className="inline-flex items-center space-x-2 sm:space-x-3 bg-pinheirao-green/20 backdrop-blur-md border border-pinheirao-green/30 px-3 sm:px-4 py-2 mb-6 sm:mb-8 rounded-sm animate-fade-in-down">
+            <ShieldCheck size={14} className="text-pinheirao-green sm:w-4 sm:h-4" />
+            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-[0.3em] text-white">Qualidade e tradição desde 2004</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black leading-[1.1] mb-8 uppercase tracking-tighter italic animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black leading-[1.1] mb-6 sm:mb-8 uppercase tracking-tighter italic animate-fade-in">
             <span className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {displayText}
               <span className="typewriter-cursor text-pinheirao-green">|</span>
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed font-medium max-w-xl animate-fade-in-up drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 sm:mb-12 leading-relaxed font-medium max-w-xl animate-fade-in-up drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Referência em casas de madeira nobre e alvenaria em Curitiba e Região. Projetos personalizados que cabem no seu bolso e realizam seu sonho.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 animate-fade-in-up">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 animate-fade-in-up">
             <Link
               to="/envie-seu-projeto"
-              className="btn-hero group relative overflow-hidden bg-pinheirao-green hover:bg-pinheirao-deep text-white px-12 py-5 rounded-sm font-black text-xs uppercase tracking-widest transition-all shadow-2xl hover:-translate-y-1 flex items-center justify-center"
+              className="btn-hero group relative overflow-hidden bg-pinheirao-green hover:bg-pinheirao-deep text-white px-8 sm:px-12 py-4 sm:py-5 rounded-sm font-black text-xs uppercase tracking-wider sm:tracking-widest transition-all shadow-2xl hover:-translate-y-1 flex items-center justify-center"
             >
               <span className="relative z-10">Solicitar Orçamento</span>
-              <ArrowRight size={18} className="ml-3 relative z-10" />
+              <ArrowRight size={18} className="ml-2 sm:ml-3 relative z-10" />
               <span className="btn-ripple"></span>
             </Link>
             <Link
               to="/projetos"
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/40 hover:border-white/60 text-white px-12 py-5 rounded-sm font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center hover:-translate-y-1"
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/40 hover:border-white/60 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-sm font-black text-xs uppercase tracking-wider sm:tracking-widest transition-all flex items-center justify-center hover:-translate-y-1"
             >
               Ver Nossos Modelos
             </Link>
           </div>
 
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {[
               'Madeira de Lei',
               'Entrega Ágil',
               'Projetos Autorais',
               'Custo-Benefício'
             ].map((feature, i) => (
-              <div key={i} className="flex items-center space-x-3">
-                <CheckCircle size={14} className="text-pinheirao-green shrink-0" />
-                <span className="text-[9px] font-black uppercase tracking-widest text-white">{feature}</span>
+              <div key={i} className="flex items-center space-x-2">
+                <CheckCircle size={12} className="text-pinheirao-green shrink-0 sm:w-3.5 sm:h-3.5" />
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wide sm:tracking-widest text-white">{feature}</span>
               </div>
             ))}
           </div>

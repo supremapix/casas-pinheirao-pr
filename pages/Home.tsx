@@ -82,13 +82,13 @@ export const Home: React.FC = () => {
             
             {/* Coluna Esquerda (40%) - Mockup de Celular */}
             <div className="lg:col-span-2 flex justify-center">
-              <div className="phone-mockup relative w-[320px] h-[650px] bg-[#1a1a1a] rounded-[40px] p-3 shadow-[0_25px_50px_rgba(0,0,0,0.3),0_0_0_12px_#2a2a2a,0_0_0_14px_#1a1a1a] transform -rotate-5 hover:rotate-0 hover:scale-105 transition-all duration-500">
+              <div className="phone-mockup relative w-[280px] sm:w-[320px] h-[570px] sm:h-[650px] bg-[#1a1a1a] rounded-[40px] p-2.5 sm:p-3 shadow-[0_25px_50px_rgba(0,0,0,0.3),0_0_0_12px_#2a2a2a,0_0_0_14px_#1a1a1a] transform -rotate-5 hover:rotate-0 hover:scale-105 transition-all duration-500">
                 {/* Notch do iPhone */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-[#1a1a1a] rounded-b-[20px] z-10"></div>
-                
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] sm:w-[120px] h-[24px] sm:h-[28px] bg-[#1a1a1a] rounded-b-[20px] z-10"></div>
+
                 {/* Tela do celular com vídeo */}
-                <div className="phone-screen relative w-full h-full bg-black rounded-[30px] overflow-hidden">
-                  <iframe 
+                <div className="phone-screen relative w-full h-full bg-black rounded-[28px] sm:rounded-[30px] overflow-hidden">
+                  <iframe
                     src="https://www.youtube.com/embed/3ZXzDpzvKRw?autoplay=1&mute=1&loop=1&playlist=3ZXzDpzvKRw&controls=1&modestbranding=1&rel=0"
                     title="Tour Virtual - Casas Pinheirão"
                     className="absolute inset-0 w-full h-full object-cover"
@@ -103,15 +103,15 @@ export const Home: React.FC = () => {
             </div>
 
             {/* Coluna Direita (60%) - Conteúdo */}
-            <div className="lg:col-span-3 space-y-6">
+            <div className="lg:col-span-3 space-y-4 sm:space-y-6">
               {/* Badge Superior */}
-              <div className="inline-flex items-center gap-2 bg-pinheirao-green/10 border border-pinheirao-green px-4 py-2 rounded-full backdrop-blur-sm">
-                <span className="text-2xl">🏡</span>
-                <span className="text-pinheirao-green font-semibold text-sm tracking-wider uppercase">Conheça Nossas Casas</span>
+              <div className="inline-flex items-center gap-2 bg-pinheirao-green/10 border border-pinheirao-green px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm">
+                <span className="text-xl sm:text-2xl">🏡</span>
+                <span className="text-pinheirao-green font-semibold text-xs sm:text-sm tracking-wider uppercase">Conheça Nossas Casas</span>
               </div>
 
               {/* Título Principal */}
-              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
                 Não é Sonho, é{' '}
                 <span className="highlight-text relative text-pinheirao-green">
                   Realidade em Pinhais!
@@ -120,44 +120,44 @@ export const Home: React.FC = () => {
               </h2>
 
               {/* Descrição */}
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Nossas <strong className="text-white font-semibold">casas prontas para morar</strong> oferecem conforto, 
-                segurança e a localização perfeita para sua família. 
-                <strong className="text-white font-semibold"> Financiamento próprio facilitado</strong> e você realiza 
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                Nossas <strong className="text-white font-semibold">casas prontas para morar</strong> oferecem conforto,
+                segurança e a localização perfeita para sua família.
+                <strong className="text-white font-semibold"> Financiamento próprio facilitado</strong> e você realiza
                 o sonho da casa própria!
               </p>
 
               {/* Destaque */}
-              <p className="text-pinheirao-green font-semibold text-base pl-5 border-l-4 border-pinheirao-green">
+              <p className="text-pinheirao-green font-semibold text-sm sm:text-base pl-4 sm:pl-5 border-l-4 border-pinheirao-green">
                 Visite nosso showroom em Pinhais - Curitiba/PR
               </p>
 
               {/* Lista de Benefícios */}
-              <ul className="space-y-4 py-4">
+              <ul className="space-y-3 sm:space-y-4 py-2 sm:py-4">
                 {[
                   'Casas de 2 e 3 quartos com acabamento de qualidade',
                   'Financiamento direto com a construtora sem burocracia',
                   'Localização privilegiada com comércio e transporte próximo'
                 ].map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-gray-200">
-                    <span className="flex-shrink-0 w-6 h-6 bg-pinheirao-green text-white rounded-full flex items-center justify-center font-bold text-sm">✓</span>
-                    <span className="text-base leading-relaxed">{benefit}</span>
+                  <li key={idx} className="flex items-start gap-2 sm:gap-3 text-gray-200">
+                    <span className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 bg-pinheirao-green text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">✓</span>
+                    <span className="text-sm sm:text-base leading-relaxed">{benefit}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Botões de Ação */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
                 <Link
                   to="/envie-seu-projeto"
-                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep text-white font-bold text-sm uppercase tracking-wider rounded-xl shadow-[0_4px_12px_rgba(11,181,151,0.4)] hover:shadow-[0_8px_20px_rgba(11,181,151,0.5)] hover:-translate-y-1 transition-all"
+                  className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-[0_4px_12px_rgba(11,181,151,0.4)] hover:shadow-[0_8px_20px_rgba(11,181,151,0.5)] hover:-translate-y-1 transition-all"
                 >
                   <span>Agende sua Visita!</span>
-                  <span className="text-xl">🏠</span>
+                  <span className="text-lg sm:text-xl">🏠</span>
                 </Link>
                 <Link
                   to="/empresa"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-pinheirao-green font-bold text-sm uppercase tracking-wider border-2 border-pinheirao-green rounded-xl hover:bg-pinheirao-green/10 hover:-translate-y-1 transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-pinheirao-green font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-pinheirao-green rounded-xl hover:bg-pinheirao-green/10 hover:-translate-y-1 transition-all"
                 >
                   Falar com Consultor
                 </Link>
@@ -199,18 +199,20 @@ export const Home: React.FC = () => {
 
       {/* Seção Nossos Modelos */}
       {/* Diferenciais Rápidos */}
-      <section className="bg-pinheirao-concrete/10 py-12 border-b border-pinheirao-concrete/20">
+      <section className="bg-pinheirao-concrete/10 py-8 sm:py-12 border-b border-pinheirao-concrete/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {[
-              { icon: <Clock size={24} />, text: '20 Anos de Mercado' },
-              { icon: <Users size={24} />, text: '300+ Famílias Felizes' },
-              { icon: <Shield size={24} />, text: 'Garantia Estrutural' },
-              { icon: <Award size={24} />, text: 'Atendimento Consultivo' },
+              { icon: <Clock size={20} />, text: '20 Anos de Mercado' },
+              { icon: <Users size={20} />, text: '300+ Famílias Felizes' },
+              { icon: <Shield size={20} />, text: 'Garantia Estrutural' },
+              { icon: <Award size={20} />, text: 'Atendimento Consultivo' },
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col items-center text-center group">
-                <div className="text-pinheirao-green mb-3 group-hover:scale-110 transition-transform">{item.icon}</div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-pinheirao-black">{item.text}</span>
+                <div className="text-pinheirao-green mb-2 sm:mb-3 group-hover:scale-110 transition-transform">
+                  {React.cloneElement(item.icon as React.ReactElement, { className: 'w-5 h-5 sm:w-6 sm:h-6' })}
+                </div>
+                <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide sm:tracking-widest text-pinheirao-black">{item.text}</span>
               </div>
             ))}
           </div>
@@ -218,21 +220,21 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Nossa História (About Us Section) */}
-      <section className="py-24 bg-white">
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
             <div>
-              <h2 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-4">Tradição em Pinhais</h2>
-              <h3 className="text-4xl font-black mb-8 leading-tight">Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span></h3>
-              <p className="text-pinheirao-gray mb-6 leading-relaxed font-medium">
+              <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.3em] text-pinheirao-green mb-3 sm:mb-4">Tradição em Pinhais</h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span></h3>
+              <p className="text-sm sm:text-base text-pinheirao-gray mb-4 sm:mb-6 leading-relaxed font-medium">
                 Referência em casas pré-fabricadas em toda Curitiba e Região Metropolitana, a Casas Pinheirão une a velocidade da construção moderna com o cuidado artesanal das madeiras nobres.
               </p>
-              <p className="text-pinheirao-gray mb-10 leading-relaxed font-medium">
+              <p className="text-sm sm:text-base text-pinheirao-gray mb-8 sm:mb-10 leading-relaxed font-medium">
                 Nosso compromisso é entregar não apenas uma estrutura, mas o cenário onde sua família construirá as melhores memórias, com o melhor custo-benefício do Paraná.
               </p>
-              <Link to="/empresa" className="inline-flex items-center text-xs font-black uppercase tracking-widest text-pinheirao-black group">
+              <Link to="/empresa" className="inline-flex items-center text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest text-pinheirao-black group">
                 Conheça nossa trajetória
-                <ChevronRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform sm:w-4 sm:h-4" />
               </Link>
             </div>
             <div className="relative">
@@ -285,23 +287,23 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Como Funciona - Timeline */}
-      <section className="py-24 bg-pinheirao-concrete/20 relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 bg-pinheirao-concrete/20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-4">Nosso Processo</h2>
-            <h3 className="text-4xl font-black text-pinheirao-black">Como transformamos seu sonho em realidade.</h3>
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.4em] text-pinheirao-green mb-3 sm:mb-4">Nosso Processo</h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-pinheirao-black px-4">Como transformamos seu sonho em realidade.</h3>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-4 relative">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 sm:gap-4 relative">
             <div className="absolute top-1/4 left-0 w-full h-0.5 bg-pinheirao-green/20 -z-10 hidden lg:block"></div>
             {steps.map((step) => (
-              <div key={step.id} className="relative group text-center px-2">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-pinheirao-green shadow-lg border border-pinheirao-green/20 mx-auto mb-6 group-hover:bg-pinheirao-green group-hover:text-white transition-all duration-300 relative">
-                  <span className="absolute -top-2 -right-2 w-6 h-6 bg-pinheirao-black text-white text-[10px] font-bold rounded-full flex items-center justify-center">{step.id}</span>
-                  {React.cloneElement(step.icon as React.ReactElement, { size: 24 })}
+              <div key={step.id} className="relative group text-center px-1 sm:px-2">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center text-pinheirao-green shadow-lg border border-pinheirao-green/20 mx-auto mb-4 sm:mb-6 group-hover:bg-pinheirao-green group-hover:text-white transition-all duration-300 relative">
+                  <span className="absolute -top-1.5 sm:-top-2 -right-1.5 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-pinheirao-black text-white text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center">{step.id}</span>
+                  {React.cloneElement(step.icon as React.ReactElement, { size: 20, className: 'sm:w-6 sm:h-6' })}
                 </div>
-                <h4 className="text-xs font-black uppercase tracking-widest text-pinheirao-black mb-2">{step.title}</h4>
-                <p className="text-[10px] text-pinheirao-gray font-medium leading-relaxed">{step.desc}</p>
+                <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-wide sm:tracking-widest text-pinheirao-black mb-1.5 sm:mb-2">{step.title}</h4>
+                <p className="text-[9px] sm:text-[10px] text-pinheirao-gray font-medium leading-relaxed hidden sm:block">{step.desc}</p>
               </div>
             ))}
           </div>

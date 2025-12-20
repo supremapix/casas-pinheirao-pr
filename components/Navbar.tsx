@@ -33,10 +33,10 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex-shrink-0 flex items-center">
-            <img 
-              src="https://casaspinheirao.com.br/medias/elementor/thumbs/Casas-Pinheirao-Pinhais-As-casas-pre-fabricadas-mais-baratas-do-Brasil-qu5yw0ge1u5iqut4a4yuh23advi1ysrdau4a0yqoe8.png" 
-              alt="Casas Pinheirão" 
-              className="h-12 md:h-14 w-auto object-contain"
+            <img
+              src="https://casaspinheirao.com.br/medias/elementor/thumbs/Casas-Pinheirao-Pinhais-As-casas-pre-fabricadas-mais-baratas-do-Brasil-qu5yw0ge1u5iqut4a4yuh23advi1ysrdau4a0yqoe8.png"
+              alt="Casas Pinheirão"
+              className="h-10 md:h-12 lg:h-14 w-auto object-contain"
             />
           </Link>
 
@@ -82,7 +82,7 @@ export const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`block px-3 py-4 text-sm font-black uppercase tracking-widest ${
+              className={`block px-3 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider ${
                 location.pathname === link.path ? 'text-pinheirao-green' : 'text-pinheirao-black border-b border-gray-100'
               }`}
             >
@@ -90,11 +90,11 @@ export const Navbar: React.FC = () => {
             </Link>
           ))}
           <div className="pt-4 grid grid-cols-1 gap-3">
-            <a href="tel:4136678015" className="flex items-center justify-center py-4 bg-pinheirao-concrete rounded text-pinheirao-black font-bold">
-              <Phone size={20} className="mr-2" /> (41) 3667-8015
+            <a href="tel:4136678015" className="flex items-center justify-center py-3 text-sm bg-pinheirao-concrete rounded text-pinheirao-black font-bold">
+              <Phone size={18} className="mr-2" /> (41) 3667-8015
             </a>
-            <a href="https://api.whatsapp.com/send?phone=5541996301028" className="flex items-center justify-center py-4 bg-pinheirao-green text-white rounded font-bold">
-              <MessageSquare size={20} className="mr-2" /> WhatsApp
+            <a href="https://api.whatsapp.com/send?phone=5541996301028" className="flex items-center justify-center py-3 text-sm bg-pinheirao-green text-white rounded font-bold">
+              <MessageSquare size={18} className="mr-2" /> WhatsApp
             </a>
           </div>
         </div>

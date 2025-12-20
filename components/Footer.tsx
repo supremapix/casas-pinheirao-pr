@@ -13,9 +13,9 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <div className="mb-8">
               <img 
-                src="https://casaspinheirao.com.br/medias/elementor/thumbs/Casas-Pinheirao-Pinhais-As-casas-pre-fabricadas-mais-baratas-do-Brasil-qu5yw0ge1u5iqut4a4yuh23advi1ysrdau4a0yqoe8.png" 
+                src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/ieo6365s_logo-rodape%20%282%29.png" 
                 alt="Casas Pinheirão Logo" 
-                className="h-16 w-auto object-contain brightness-0 invert"
+                className="h-20 w-auto object-contain"
               />
             </div>
             <p className="text-pinheirao-gray mb-8 leading-relaxed font-medium text-sm">

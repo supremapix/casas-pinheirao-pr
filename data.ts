@@ -2,98 +2,222 @@
 import { ConstructionType, Project, Testimonial, Consultant } from './types';
 
 export const PROJECTS: Project[] = [
+  // TRIPLEX
   {
     id: '1',
-    title: 'Modelo Colonial 36m²',
-    type: ConstructionType.WOOD,
-    area: '36m²',
+    title: 'Triplex de Alvenaria 200m²',
+    type: ConstructionType.TRIPLEX,
+    area: '200m²',
     images: [
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1449156003053-96432b250f09?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/triplex-de-200m-1024x835-800x652-1-qu5yzpxi85zj8awedi64czl308jefsqlu0cq9qo36y.png'
     ],
-    description: 'Charmosa casa compacta em madeira nobre, ideal para casais ou pousadas. Inclui deck frontal e esquadrias de alto padrão.',
+    description: 'Triplex impressionante com 200m², projetado para oferecer um estilo de vida sofisticado e espaçoso. Suíte master com closet e sacada, 2 dormitórios amplos, sala com pé-direito alto, cozinha com ilha central, espaço gourmet, terraço e garagem para 2 carros.',
     featured: true
   },
   {
     id: '2',
-    title: 'Residencial Pinhais 54m²',
-    type: ConstructionType.WOOD,
-    area: '54m²',
+    title: 'Triplex de Alvenaria 148.05m²',
+    type: ConstructionType.TRIPLEX,
+    area: '148.05m²',
     images: [
-      'https://images.unsplash.com/photo-1449156003053-96432b250f09?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/triplex-de-148.05m%C2%B2-1024x912-1-qu5yzl8b9zt3m9384y4ziirs1b6kdb7y5d3avcv24a.png'
     ],
-    description: 'O equilíbrio perfeito entre custo e benefício. 2 quartos com amplo pé direito e conforto térmico superior.',
+    description: 'Triplex deslumbrante com 148.05m², projetado para oferecer um estilo de vida luxuoso e confortável. Espaços bem distribuídos em três pavimentos com suíte ampla, sacada privativa e acabamentos de primeira linha.',
     featured: true
   },
+  
+  // SOBRADOS
   {
     id: '3',
-    title: 'Sobrado Araucária 112m²',
+    title: 'Sobrado de Alvenaria 119.91m²',
     type: ConstructionType.SOBRADO,
-    area: '112m²',
+    area: '119.91m²',
     images: [
-      'https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/sobrado-de-119.91m%C2%B2-qu5yzhgyinnybt8oqwih8jpxnrp3iit0suhcy90mr8.png'
     ],
-    description: 'Design robusto unindo alvenaria no térreo e madeira nobre no pavimento superior. 3 quartos sendo 1 suíte.',
+    description: 'Sobrado excepcional com 119.91m², projetado para oferecer um espaço amplo e confortável, ideal para famílias que buscam qualidade e estilo. Aproveitamento inteligente de espaço em dois pavimentos.',
     featured: true
   },
   {
     id: '4',
-    title: 'Casa Alvenaria Contemporary 85m²',
-    type: ConstructionType.MASONRY,
-    area: '85m²',
+    title: 'Sobrado de Alvenaria 98.74m²',
+    type: ConstructionType.SOBRADO,
+    area: '98.74m²',
     images: [
-      'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/casas-pinheirao-post-45-e1711426450520-1024x850-1-qu5yzcrrkhhiprfiichce2wmouc9g1ad477xjv7lmm.png'
     ],
-    description: 'Linhas retas e telhado embutido. Projeto moderno em alvenaria convencional com acabamento de alto brilho.',
+    description: 'Sobrado espaçoso e bem projetado com 98.74m², ideal para quem busca um lar que combine conforto, estilo e praticidade. Design moderno com funcionalidade excepcional.',
     featured: true
   },
   {
     id: '5',
-    title: 'Triplex Master Pinheirão 185m²',
-    type: ConstructionType.TRIPLEX,
-    area: '185m²',
+    title: 'Sobrado de Alvenaria 84.40m²',
+    type: ConstructionType.SOBRADO,
+    area: '84.40m²',
     images: [
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/sobrado-de-84.40m%C2%B2-qu5yz3ddo54nhnt618f2p5a0qzmlb291qwp2r3ljck.png'
     ],
-    description: 'Para quem não abre mão do luxo. 4 quartos, ático amplo, área gourmet integrada e acabamentos premium.',
-    featured: true
+    description: 'Sobrado moderno e espaçoso com 84.40m² de área construída. Perfeito equilíbrio entre conforto e economia, com distribuição inteligente dos ambientes.',
+    featured: false
   },
   {
     id: '6',
-    title: 'Kit Chalé Suíço 42m²',
-    type: ConstructionType.WOOD,
-    area: '42m²',
+    title: 'Sobrado de Alvenaria 80m²',
+    type: ConstructionType.SOBRADO,
+    area: '80m²',
     images: [
-      'https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/sobrado20de2080mC2B2-1024x963-1-qu5yz82kmbb33pmc9sg7jm3bpwzfdjrpfjyi5hekks.png'
     ],
-    description: 'Estilo rústico com telhado inclinado. Excelente para regiões de serra e litoral.',
+    description: 'Sobrado de alvenaria com 80m², projetado para oferecer o máximo de conforto e funcionalidade. Ideal para famílias que buscam praticidade sem abrir mão do espaço.',
     featured: false
   },
   {
     id: '7',
-    title: 'Residência Curitibana 95m²',
-    type: ConstructionType.MASONRY,
-    area: '95m²',
+    title: 'Sobrado de Alvenaria 61.97m²',
+    type: ConstructionType.SOBRADO,
+    area: '61.97m²',
     images: [
-      'https://images.unsplash.com/photo-1513584684374-8bdb7489feef?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/sobrado-de-61.97m%C2%B2-qu5yyzm0wszi77ymn6skf686dg54g9u4ee34tzr42a.png'
     ],
-    description: 'Clássica casa de alvenaria com platibanda e janelas em alumínio preto.',
+    description: 'Sobrado moderno e bem planejado com 61.97m² de área construída. Compacto mas extremamente funcional, perfeito para terrenos menores.',
+    featured: false
+  },
+
+  // CASAS DE ALVENARIA
+  {
+    id: '8',
+    title: 'Casa de Alvenaria 90m² com Varanda e Garagem',
+    type: ConstructionType.MASONRY,
+    area: '90m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/Casa-de-Alvenaria-6m-x-10m-60m%C2%B2-com-Varanda-e-Garagem-qu5z1qb2ueqm29z9mvge6zbkqwmnwhpxryl481os14.png',
+      'https://casaspinheirao.com.br/medias/Casa-de-Alvenaria-6m-x-10m-60m%C2%B2-com-Varanda-e-Garagem.png'
+    ],
+    description: 'Casa de alvenaria 6m x 10m com 90m², incluindo varanda aconchegante e garagem. Projeto completo e funcional para toda a família.',
+    featured: true
+  },
+  {
+    id: '9',
+    title: 'Casa de Alvenaria 75m² com Varanda e Garagem Coberta',
+    type: ConstructionType.MASONRY,
+    area: '75m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/elementor/thumbs/Casa-de-Alvenaria-6m-x-10m-60m%C2%B2-com-Varanda-e-Garagem-Coberta-qu5z1nhk9wmr3g3d3c8ihi16yr0k9eeqrkmns7syjs.png',
+      'https://casaspinheirao.com.br/medias/Casa-de-Alvenaria-6m-x-10m-60m%C2%B2-com-Varanda-e-Garagem-Coberta.png'
+    ],
+    description: 'Casa de alvenaria 6m x 10m com 75m², varanda e garagem coberta. Proteção completa para seu veículo e espaço de convivência ao ar livre.',
     featured: false
   },
   {
-    id: '8',
-    title: 'Sobrado Tropical 135m²',
-    type: ConstructionType.SOBRADO,
-    area: '135m²',
+    id: '10',
+    title: 'Casa de Alvenaria 72m² (6m x 9m)',
+    type: ConstructionType.MASONRY,
+    area: '72m²',
     images: [
-      'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80&w=800'
+      'https://casaspinheirao.com.br/medias/Casa-de-Alvenaria-6m-x-9m-54m%C2%B2.png'
     ],
-    description: 'Ampla área social no térreo e dormitórios privativos no andar superior. Totalmente personalizável.',
+    description: 'Casa de alvenaria medindo 6m x 9m com 72m². Design compacto e eficiente, ideal para quem busca praticidade e conforto.',
+    featured: false
+  },
+  {
+    id: '11',
+    title: 'Casa de Alvenaria 60m² (5m x 8m) - Abrigo',
+    type: ConstructionType.MASONRY,
+    area: '60m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0031-768x576.jpg'
+    ],
+    description: 'Casa de alvenaria modelo abrigo 5m x 8m com 60m². Projeto econômico e funcional, perfeito para quem está começando.',
+    featured: false
+  },
+  {
+    id: '12',
+    title: 'Casa de Alvenaria 48m² (6m x 8m)',
+    type: ConstructionType.MASONRY,
+    area: '48m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0032-768x576.jpg'
+    ],
+    description: 'Casa de alvenaria 6m x 8m com 48m². Solução inteligente para terrenos compactos sem abrir mão do conforto.',
+    featured: false
+  },
+  {
+    id: '13',
+    title: 'Casa de Alvenaria 42m² (6m x 7m)',
+    type: ConstructionType.MASONRY,
+    area: '42m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0034-768x576.jpg'
+    ],
+    description: 'Casa de alvenaria 6m x 7m com 42m². Seu sonho de ter a casa própria está mais perto do que você imagina! Projeto compacto e acessível.',
+    featured: false
+  },
+  {
+    id: '14',
+    title: 'Casa de Alvenaria 40m² (5m x 8m)',
+    type: ConstructionType.MASONRY,
+    area: '40m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/Casa-de-Alvenaria-5m-x-8m-40m%C2%B2-.png'
+    ],
+    description: 'Casa de alvenaria 5m x 8m com 40m². Compacta, econômica e perfeita para quem busca o primeiro imóvel próprio.',
+    featured: false
+  },
+
+  // CASAS DE MADEIRA
+  {
+    id: '15',
+    title: 'Casa de Madeira de Pinus 126.50m²',
+    type: ConstructionType.WOOD,
+    area: '126.50m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/Casa-Madeira-de-Pinus-5m-x-5m-25m%C2%B2-1.png'
+    ],
+    description: 'Casa de madeira de pinus medindo 126.50m². Ampla, elegante e com o charme natural da madeira nobre. Conforto térmico superior e beleza atemporal.',
+    featured: true
+  },
+  {
+    id: '16',
+    title: 'Casa Madeira de Pinus 72.25m² (6m x 7m)',
+    type: ConstructionType.WOOD,
+    area: '72.25m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0056-768x432.jpg'
+    ],
+    description: 'Casa de madeira de pinus 6m x 7m com 72.25m². Combine sustentabilidade com conforto neste projeto charmoso e aconchegante.',
+    featured: false
+  },
+  {
+    id: '17',
+    title: 'Casa Madeira de Pinus 60m² (5m x 8m)',
+    type: ConstructionType.WOOD,
+    area: '60m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0049-768x432.jpg'
+    ],
+    description: 'Casa de madeira de pinus 5m x 8m com 60m². Conforto térmico natural e beleza rústica, ideal para quem valoriza o contato com a natureza.',
+    featured: false
+  },
+  {
+    id: '18',
+    title: 'Casa Madeira de Pinus 36m² (6m x 6m)',
+    type: ConstructionType.WOOD,
+    area: '36m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0050-768x432.jpg'
+    ],
+    description: 'Casa de madeira de pinus 6m x 6m com 36m². Charmosa casa compacta, perfeita para casais, pousadas ou casa de campo.',
+    featured: false
+  },
+  {
+    id: '19',
+    title: 'Casa Madeira de Pinus 25m² (5m x 5m)',
+    type: ConstructionType.WOOD,
+    area: '25m²',
+    images: [
+      'https://casaspinheirao.com.br/medias/casa_mad_mod_03-768x432.jpg'
+    ],
+    description: 'Casa de madeira de pinus 5m x 5m com 25m². Solução econômica e versátil, ideal para chalé, escritório, ateliê ou casa de hóspedes.',
     featured: false
   }
 ];

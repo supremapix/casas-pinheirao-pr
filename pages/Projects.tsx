@@ -125,7 +125,7 @@ export const Projects: React.FC = () => {
             {filteredProjects.map((project) => (
               <div 
                 key={project.id} 
-                className="group flex flex-col h-full bg-white border border-gray-100 transition-all hover:shadow-2xl overflow-hidden rounded-sm"
+                className="property-card group flex flex-col h-full bg-white border border-gray-100 transition-all hover:shadow-2xl overflow-hidden rounded-sm"
               >
                 {/* Image Section - Clicking here opens the Lightbox */}
                 <div 

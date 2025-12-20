@@ -370,10 +370,19 @@ export const Home: React.FC = () => {
 
       {/* CTA Final */}
       <section className="py-24 bg-pinheirao-black text-white text-center relative overflow-hidden">
-        <div className="bg-concrete-pattern absolute inset-0"></div>
+        {/* Imagem de fundo */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/p80lhc7x_fundo_cta_casas_pinheirao.png"
+            alt="Casas Pinheirão"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-pinheirao-black/80 via-pinheirao-black/70 to-pinheirao-black/90"></div>
+        </div>
+        <div className="bg-concrete-pattern absolute inset-0 opacity-20"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight italic">Construa o seu futuro sobre uma <span className="text-pinheirao-green underline">base sólida.</span></h2>
-          <p className="text-lg text-pinheirao-concrete/80 mb-12 max-w-2xl mx-auto font-medium">
+          <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">Construa o seu futuro sobre uma <span className="text-pinheirao-green underline">base sólida.</span></h2>
+          <p className="text-lg text-white/90 mb-12 max-w-2xl mx-auto font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Agende uma visita técnica or peça seu orçamento hoje mesmo. Equipe especializada em Pinhais pronta para lhe atender.
           </p>
           <div className="flex flex-wrap justify-center gap-6">

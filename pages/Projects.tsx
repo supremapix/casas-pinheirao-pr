@@ -7,7 +7,7 @@ import { ConstructionType, Project } from '../types';
 import {
   Maximize2, Bed, Bath, Square, ArrowRight,
   X, ChevronLeft, ChevronRight, Image as ImageIcon,
-  ExternalLink, ZoomIn
+  ExternalLink, ZoomIn, Package, TreePine, Building2, Building, Layers
 } from 'lucide-react';
 
 export const Projects: React.FC = () => {
@@ -141,11 +141,11 @@ export const Projects: React.FC = () => {
                 backgroundSize: '1.5rem'
               }}
             >
-              <option value="ALL">📦 Todos os Projetos</option>
-              <option value={ConstructionType.WOOD}>🌲 Casas de Madeira</option>
-              <option value={ConstructionType.MASONRY}>🏗️ Casas de Alvenaria</option>
-              <option value={ConstructionType.SOBRADO}>🏘️ Sobrados</option>
-              <option value={ConstructionType.TRIPLEX}>🏢 Triplex</option>
+              <option value="ALL">Todos os Projetos</option>
+              <option value={ConstructionType.WOOD}>Casas de Madeira</option>
+              <option value={ConstructionType.MASONRY}>Casas de Alvenaria</option>
+              <option value={ConstructionType.SOBRADO}>Sobrados</option>
+              <option value={ConstructionType.TRIPLEX}>Triplex</option>
             </select>
           </div>
 

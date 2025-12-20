@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail, MapPin, Phone, MessageSquare, ChevronRight } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone, MessageSquare, ChevronRight, Heart } from 'lucide-react';
 import { ConstructionType } from '../types';
 
 export const Footer: React.FC = () => {
@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
             className="flex items-center gap-2 hover:text-pinheirao-green transition-colors group"
           >
             <span className="text-white/70 normal-case tracking-normal font-medium">Desenvolvido</span>
-            <span className="text-red-500 animate-heartbeat inline-block">❤️</span>
+            <Heart size={18} className="text-red-500 animate-heartbeat inline-block fill-red-500" />
             <span className="text-white/70 normal-case tracking-normal font-medium">por</span>
             <span className="text-white group-hover:text-pinheirao-green transition-colors font-bold">Suprema Sites Express</span>
           </a>

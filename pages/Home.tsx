@@ -12,7 +12,8 @@ import {
   Clock, Package, HardHat, PencilRuler,
   ClipboardList, Truck, ChevronRight,
   MessageSquare, Home as HomeIcon, Key,
-  MapPin, Settings, CreditCard, LayoutTemplate, Briefcase, Boxes, Eye
+  MapPin, Settings, CreditCard, LayoutTemplate, Briefcase, Boxes, Eye,
+  Star, Rocket, Phone
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -239,7 +240,7 @@ export const Home: React.FC = () => {
 
               {/* Badge Superior com ícone */}
               <div className="inline-flex items-center gap-2 sm:gap-2.5 bg-gradient-to-r from-pinheirao-green/15 to-pinheirao-deep/15 border border-pinheirao-green/40 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full backdrop-blur-sm shadow-lg">
-                <span className="text-xl sm:text-2xl">⭐</span>
+                <Star size={20} className="text-pinheirao-green fill-pinheirao-green" />
                 <span className="text-pinheirao-green font-bold text-xs sm:text-sm tracking-wider uppercase">CASAS PINHEIRÃO</span>
               </div>
 
@@ -291,7 +292,7 @@ export const Home: React.FC = () => {
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <span>Quero Minha Casa Assim!</span>
-                    <span className="text-xl animate-bounce-slow">🏠</span>
+                    <HomeIcon size={20} className="animate-bounce-slow" />
                   </span>
                   {/* Efeito de brilho animado */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
@@ -541,7 +542,7 @@ export const Home: React.FC = () => {
             >
               <span className="relative z-10 flex items-center gap-3">
                 <span>Calcular Meu Projeto Agora!</span>
-                <span className="text-2xl animate-bounce-slow">🚀</span>
+                <Rocket size={24} className="animate-bounce-slow" />
               </span>
               {/* Efeito de brilho */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
@@ -553,7 +554,7 @@ export const Home: React.FC = () => {
               href="tel:4136678015"
               className="inline-flex items-center justify-center gap-2 px-10 sm:px-14 py-5 sm:py-6 bg-white/5 backdrop-blur-sm text-white font-black text-sm sm:text-base uppercase tracking-wider border-2 border-pinheirao-green/50 rounded-full hover:bg-pinheirao-green/10 hover:border-pinheirao-green hover:-translate-y-2 transition-all"
             >
-              <span>📞</span>
+              <Phone size={20} />
               <span>(41) 3667-8015</span>
             </a>
           </div>

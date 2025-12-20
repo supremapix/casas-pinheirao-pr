@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Ruler, MapPin, Users, CheckCircle, Sparkles, ArrowRight } from 'lucide-react';
+import { Ruler, MapPin, Users, CheckCircle, Sparkles, ArrowRight, Building2, HardHat, ShieldCheck, CreditCard } from 'lucide-react';
 
 export const CustomHomeSection: React.FC = () => {
   const [activeImage, setActiveImage] = useState(0);
@@ -32,10 +32,10 @@ export const CustomHomeSection: React.FC = () => {
   ];
 
   const miniFeatures = [
-    { label: 'Projeto 3D', icon: '🏗️' },
-    { label: 'Acompanhamento', icon: '👷' },
-    { label: 'Garantia', icon: '🛡️' },
-    { label: 'Financiamento', icon: '💳' }
+    { label: 'Projeto 3D', icon: <Building2 size={20} /> },
+    { label: 'Acompanhamento', icon: <HardHat size={20} /> },
+    { label: 'Garantia', icon: <ShieldCheck size={20} /> },
+    { label: 'Financiamento', icon: <CreditCard size={20} /> }
   ];
 
   return (

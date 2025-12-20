@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   Ruler, MapPin, CheckCircle, Sparkles,
   ShieldCheck, TrendingUp, Award, CreditCard,
-  Maximize2, X, ChevronLeft, ChevronRight, MessageSquare
+  Maximize2, X, ChevronLeft, ChevronRight, MessageSquare,
+  Building2, HardHat
 } from 'lucide-react';
 import { Project } from '../types';
 
@@ -50,10 +51,10 @@ export const PremiumCustomSection: React.FC<PremiumCustomSectionProps> = ({ proj
   ];
 
   const miniFeatures = [
-    { label: 'Projeto 3D', icon: '🏗️', tooltip: 'Visualização 3D completa' },
-    { label: 'Acompanhamento', icon: '👷', tooltip: 'Suporte em todas etapas' },
-    { label: 'Garantia', icon: '🛡️', tooltip: 'Garantia de qualidade' },
-    { label: 'Financiamento', icon: '💳', tooltip: 'Opções facilitadas' }
+    { label: 'Projeto 3D', icon: <Building2 size={20} />, tooltip: 'Visualização 3D completa' },
+    { label: 'Acompanhamento', icon: <HardHat size={20} />, tooltip: 'Suporte em todas etapas' },
+    { label: 'Garantia', icon: <ShieldCheck size={20} />, tooltip: 'Garantia de qualidade' },
+    { label: 'Financiamento', icon: <CreditCard size={20} />, tooltip: 'Opções facilitadas' }
   ];
 
   useEffect(() => {

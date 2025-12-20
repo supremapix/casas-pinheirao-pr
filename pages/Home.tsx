@@ -3,10 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { EnhancedSEO } from '../components/EnhancedSEO';
-import { PROJECTS, TESTIMONIALS } from '../data';
+import { TestimonialsCarousel } from '../components/TestimonialsCarousel';
+import { CustomHomeSection } from '../components/CustomHomeSection';
+import { PROJECTS } from '../data';
 import { ConstructionType } from '../types';
 import {
-  CheckCircle, Shield, Award, Users, Star,
+  CheckCircle, Shield, Award, Users,
   Clock, Package, HardHat, PencilRuler,
   ClipboardList, Truck, ChevronRight,
   MessageSquare, Home as HomeIcon, Key,
@@ -490,35 +492,9 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Depoimentos */}
-      <section className="py-24 bg-pinheirao-concrete/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-4">Prova Social</h2>
-            <h3 className="text-4xl font-black text-pinheirao-black">A voz de quem realizou o sonho com a gente.</h3>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.id} className="bg-white p-10 rounded-sm shadow-sm border-t-4 border-pinheirao-green hover:shadow-xl transition-shadow">
-                <div className="flex mb-6">
-                  {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} className="fill-pinheirao-green text-pinheirao-green mr-1" />)}
-                </div>
-                <p className="text-pinheirao-gray mb-8 leading-relaxed italic text-sm font-medium">"{t.text}"</p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-pinheirao-concrete">
-                    <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <h4 className="font-black text-sm uppercase text-pinheirao-black tracking-widest">{t.name}</h4>
-                    <p className="text-[10px] text-pinheirao-green font-black uppercase tracking-widest">{t.city}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CustomHomeSection />
+
+      <TestimonialsCarousel />
 
       {/* CTA Final - Construa seu Futuro */}
       <section className="py-20 sm:py-24 md:py-28 bg-pinheirao-black text-white text-center relative overflow-hidden">

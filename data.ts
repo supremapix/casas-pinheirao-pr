@@ -226,21 +226,120 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Maria Clara',
     city: 'Curitiba/PR',
     text: 'Construir meu triplex de 148m² com a Casas Pinheirão foi uma das melhores decisões. Eles foram honestos, cumpriram o prazo e entregaram exatamente como prometido!',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100'
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100',
+    rating: 5.0
   },
   {
     id: '2',
     name: 'João Pedro',
     city: 'Colombo/PR',
     text: 'Fiz meu sobrado personalizado e não tenho do que reclamar. Ficou lindo, funcional e dentro do meu orçamento!',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100'
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100',
+    rating: 4.5
   },
   {
     id: '3',
     name: 'Marcos Vinícius',
     city: 'Pinhais/PR',
     text: 'A velocidade da entrega me surpreendeu. Em menos de 2 meses já estava morando na minha casa de madeira. O atendimento do Alisson foi nota 10!',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100'
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100',
+    rating: 5.0
+  },
+  {
+    id: '4',
+    name: 'Roberto Lima',
+    city: 'Campo Largo/PR',
+    text: 'A casa ficou pronta em tempo recorde! Qualidade impecável na madeira e acabamento perfeito.',
+    image: '',
+    rating: 5.0
+  },
+  {
+    id: '5',
+    name: 'Patricia Souza',
+    city: 'Araucária/PR',
+    text: 'Projeto personalizado que superou expectativas. Equipe atenciosa do início ao fim.',
+    image: '',
+    rating: 4.0
+  },
+  {
+    id: '6',
+    name: 'Fernando Dias',
+    city: 'São José dos Pinhais/PR',
+    text: 'Melhor custo-benefício! Casa linda, confortável e entrega antes do prazo.',
+    image: '',
+    rating: 5.0
+  },
+  {
+    id: '7',
+    name: 'Juliana Costa',
+    city: 'Almirante Tamandaré/PR',
+    text: 'Construção sustentável e eficiente. Adorei cada detalhe do meu sobrado.',
+    image: '',
+    rating: 5.0
+  },
+  {
+    id: '8',
+    name: 'Carlos Mendes',
+    city: 'Fazenda Rio Grande/PR',
+    text: 'Atendimento nota 10! Me ajudaram em todas as etapas do projeto.',
+    image: '',
+    rating: 4.5
+  },
+  {
+    id: '9',
+    name: 'Ana Beatriz',
+    city: 'Quatro Barras/PR',
+    text: 'Minha casa de madeira é o sonho realizado. Conforto térmico incrível!',
+    image: '',
+    rating: 5.0
+  },
+  {
+    id: '10',
+    name: 'Ricardo Nunes',
+    city: 'Piraquara/PR',
+    text: 'Pontualidade e profissionalismo definem a Casas Pinheirão.',
+    image: '',
+    rating: 5.0
+  },
+  {
+    id: '11',
+    name: 'Simone Alves',
+    city: 'Colombo/PR',
+    text: 'Casa funcional, moderna e com excelente isolamento acústico.',
+    image: '',
+    rating: 4.0
+  },
+  {
+    id: '12',
+    name: 'Gustavo Reis',
+    city: 'Curitiba/PR',
+    text: 'Investimento que valeu cada centavo. Qualidade superior!',
+    image: '',
+    rating: 5.0
+  },
+  {
+    id: '13',
+    name: 'Luciana Martins',
+    city: 'Pinhais/PR',
+    text: 'Equipe técnica muito competente. Tiraram todas as minhas dúvidas.',
+    image: '',
+    rating: 5.0
+  },
+  {
+    id: '14',
+    name: 'Diego Ferreira',
+    city: 'Curitiba/PR',
+    text: 'Meu triplex ficou espetacular! Projeto inteligente e bem executado.',
+    image: '',
+    rating: 4.5
+  },
+  {
+    id: '15',
+    name: 'Camila Rocha',
+    city: 'Campo Magro/PR',
+    text: 'Casa aconchegante e durável. Recomendo de olhos fechados!',
+    image: '',
+    rating: 5.0
   }
 ];
 

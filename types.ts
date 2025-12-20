@@ -22,6 +22,7 @@ export interface Testimonial {
   city: string;
   text: string;
   image: string;
+  rating: number;
 }
 
 export interface Consultant {

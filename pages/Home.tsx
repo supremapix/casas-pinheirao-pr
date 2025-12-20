@@ -126,97 +126,132 @@ export const Home: React.FC = () => {
       />
       <Hero />
 
-      {/* Nova Seção de Vídeo com Mockup de Celular */}
-      <section className="video-section py-20 bg-gradient-to-br from-pinheirao-black via-[#1E293B] to-pinheirao-black relative overflow-hidden">
-        {/* Efeito de fundo animado */}
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-pinheirao-green/10 to-transparent top-[-250px] right-[-250px] animate-float"></div>
-        <div className="absolute w-[400px] h-[400px] rounded-full bg-gradient-radial from-pinheirao-green/5 to-transparent bottom-[-200px] left-[-200px] animate-float-delayed"></div>
+      {/* Nova Seção de Vídeo com Mockup de Celular - Estilo Premium */}
+      <section className="video-showcase-section py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] relative overflow-hidden">
+        {/* Efeitos de fundo animados */}
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-gradient-radial from-pinheirao-green/15 via-pinheirao-green/5 to-transparent top-[-300px] right-[-200px] blur-3xl animate-float"></div>
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-pinheirao-deep/10 to-transparent bottom-[-250px] left-[-150px] blur-3xl animate-float-delayed"></div>
+
+        {/* Grid de pontos decorativo */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-            
-            {/* Coluna Esquerda (40%) - Mockup de Celular */}
-            <div className="lg:col-span-2 flex justify-center">
-              <div className="phone-mockup relative w-[280px] sm:w-[320px] h-[570px] sm:h-[650px] bg-[#1a1a1a] rounded-[40px] p-2.5 sm:p-3 shadow-[0_25px_50px_rgba(0,0,0,0.3),0_0_0_12px_#2a2a2a,0_0_0_14px_#1a1a1a] transform -rotate-5 hover:rotate-0 hover:scale-105 transition-all duration-500">
-                {/* Notch do iPhone */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] sm:w-[120px] h-[24px] sm:h-[28px] bg-[#1a1a1a] rounded-b-[20px] z-10"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
-                {/* Tela do celular com vídeo */}
-                <div className="phone-screen relative w-full h-full bg-black rounded-[28px] sm:rounded-[30px] overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/3ZXzDpzvKRw?autoplay=1&mute=1&loop=1&playlist=3ZXzDpzvKRw&controls=1&modestbranding=1&rel=0"
-                    title="Tour Virtual - Casas Pinheirão"
-                    className="absolute inset-0 w-full h-full object-cover"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+            {/* Coluna Esquerda (5/12 = ~40%) - Mockup de Celular Premium */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-start">
+              <div className="phone-mockup-wrapper relative">
+                {/* Glow effect atrás do celular */}
+                <div className="absolute inset-0 bg-gradient-to-br from-pinheirao-green/30 to-pinheirao-deep/30 blur-[80px] scale-110"></div>
+
+                {/* Mockup do iPhone */}
+                <div className="phone-device relative w-[300px] sm:w-[340px] h-[610px] sm:h-[690px] bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[45px] sm:rounded-[50px] p-3 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.1)] transform hover:scale-[1.02] transition-all duration-500 z-10">
+
+                  {/* Notch do iPhone (Dynamic Island style) */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[110px] sm:w-[130px] h-[28px] sm:h-[32px] bg-black rounded-full z-20 shadow-inner"></div>
+
+                  {/* Botão de volume */}
+                  <div className="absolute left-[-3px] top-[120px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm"></div>
+                  <div className="absolute left-[-3px] top-[180px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm"></div>
+
+                  {/* Botão power */}
+                  <div className="absolute right-[-3px] top-[150px] w-[3px] h-[70px] bg-[#2a2a2a] rounded-r-sm"></div>
+
+                  {/* Tela interna com vídeo */}
+                  <div className="phone-screen relative w-full h-full bg-black rounded-[36px] sm:rounded-[40px] overflow-hidden shadow-inner">
+                    {/* Play button overlay decorativo */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-pinheirao-green/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-pulse">
+                        <div className="w-0 h-0 border-t-[12px] sm:border-t-[14px] border-t-transparent border-l-[18px] sm:border-l-[22px] border-l-white border-b-[12px] sm:border-b-[14px] border-b-transparent ml-1"></div>
+                      </div>
+                    </div>
+
+                    <iframe
+                      src="https://www.youtube.com/embed/3ZXzDpzvKRw?autoplay=1&mute=1&loop=1&playlist=3ZXzDpzvKRw&controls=1&modestbranding=1&rel=0&playsinline=1"
+                      title="Tour Virtual - Casas Pinheirão"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+
+                  {/* Reflexo de luz no celular */}
+                  <div className="absolute top-0 left-0 w-full h-full rounded-[45px] sm:rounded-[50px] bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none"></div>
                 </div>
-
-                {/* Brilho na borda */}
-                <div className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-pinheirao-green/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
               </div>
             </div>
 
-            {/* Coluna Direita (60%) - Conteúdo */}
-            <div className="lg:col-span-3 space-y-4 sm:space-y-6">
-              {/* Badge Superior */}
-              <div className="inline-flex items-center gap-2 bg-pinheirao-green/10 border border-pinheirao-green px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm">
-                <span className="text-xl sm:text-2xl">🏡</span>
-                <span className="text-pinheirao-green font-semibold text-xs sm:text-sm tracking-wider uppercase">Conheça Nossas Casas</span>
+            {/* Coluna Direita (7/12 = ~60%) - Conteúdo */}
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6 lg:space-y-7">
+
+              {/* Badge Superior com ícone */}
+              <div className="inline-flex items-center gap-2 sm:gap-2.5 bg-gradient-to-r from-pinheirao-green/15 to-pinheirao-deep/15 border border-pinheirao-green/40 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full backdrop-blur-sm shadow-lg">
+                <span className="text-xl sm:text-2xl">⭐</span>
+                <span className="text-pinheirao-green font-bold text-xs sm:text-sm tracking-wider uppercase">CASAS PINHEIRÃO</span>
               </div>
 
-              {/* Título Principal */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-                Não é Sonho, é{' '}
-                <span className="highlight-text relative text-pinheirao-green">
-                  Realidade em Pinhais!
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep animate-slide-in"></span>
+              {/* Título Principal com Destaque */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
+                Não é Milagre, é{' '}
+                <span className="relative inline-block">
+                  <span className="relative z-10 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green bg-clip-text text-transparent animate-gradient">
+                    Casas Pinheirão!
+                  </span>
+                  <span className="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-pinheirao-green/20 -z-0"></span>
                 </span>
               </h2>
 
-              {/* Descrição */}
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                Nossas <strong className="text-white font-semibold">casas prontas para morar</strong> oferecem conforto,
-                segurança e a localização perfeita para sua família.
-                <strong className="text-white font-semibold"> Financiamento próprio facilitado</strong> e você realiza
-                o sonho da casa própria!
+              {/* Descrição com destaque */}
+              <p className="text-base sm:text-lg lg:text-xl text-gray-300/90 leading-relaxed max-w-2xl">
+                Nossa <strong className="text-white font-bold">construção especializada</strong> oferece casas pré-fabricadas no conforto da sua casa. Cansado de pagar aluguel?
+                <strong className="text-pinheirao-green font-bold"> Dê o play na sua vida</strong> e veja a transformação!
               </p>
 
-              {/* Destaque */}
-              <p className="text-pinheirao-green font-semibold text-sm sm:text-base pl-4 sm:pl-5 border-l-4 border-pinheirao-green">
-                Visite nosso showroom em Pinhais - Curitiba/PR
-              </p>
+              {/* Destaque de localização */}
+              <div className="inline-block bg-gradient-to-r from-pinheirao-green/10 to-transparent pl-5 pr-8 py-3 border-l-4 border-pinheirao-green rounded-r-lg">
+                <p className="text-pinheirao-green font-bold text-sm sm:text-base">
+                  Atendimento em Pinhais, Curitiba e Região Metropolitana.
+                </p>
+              </div>
 
-              {/* Lista de Benefícios */}
-              <ul className="space-y-3 sm:space-y-4 py-2 sm:py-4">
+              {/* Lista de Benefícios com ícones circulares */}
+              <ul className="space-y-3.5 sm:space-y-4 py-3 sm:py-4">
                 {[
-                  'Casas de 2 e 3 quartos com acabamento de qualidade',
-                  'Financiamento direto com a construtora sem burocracia',
-                  'Localização privilegiada com comércio e transporte próximo'
+                  'Casas de madeira e alvenaria com tecnologia de ponta',
+                  'Financiamento facilitado direto com a construtora',
+                  'Projetos personalizados e entrega em tempo recorde'
                 ].map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-2 sm:gap-3 text-gray-200">
-                    <span className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 bg-pinheirao-green text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">✓</span>
-                    <span className="text-sm sm:text-base leading-relaxed">{benefit}</span>
+                  <li key={idx} className="flex items-start gap-3 sm:gap-4 text-gray-100 group">
+                    <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-pinheirao-green to-pinheirao-deep text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg group-hover:scale-110 transition-transform">
+                      <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
+                    </span>
+                    <span className="text-sm sm:text-base lg:text-lg leading-relaxed font-medium pt-0.5">{benefit}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Botões de Ação */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+              {/* Botões de Ação com Gradiente */}
+              <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 pt-3 sm:pt-4">
                 <Link
                   to="/envie-seu-projeto"
-                  className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-[0_4px_12px_rgba(11,181,151,0.4)] hover:shadow-[0_8px_20px_rgba(11,181,151,0.5)] hover:-translate-y-1 transition-all"
+                  className="group relative inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-4 sm:py-4.5 bg-gradient-to-r from-[#8B5CF6] via-[#D946EF] to-[#F97316] text-white font-bold text-sm sm:text-base rounded-full shadow-[0_8px_20px_rgba(139,92,246,0.4)] hover:shadow-[0_12px_28px_rgba(139,92,246,0.5)] hover:-translate-y-1 transition-all overflow-hidden"
                 >
-                  <span>Agende sua Visita!</span>
-                  <span className="text-lg sm:text-xl">🏠</span>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <span>Quero Minha Casa Assim!</span>
+                    <span className="text-xl">🏠</span>
+                  </span>
+                  {/* Efeito de brilho animado */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                 </Link>
+
                 <Link
-                  to="/empresa"
-                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-transparent text-pinheirao-green font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-pinheirao-green rounded-xl hover:bg-pinheirao-green/10 hover:-translate-y-1 transition-all"
+                  to="/projetos"
+                  className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 sm:py-4.5 bg-white/5 backdrop-blur-sm text-white font-bold text-sm sm:text-base border-2 border-white/20 rounded-full hover:bg-white/10 hover:border-white/40 hover:-translate-y-1 transition-all"
                 >
-                  Falar com Consultor
+                  Conhecer Projetos
                 </Link>
               </div>
+
             </div>
 
           </div>
@@ -224,30 +259,48 @@ export const Home: React.FC = () => {
 
         <style>{`
           @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-30px, 30px); }
+            0%, 100% {
+              transform: translate(0, 0) scale(1);
+              opacity: 0.6;
+            }
+            50% {
+              transform: translate(-40px, 40px) scale(1.1);
+              opacity: 0.8;
+            }
           }
 
           @keyframes float-delayed {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, -30px); }
+            0%, 100% {
+              transform: translate(0, 0) scale(1);
+              opacity: 0.5;
+            }
+            50% {
+              transform: translate(40px, -40px) scale(1.15);
+              opacity: 0.7;
+            }
           }
 
-          @keyframes slide-in {
-            from { width: 0; }
-            to { width: 100%; }
+          @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
           }
 
           .animate-float {
-            animation: float 8s ease-in-out infinite;
+            animation: float 10s ease-in-out infinite;
           }
 
           .animate-float-delayed {
-            animation: float-delayed 10s ease-in-out infinite;
+            animation: float-delayed 12s ease-in-out infinite;
           }
 
-          .animate-slide-in {
-            animation: slide-in 1s ease-out;
+          .animate-gradient {
+            background-size: 200% auto;
+            animation: gradient 3s ease infinite;
+          }
+
+          .bg-gradient-radial {
+            background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-to));
           }
         `}</style>
       </section>

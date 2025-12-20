@@ -239,10 +239,10 @@ export const Home: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
-              <img 
-                src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/z2afcddr_historia_casas_pinheirao_v3.png" 
-                alt="História Casas Pinheirão - Tradição e Qualidade" 
-                className="rounded-xl shadow-2xl w-full h-[450px] object-cover" 
+              <img
+                src="/sobrados.png"
+                alt="História Casas Pinheirão - Tradição e Qualidade"
+                className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
               />
             </div>
           </div>
@@ -374,9 +374,9 @@ export const Home: React.FC = () => {
       <section className="py-24 bg-pinheirao-black text-white text-center relative overflow-hidden">
         {/* Imagem de fundo */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/p80lhc7x_fundo_cta_casas_pinheirao.png"
-            alt="Casas Pinheirão"
+          <img
+            src="/fundo_cta_casas_pinheirao.png"
+            alt="Casas Pinheirão - Construa seu futuro"
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-pinheirao-black/80 via-pinheirao-black/70 to-pinheirao-black/90"></div>

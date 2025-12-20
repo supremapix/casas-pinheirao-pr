@@ -126,6 +126,57 @@ export const Home: React.FC = () => {
       />
       <Hero />
 
+      {/* Diferenciais Rápidos */}
+      <section className="bg-pinheirao-concrete/10 py-8 sm:py-12 border-b border-pinheirao-concrete/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              { icon: <Clock size={20} />, text: '20 Anos de Mercado' },
+              { icon: <Users size={20} />, text: '300+ Famílias Felizes' },
+              { icon: <Shield size={20} />, text: 'Garantia Estrutural' },
+              { icon: <Award size={20} />, text: 'Atendimento Consultivo' },
+            ].map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center group">
+                <div className="text-pinheirao-green mb-2 sm:mb-3 group-hover:scale-110 transition-transform">
+                  {React.cloneElement(item.icon as React.ReactElement, { className: 'w-5 h-5 sm:w-6 sm:h-6' })}
+                </div>
+                <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide sm:tracking-widest text-pinheirao-black">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nossa História (About Us Section) */}
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+            <div>
+              <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.3em] text-pinheirao-green mb-3 sm:mb-4">Tradição em Pinhais</h2>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span></h3>
+              <p className="text-sm sm:text-base text-pinheirao-gray mb-4 sm:mb-6 leading-relaxed font-medium">
+                Referência em casas pré-fabricadas em toda Curitiba e Região Metropolitana, a Casas Pinheirão une a velocidade da construção moderna com o cuidado artesanal das madeiras nobres.
+              </p>
+              <p className="text-sm sm:text-base text-pinheirao-gray mb-8 sm:mb-10 leading-relaxed font-medium">
+                Nosso compromisso é entregar não apenas uma estrutura, mas o cenário onde sua família construirá as melhores memórias, com o melhor custo-benefício do Paraná.
+              </p>
+              <Link to="/empresa" className="inline-flex items-center text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest text-pinheirao-black group">
+                Conheça nossa trajetória
+                <ChevronRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform sm:w-4 sm:h-4" />
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
+              <img
+                src="/sobrados.png"
+                alt="História Casas Pinheirão - Tradição e Qualidade"
+                className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Nova Seção de Vídeo com Mockup de Celular - Estilo Premium */}
       <section className="video-showcase-section py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] relative overflow-hidden">
         {/* Efeitos de fundo animados */}
@@ -346,58 +397,6 @@ export const Home: React.FC = () => {
             background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-to));
           }
         `}</style>
-      </section>
-
-      {/* Seção Nossos Modelos */}
-      {/* Diferenciais Rápidos */}
-      <section className="bg-pinheirao-concrete/10 py-8 sm:py-12 border-b border-pinheirao-concrete/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            {[
-              { icon: <Clock size={20} />, text: '20 Anos de Mercado' },
-              { icon: <Users size={20} />, text: '300+ Famílias Felizes' },
-              { icon: <Shield size={20} />, text: 'Garantia Estrutural' },
-              { icon: <Award size={20} />, text: 'Atendimento Consultivo' },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center group">
-                <div className="text-pinheirao-green mb-2 sm:mb-3 group-hover:scale-110 transition-transform">
-                  {React.cloneElement(item.icon as React.ReactElement, { className: 'w-5 h-5 sm:w-6 sm:h-6' })}
-                </div>
-                <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide sm:tracking-widest text-pinheirao-black">{item.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Nossa História (About Us Section) */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
-            <div>
-              <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.3em] text-pinheirao-green mb-3 sm:mb-4">Tradição em Pinhais</h2>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span></h3>
-              <p className="text-sm sm:text-base text-pinheirao-gray mb-4 sm:mb-6 leading-relaxed font-medium">
-                Referência em casas pré-fabricadas em toda Curitiba e Região Metropolitana, a Casas Pinheirão une a velocidade da construção moderna com o cuidado artesanal das madeiras nobres.
-              </p>
-              <p className="text-sm sm:text-base text-pinheirao-gray mb-8 sm:mb-10 leading-relaxed font-medium">
-                Nosso compromisso é entregar não apenas uma estrutura, mas o cenário onde sua família construirá as melhores memórias, com o melhor custo-benefício do Paraná.
-              </p>
-              <Link to="/empresa" className="inline-flex items-center text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest text-pinheirao-black group">
-                Conheça nossa trajetória
-                <ChevronRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform sm:w-4 sm:h-4" />
-              </Link>
-            </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
-              <img
-                src="/sobrados.png"
-                alt="História Casas Pinheirão - Tradição e Qualidade"
-                className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
-              />
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Our Services Section (Added below About Us as requested) */}

@@ -225,23 +225,23 @@ export const PROJECTS: Project[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
-    name: 'Marcos Vinícius',
+    name: 'Maria Clara',
     city: 'Curitiba/PR',
-    text: 'A velocidade da entrega me surpreendeu. Em menos de 2 meses já estava morando na minha casa de madeira. O atendimento do Alisson foi nota 10!',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100'
-  },
-  {
-    id: '2',
-    name: 'Ana Paula Ferreira',
-    city: 'Pinhais/PR',
-    text: 'Procurei várias empresas, mas só na Pinheirão senti segurança. Eles cuidaram de tudo, desde a fundação até o acabamento final.',
+    text: 'Construir meu triplex de 148m² com a Casas Pinheirão foi uma das melhores decisões. Eles foram honestos, cumpriram o prazo e entregaram exatamente como prometido!',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100'
   },
   {
-    id: '3',
-    name: 'Claudio Roberto',
+    id: '2',
+    name: 'João Pedro',
     city: 'Colombo/PR',
-    text: 'Qualidade da madeira é excepcional. Moro no sobrado há 3 anos e a estrutura continua perfeita. Recomendo sem dúvidas.',
+    text: 'Fiz meu sobrado personalizado e não tenho do que reclamar. Ficou lindo, funcional e dentro do meu orçamento!',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100'
+  },
+  {
+    id: '3',
+    name: 'Marcos Vinícius',
+    city: 'Pinhais/PR',
+    text: 'A velocidade da entrega me surpreendeu. Em menos de 2 meses já estava morando na minha casa de madeira. O atendimento do Alisson foi nota 10!',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100'
   }
 ];
@@ -251,12 +251,12 @@ export const CONSULTANTS: Consultant[] = [
     name: 'Alisson',
     role: 'Especialista em Projetos',
     phone: '(41) 99630-1028',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200'
+    image: 'https://casaspinheirao.com.br/medias/Realize-o-sonho-da-casa-propria-com-a-Casas-Pinheirao-2.png'
   },
   {
     name: 'Denise',
     role: 'Consultora de Vendas',
-    phone: '(41) 99630-1028',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200'
+    phone: '(41) 99637-6486',
+    image: 'https://casaspinheirao.com.br/medias/casas-pinheirao-em-pinhais-1.png'
   }
 ];

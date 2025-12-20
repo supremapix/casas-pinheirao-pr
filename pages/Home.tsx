@@ -71,6 +71,133 @@ export const Home: React.FC = () => {
     <div className="overflow-hidden">
       <Hero />
 
+      {/* Nova Seção de Vídeo com Mockup de Celular */}
+      <section className="video-section py-20 bg-gradient-to-br from-pinheirao-black via-[#1E293B] to-pinheirao-black relative overflow-hidden">
+        {/* Efeito de fundo animado */}
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-pinheirao-green/10 to-transparent top-[-250px] right-[-250px] animate-float"></div>
+        <div className="absolute w-[400px] h-[400px] rounded-full bg-gradient-radial from-pinheirao-green/5 to-transparent bottom-[-200px] left-[-200px] animate-float-delayed"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+            
+            {/* Coluna Esquerda (40%) - Mockup de Celular */}
+            <div className="lg:col-span-2 flex justify-center">
+              <div className="phone-mockup relative w-[320px] h-[650px] bg-[#1a1a1a] rounded-[40px] p-3 shadow-[0_25px_50px_rgba(0,0,0,0.3),0_0_0_12px_#2a2a2a,0_0_0_14px_#1a1a1a] transform -rotate-5 hover:rotate-0 hover:scale-105 transition-all duration-500">
+                {/* Notch do iPhone */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-[#1a1a1a] rounded-b-[20px] z-10"></div>
+                
+                {/* Tela do celular com vídeo */}
+                <div className="phone-screen relative w-full h-full bg-black rounded-[30px] overflow-hidden">
+                  <iframe 
+                    src="https://www.youtube.com/embed/3ZXzDpzvKRw?autoplay=1&mute=1&loop=1&playlist=3ZXzDpzvKRw&controls=1&modestbranding=1&rel=0"
+                    title="Tour Virtual - Casas Pinheirão"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+
+                {/* Brilho na borda */}
+                <div className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-pinheirao-green/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+              </div>
+            </div>
+
+            {/* Coluna Direita (60%) - Conteúdo */}
+            <div className="lg:col-span-3 space-y-6">
+              {/* Badge Superior */}
+              <div className="inline-flex items-center gap-2 bg-pinheirao-green/10 border border-pinheirao-green px-4 py-2 rounded-full backdrop-blur-sm">
+                <span className="text-2xl">🏡</span>
+                <span className="text-pinheirao-green font-semibold text-sm tracking-wider uppercase">Conheça Nossas Casas</span>
+              </div>
+
+              {/* Título Principal */}
+              <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                Não é Sonho, é{' '}
+                <span className="highlight-text relative text-pinheirao-green">
+                  Realidade em Pinhais!
+                  <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep animate-slide-in"></span>
+                </span>
+              </h2>
+
+              {/* Descrição */}
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Nossas <strong className="text-white font-semibold">casas prontas para morar</strong> oferecem conforto, 
+                segurança e a localização perfeita para sua família. 
+                <strong className="text-white font-semibold"> Financiamento próprio facilitado</strong> e você realiza 
+                o sonho da casa própria!
+              </p>
+
+              {/* Destaque */}
+              <p className="text-pinheirao-green font-semibold text-base pl-5 border-l-4 border-pinheirao-green">
+                Visite nosso showroom em Pinhais - Curitiba/PR
+              </p>
+
+              {/* Lista de Benefícios */}
+              <ul className="space-y-4 py-4">
+                {[
+                  'Casas de 2 e 3 quartos com acabamento de qualidade',
+                  'Financiamento direto com a construtora sem burocracia',
+                  'Localização privilegiada com comércio e transporte próximo'
+                ].map((benefit, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-gray-200">
+                    <span className="flex-shrink-0 w-6 h-6 bg-pinheirao-green text-white rounded-full flex items-center justify-center font-bold text-sm">✓</span>
+                    <span className="text-base leading-relaxed">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Botões de Ação */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Link
+                  to="/envie-seu-projeto"
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep text-white font-bold text-sm uppercase tracking-wider rounded-xl shadow-[0_4px_12px_rgba(11,181,151,0.4)] hover:shadow-[0_8px_20px_rgba(11,181,151,0.5)] hover:-translate-y-1 transition-all"
+                >
+                  <span>Agende sua Visita!</span>
+                  <span className="text-xl">🏠</span>
+                </Link>
+                <Link
+                  to="/empresa"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-pinheirao-green font-bold text-sm uppercase tracking-wider border-2 border-pinheirao-green rounded-xl hover:bg-pinheirao-green/10 hover:-translate-y-1 transition-all"
+                >
+                  Falar com Consultor
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, 30px); }
+          }
+
+          @keyframes float-delayed {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+          }
+
+          @keyframes slide-in {
+            from { width: 0; }
+            to { width: 100%; }
+          }
+
+          .animate-float {
+            animation: float 8s ease-in-out infinite;
+          }
+
+          .animate-float-delayed {
+            animation: float-delayed 10s ease-in-out infinite;
+          }
+
+          .animate-slide-in {
+            animation: slide-in 1s ease-out;
+          }
+        `}</style>
+      </section>
+
+      {/* Seção Nossos Modelos */}
       {/* Diferenciais Rápidos */}
       <section className="bg-pinheirao-concrete/10 py-12 border-b border-pinheirao-concrete/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

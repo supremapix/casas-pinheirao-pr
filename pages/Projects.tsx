@@ -80,23 +80,26 @@ export const Projects: React.FC = () => {
   }, [filter]);
 
   return (
-    <div className="pt-20">
-      <section className="bg-pinheirao-concrete/30 py-24 border-b border-pinheirao-concrete">
+    <div className="pt-20 md:pt-20 pt-16">
+      {/* Hero Section - Reduzido em mobile */}
+      <section className="bg-pinheirao-concrete/30 py-12 md:py-24 border-b border-pinheirao-concrete">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-6">Modelos & Projetos</h2>
-          <h1 className="text-5xl font-black text-pinheirao-black mb-8 leading-tight">Escolha o seu lar sob medida.</h1>
-          <p className="text-pinheirao-gray max-w-2xl mx-auto font-medium">Nossos modelos servem como base para a sua criatividade. Todo projeto pode ser 100% personalizado conforme sua necessidade e terreno.</p>
+          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-4 md:mb-6">Modelos & Projetos</h2>
+          <h1 className="text-3xl md:text-5xl font-black text-pinheirao-black mb-4 md:mb-8 leading-tight">Escolha o seu lar sob medida.</h1>
+          <p className="text-pinheirao-gray max-w-2xl mx-auto font-medium text-sm md:text-base">Nossos modelos servem como base para a sua criatividade. Todo projeto pode ser 100% personalizado conforme sua necessidade e terreno.</p>
         </div>
       </section>
 
-      {/* Sticky Filter Bar */}
-      <section className="py-10 bg-white sticky top-20 z-40 border-b shadow-sm">
+      {/* Sticky Filter Bar - Desktop e Mobile */}
+      <section className="py-3 md:py-10 bg-white sticky top-16 md:top-20 z-40 border-b shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
+          
+          {/* Desktop - Botões em linha */}
+          <div className="hidden md:flex flex-wrap justify-center gap-4">
             <button
-              onClick={() => setFilter('ALL')}
+              onClick={() => setActiveFilter('all')}
               className={`px-8 py-3 text-[10px] font-black uppercase tracking-widest transition-all rounded-sm border ${
-                filter === 'ALL' 
+                activeFilter === 'all' 
                   ? 'bg-pinheirao-green text-white border-pinheirao-green shadow-lg' 
                   : 'bg-white text-pinheirao-gray border-gray-200 hover:bg-gray-50'
               }`}
@@ -106,9 +109,9 @@ export const Projects: React.FC = () => {
             {Object.values(ConstructionType).map((type) => (
               <button
                 key={type}
-                onClick={() => setFilter(type)}
+                onClick={() => setActiveFilter(type)}
                 className={`px-8 py-3 text-[10px] font-black uppercase tracking-widest transition-all rounded-sm border ${
-                  filter === type 
+                  activeFilter === type 
                     ? 'bg-pinheirao-green text-white border-pinheirao-green shadow-lg' 
                     : 'bg-white text-pinheirao-gray border-gray-200 hover:bg-gray-50'
                 }`}
@@ -117,6 +120,28 @@ export const Projects: React.FC = () => {
               </button>
             ))}
           </div>
+
+          {/* Mobile - Select Dropdown */}
+          <div className="md:hidden">
+            <select
+              value={activeFilter}
+              onChange={(e) => setActiveFilter(e.target.value as ConstructionType | 'all')}
+              className="w-full px-4 py-3 text-sm font-bold uppercase tracking-wide bg-pinheirao-green text-white border-2 border-pinheirao-green rounded-lg shadow-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-pinheirao-green focus:ring-offset-2"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 1rem center',
+                backgroundSize: '1.5rem'
+              }}
+            >
+              <option value="all">📦 Todos os Projetos</option>
+              <option value={ConstructionType.WOOD}>🌲 Casas de Madeira</option>
+              <option value={ConstructionType.MASONRY}>🏗️ Casas de Alvenaria</option>
+              <option value={ConstructionType.SOBRADO}>🏘️ Sobrados</option>
+              <option value={ConstructionType.TRIPLEX}>🏢 Triplex</option>
+            </select>
+          </div>
+
         </div>
       </section>
 

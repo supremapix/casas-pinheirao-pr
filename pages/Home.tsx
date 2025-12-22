@@ -171,7 +171,7 @@ export const Home: React.FC = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
               <img
-                src="/tradicao_em_pinhais.png"
+                src="/tradicao-em-pinhais.webp"
                 alt="Tradição em Pinhais - Casas Pinheirão, do aluguel para a casa própria, construímos no seu terreno"
                 className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
               />

@@ -82,9 +82,18 @@ export const About: React.FC = () => {
             <div className="bg-pinheirao-green text-white inline-block px-6 py-3 rounded-sm text-xs font-black uppercase tracking-widest mb-6">
               Nossa Jornada
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-pinheirao-black mb-6">
-              Uma história de confiança e qualidade
-            </h2>
+            <div className="flex items-center justify-center gap-6 mb-6">
+              <h2 className="text-4xl md:text-5xl font-black text-pinheirao-black">
+                Uma história de confiança e qualidade
+              </h2>
+              <div className="w-16 h-16 bg-white rounded-full p-3 shadow-lg flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform duration-300">
+                <img
+                  src="/crea-pr.svg"
+                  alt="CREA-PR"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
             <div className="w-24 h-1 bg-pinheirao-green mx-auto mb-8"></div>
             <p className="text-pinheirao-gray max-w-3xl mx-auto text-lg leading-relaxed font-medium">
               A <strong className="text-pinheirao-black">Casas Pinheirão</strong> nasceu em Pinhais com o propósito de oferecer uma alternativa viável, segura e de alta qualidade para quem deseja construir a casa própria. Ao longo de mais de 20 anos, evoluímos nossos processos construtivos e expandimos nossa equipe para nos tornarmos referência no segmento.
@@ -96,24 +105,12 @@ export const About: React.FC = () => {
             {journeyImages.map((image, idx) => (
               <div
                 key={idx}
-                className="group cursor-pointer rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-500 bg-white overflow-hidden"
+                className="relative group cursor-pointer overflow-hidden rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-500"
                 onClick={() => setSelectedImage(image)}
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"></div>
 
-                {idx === 1 && (
-                  <div className="flex justify-end p-4 bg-gradient-to-br from-pinheirao-green/5 to-white">
-                    <div className="w-16 h-16 bg-white rounded-full p-3 shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                      <img
-                        src="/crea-pr.svg"
-                        alt="CREA-PR Empresa Registrada"
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  </div>
-                )}
-
-                <div className={`relative aspect-[4/3] overflow-hidden bg-pinheirao-concrete/20 ${idx === 1 ? '-mt-6' : ''}`}>
+                <div className="relative aspect-[4/3] overflow-hidden bg-pinheirao-concrete/20">
                   <img
                     src={image.src}
                     alt={image.alt}

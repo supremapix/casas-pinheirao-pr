@@ -1,9 +1,38 @@
 
-import React from 'react';
-import { Award, Users, Shield, Target, Eye, Heart, LayoutTemplate, Briefcase, Boxes, Eye as EyeIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Award, Users, Shield, Target, Eye, Heart, LayoutTemplate, Briefcase, Boxes, Eye as EyeIcon, X, ZoomIn } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 
+interface ImageData {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+}
+
 export const About: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+
+  const journeyImages: ImageData[] = [
+    {
+      src: '/nossa_jornada-empresa-historia.webp',
+      alt: 'História Casas Pinheirão - Sede da empresa especializada em casas pré-fabricadas de madeira em Pinhais',
+      title: 'Nossa Sede em Pinhais',
+      description: 'Localizada estrategicamente em Pinhais, nossa sede conta com showroom completo onde você pode conhecer nossos modelos, materiais de primeira qualidade e receber consultoria especializada para seu projeto de casa pré-fabricada.'
+    },
+    {
+      src: '/nossa_jornada-empresa.webp',
+      alt: 'Casas Pinheirão fachada - Empresa registrada no CREA-PR construindo casas pré-fabricadas de qualidade',
+      title: 'Tradição e Credibilidade',
+      description: 'Empresa registrada no CREA-PR com mais de 20 anos de experiência. Nossa estrutura moderna e equipe qualificada garantem projetos executados com excelência técnica e total segurança estrutural para sua família.'
+    },
+    {
+      src: '/nossa_jornada.webp',
+      alt: 'Vista aérea Casas Pinheirão - Empresa de casas pré-fabricadas com estrutura completa em Pinhais',
+      title: 'Estrutura Completa',
+      description: 'Vista aérea de nossa estrutura completa para fabricação e construção. Possuímos estoque de materiais certificados, área de produção moderna e equipe técnica especializada pronta para transformar seu sonho em realidade.'
+    }
+  ];
   const ourServices = [
     {
       icon: <LayoutTemplate size={32} className="text-pinheirao-green" />,
@@ -47,62 +76,132 @@ export const About: React.FC = () => {
       </section>
 
       {/* History (About Us Section) */}
-      <section className="py-24">
+      <section className="py-24 bg-gradient-to-b from-white to-pinheirao-concrete/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="bg-pinheirao-green text-white inline-block px-4 py-2 rounded-sm text-xs font-black uppercase tracking-widest mb-4">Nossa Jornada</div>
-              <h2 className="text-3xl md:text-4xl font-black text-pinheirao-black mb-6">Uma história de confiança e qualidade</h2>
-              <div className="space-y-6 text-pinheirao-gray leading-relaxed font-medium">
-                <p>
-                  A <strong className="text-pinheirao-black">Casas Pinheirão</strong> nasceu em Pinhais com o propósito de oferecer uma alternativa viável, segura e de alta qualidade para quem deseja construir a casa própria. Ao longo de mais de 20 anos, evoluímos nossos processos construtivos e expandimos nossa equipe para nos tornarmos referência no segmento.
-                </p>
-                <p>
-                  Nossa expertise vai além da construção em si; nós entendemos as expectativas e os desafios de cada família. Por isso, oferecemos um atendimento consultivo que guia o cliente desde a escolha do modelo ideal até o acabamento final.
-                </p>
-                <p>
-                  Hoje, com centenas de unidades entregues, nossa maior recompensa é a satisfação e o sorriso no rosto de cada novo morador.
-                </p>
-              </div>
+          <div className="text-center mb-16">
+            <div className="bg-pinheirao-green text-white inline-block px-6 py-3 rounded-sm text-xs font-black uppercase tracking-widest mb-6">
+              Nossa Jornada
             </div>
-            <div className="grid grid-cols-2 gap-4 relative">
-              <div className="absolute -inset-4 border-2 border-pinheirao-green/10 -z-10 rounded-2xl"></div>
+            <h2 className="text-4xl md:text-5xl font-black text-pinheirao-black mb-6">
+              Uma história de confiança e qualidade
+            </h2>
+            <div className="w-24 h-1 bg-pinheirao-green mx-auto mb-8"></div>
+            <p className="text-pinheirao-gray max-w-3xl mx-auto text-lg leading-relaxed font-medium">
+              A <strong className="text-pinheirao-black">Casas Pinheirão</strong> nasceu em Pinhais com o propósito de oferecer uma alternativa viável, segura e de alta qualidade para quem deseja construir a casa própria. Ao longo de mais de 20 anos, evoluímos nossos processos construtivos e expandimos nossa equipe para nos tornarmos referência no segmento.
+            </p>
+          </div>
 
-              {/* Primeira imagem com borda destacada e selo CREA animado */}
-              <div className="relative group mt-8">
-                <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                <div className="relative">
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            {journeyImages.map((image, idx) => (
+              <div
+                key={idx}
+                className="relative group cursor-pointer overflow-hidden rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-500"
+                onClick={() => setSelectedImage(image)}
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"></div>
+
+                <div className="relative aspect-[4/3] overflow-hidden bg-pinheirao-concrete/20">
                   <img
-                    src="/nossa-jornada-empresa.webp"
-                    alt="Obra Casas Pinheirão"
-                    className="relative rounded-lg shadow-xl border-4 border-white w-full"
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
                   />
-                  {/* Selo CREA sobreposto com animação */}
-                  <div className="absolute bottom-4 right-4 w-24 h-24 animate-bounce-slow">
-                    <div className="relative hover:scale-110 transition-transform duration-300">
+
+                  {/* Selo CREA na segunda imagem */}
+                  {idx === 1 && (
+                    <div className="absolute top-4 right-4 w-20 h-20 animate-bounce-slow">
                       <img
                         src="/crea-pr-pinhais.gif"
                         alt="CREA-PR Empresa Registrada"
-                        className="relative w-full h-full object-contain drop-shadow-2xl"
+                        className="w-full h-full object-contain drop-shadow-2xl"
                       />
+                    </div>
+                  )}
+
+                  {/* Overlay com zoom icon */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black/80 via-pinheirao-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <ZoomIn className="text-white" size={48} strokeWidth={2} />
+                      <p className="text-white font-bold text-sm mt-2 uppercase tracking-wider">Ver Detalhes</p>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Segunda imagem com borda destacada */}
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-deep to-pinheirao-green rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                <img
-                  src="/nossa-jornada-empresa-uma-historia-de-confianca.webp"
-                  alt="Equipe Casas Pinheirão"
-                  className="relative rounded-lg shadow-xl border-4 border-white w-full"
-                />
+                {/* Image Title */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pinheirao-black via-pinheirao-black/90 to-transparent p-6">
+                  <h3 className="text-white font-black text-xl mb-2 uppercase tracking-tight">
+                    {image.title}
+                  </h3>
+                  <p className="text-white/80 text-sm font-medium line-clamp-2">
+                    {image.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Additional Content */}
+          <div className="mt-16 max-w-4xl mx-auto space-y-6 text-pinheirao-gray leading-relaxed font-medium text-center">
+            <p className="text-lg">
+              Nossa expertise vai além da construção em si; nós entendemos as expectativas e os desafios de cada família. Por isso, oferecemos um atendimento consultivo que guia o cliente desde a escolha do modelo ideal até o acabamento final.
+            </p>
+            <p className="text-lg">
+              Hoje, com <strong className="text-pinheirao-black">centenas de unidades entregues</strong>, nossa maior recompensa é a satisfação e o sorriso no rosto de cada novo morador.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Modal/Lightbox */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 text-white hover:text-pinheirao-green transition-colors p-2 bg-white/10 rounded-full hover:bg-white/20 backdrop-blur-sm"
+            aria-label="Fechar"
+          >
+            <X size={32} strokeWidth={2} />
+          </button>
+
+          <div
+            className="max-w-6xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative aspect-video bg-pinheirao-concrete/20">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            <div className="p-8 bg-gradient-to-br from-white to-pinheirao-concrete/10">
+              <h3 className="text-3xl font-black text-pinheirao-black mb-4 uppercase tracking-tight">
+                {selectedImage.title}
+              </h3>
+              <p className="text-pinheirao-gray text-lg leading-relaxed font-medium">
+                {selectedImage.description}
+              </p>
+
+              <div className="mt-6 pt-6 border-t border-pinheirao-concrete/30">
+                <a
+                  href="https://wa.me/5541999999999?text=Olá! Gostaria de conhecer mais sobre a história e estrutura da Casas Pinheirão."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-pinheirao-green hover:bg-pinheirao-deep text-white px-8 py-4 rounded-sm font-black uppercase tracking-wider text-sm transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Conheça Nossa Estrutura
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      )}
 
       {/* Our Services Section */}
       <section className="py-24 bg-pinheirao-concrete/10 border-y border-pinheirao-concrete/20">
@@ -169,6 +268,41 @@ export const About: React.FC = () => {
 
         .animate-bounce-slow {
           animation: bounce-slow 2s ease-in-out infinite;
+        }
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes scale-in {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out;
+        }
+
+        .animate-scale-in {
+          animation: scale-in 0.4s ease-out;
+        }
+
+        .line-clamp-2 {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
       `}</style>
     </div>

@@ -14,7 +14,8 @@ export const Hero: React.FC = () => {
   const heroImages = [
     "/hero-home.png",
     "https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/u9zireyc_hero-image.png",
-    "/hero-imagem-3.png"
+    "/hero-imagem-3.png",
+    "/tradicao_em_pinhais.png"
   ];
 
   // Textos para o efeito máquina de escrever

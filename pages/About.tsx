@@ -192,7 +192,7 @@ export const About: React.FC = () => {
 
               <div className="mt-6 pt-6 border-t border-pinheirao-concrete/30">
                 <a
-                  href="https://wa.me/5541999999999?text=Olá! Gostaria de conhecer mais sobre a história e estrutura da Casas Pinheirão."
+                  href="https://wa.me/5541996301028?text=Olá! Gostaria de conhecer mais sobre a história e estrutura da Casas Pinheirão."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-pinheirao-green hover:bg-pinheirao-deep text-white px-8 py-4 rounded-sm font-black uppercase tracking-wider text-sm transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"

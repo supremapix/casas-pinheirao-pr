@@ -65,9 +65,9 @@ export const Home: React.FC = () => {
   };
 
   const constructionTypes = [
-    { type: ConstructionType.WOOD, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/f3o4r464_casa-madeia.jpg', desc: 'Conforto térmico e beleza natural das madeiras de lei.' },
-    { type: ConstructionType.MASONRY, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/he62fkak_casa-alvenaria.png', desc: 'Solidez e durabilidade da construção tradicional.' },
-    { type: ConstructionType.SOBRADO, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/mmuv5tox_sobrados.png', desc: 'Aproveitamento inteligente de espaço em dois pavimentos.' },
+    { type: ConstructionType.WOOD, image: '/casas-madeira-nossos_modelos.png', desc: 'Conforto térmico e beleza natural das madeiras de lei.' },
+    { type: ConstructionType.MASONRY, image: '/casas-alvenaria-nossos_modelos.png', desc: 'Solidez e durabilidade da construção tradicional.' },
+    { type: ConstructionType.SOBRADO, image: '/sobrado-nossos_modelos.png', desc: 'Aproveitamento inteligente de espaço em dois pavimentos.' },
     { type: ConstructionType.TRIPLEX, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/21ubrgoy_triplex.png', desc: 'O máximo em amplitude e luxo para sua família.' },
   ];
 

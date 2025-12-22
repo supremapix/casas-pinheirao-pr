@@ -78,13 +78,12 @@ export const About: React.FC = () => {
                     className="relative rounded-lg shadow-xl border-4 border-white w-full"
                   />
                   {/* Selo CREA sobreposto com animação */}
-                  <div className="absolute bottom-4 right-4 w-20 h-20 animate-bounce-slow">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-white rounded-full blur-sm opacity-80"></div>
+                  <div className="absolute bottom-4 right-4 w-24 h-24 animate-bounce-slow">
+                    <div className="relative hover:scale-110 transition-transform duration-300">
                       <img
-                        src="/crea-pr.png"
-                        alt="CREA-PR Certificado"
-                        className="relative w-full h-full object-contain drop-shadow-2xl animate-pulse"
+                        src="/crea-pr-pinhais.gif"
+                        alt="CREA-PR Empresa Registrada"
+                        className="relative w-full h-full object-contain drop-shadow-2xl"
                       />
                     </div>
                   </div>

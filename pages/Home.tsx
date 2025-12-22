@@ -191,11 +191,11 @@ export const Home: React.FC = () => {
                 </div>
                 {/* Selo CREA-PR sobreposto com animação */}
                 <div className="absolute top-6 right-6 w-24 sm:w-28 animate-float-logo">
-                  <div className="relative hover:scale-110 transition-transform duration-300">
+                  <div className="relative hover:scale-110 transition-transform duration-300 bg-white/95 rounded-full p-2 shadow-2xl">
                     <img
-                      src="/crea-pr-pinhais.gif"
+                      src="/crea-pr.svg"
                       alt="CREA-PR Empresa Registrada"
-                      className="w-full h-auto drop-shadow-2xl"
+                      className="w-full h-auto"
                     />
                   </div>
                 </div>

@@ -112,11 +112,13 @@ export const About: React.FC = () => {
                   {/* Selo CREA na segunda imagem */}
                   {idx === 1 && (
                     <div className="absolute top-4 right-4 w-20 h-20 animate-bounce-slow">
-                      <img
-                        src="/crea-pr-pinhais.gif"
-                        alt="CREA-PR Empresa Registrada"
-                        className="w-full h-full object-contain drop-shadow-2xl"
-                      />
+                      <div className="bg-white/95 rounded-full p-2 shadow-2xl w-full h-full flex items-center justify-center">
+                        <img
+                          src="/crea-pr.svg"
+                          alt="CREA-PR Empresa Registrada"
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
                     </div>
                   )}
 

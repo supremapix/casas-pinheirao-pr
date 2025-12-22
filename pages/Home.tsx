@@ -170,31 +170,28 @@ export const Home: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
-              <div className="relative">
-                <img
-                  src="/tradicao-em-pinhais.webp"
-                  alt="Tradição em Pinhais - Casas Pinheirão, do aluguel para a casa própria, construímos no seu terreno"
-                  className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
-                />
-                {/* Logo Casas Pinheirão sobreposta com animação */}
-                <div className="absolute bottom-6 right-6 w-32 sm:w-40 animate-float-logo">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-white/90 rounded-lg blur-md"></div>
-                    <div className="relative bg-white/95 p-3 rounded-lg shadow-2xl border-2 border-pinheirao-green/30 hover:scale-110 transition-transform duration-300">
-                      <img
-                        src="/casas-pinheirao-logo-transparente.png"
-                        alt="Casas Pinheirão Logo"
-                        className="w-full h-auto drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-                </div>
-                {/* Selo CREA-PR sobreposto com animação */}
-                <div className="absolute top-6 right-6 w-24 sm:w-28 animate-float-logo">
-                  <div className="relative hover:scale-110 transition-transform duration-300 bg-white/95 rounded-full p-2 shadow-2xl">
+              <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div className="flex justify-end p-4 sm:p-6 bg-gradient-to-br from-pinheirao-green/5 to-white">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full p-3 sm:p-4 shadow-lg flex items-center justify-center hover:scale-105 transition-transform duration-300">
                     <img
                       src="/crea-pr.svg"
                       alt="CREA-PR Empresa Registrada"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="relative -mt-8 sm:-mt-10">
+                  <img
+                    src="/tradicao-em-pinhais.webp"
+                    alt="Tradição em Pinhais - Casas Pinheirão, do aluguel para a casa própria, construímos no seu terreno"
+                    className="w-full h-[380px] sm:h-[420px] object-cover"
+                  />
+                </div>
+                <div className="p-4 sm:p-6 bg-white flex justify-end">
+                  <div className="w-28 sm:w-36 bg-white p-2 sm:p-3 rounded-lg shadow-lg border-2 border-pinheirao-green/30 hover:scale-105 transition-transform duration-300">
+                    <img
+                      src="/casas-pinheirao-logo-transparente.png"
+                      alt="Casas Pinheirão Logo"
                       className="w-full h-auto"
                     />
                   </div>

@@ -96,31 +96,30 @@ export const About: React.FC = () => {
             {journeyImages.map((image, idx) => (
               <div
                 key={idx}
-                className="relative group cursor-pointer overflow-hidden rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-500"
+                className="group cursor-pointer rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-500 bg-white overflow-hidden"
                 onClick={() => setSelectedImage(image)}
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"></div>
 
-                <div className="relative aspect-[4/3] overflow-hidden bg-pinheirao-concrete/20">
+                {idx === 1 && (
+                  <div className="flex justify-end p-4 bg-gradient-to-br from-pinheirao-green/5 to-white">
+                    <div className="w-16 h-16 bg-white rounded-full p-3 shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                      <img
+                        src="/crea-pr.svg"
+                        alt="CREA-PR Empresa Registrada"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <div className={`relative aspect-[4/3] overflow-hidden bg-pinheirao-concrete/20 ${idx === 1 ? '-mt-6' : ''}`}>
                   <img
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-
-                  {/* Selo CREA na segunda imagem */}
-                  {idx === 1 && (
-                    <div className="absolute top-4 right-4 w-20 h-20 animate-bounce-slow">
-                      <div className="bg-white/95 rounded-full p-2 shadow-2xl w-full h-full flex items-center justify-center">
-                        <img
-                          src="/crea-pr.svg"
-                          alt="CREA-PR Empresa Registrada"
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                    </div>
-                  )}
 
                   {/* Overlay com zoom icon */}
                   <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black/80 via-pinheirao-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

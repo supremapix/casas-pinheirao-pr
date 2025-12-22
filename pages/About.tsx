@@ -86,10 +86,10 @@ export const About: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-black text-pinheirao-black">
                 Uma história de confiança e qualidade
               </h2>
-              <div className="w-16 h-16 bg-white rounded-full p-3 shadow-lg flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform duration-300">
+              <div className="w-24 h-24 bg-white rounded-full p-3 shadow-lg flex items-center justify-center flex-shrink-0 animate-pulse-slow">
                 <img
-                  src="/crea-pr.svg"
-                  alt="CREA-PR"
+                  src="/crea-pr-pinhais-1.png"
+                  alt="CREA-PR Empresa Registrada"
                   className="w-full h-full object-contain"
                 />
               </div>

@@ -157,10 +157,10 @@ export const Home: React.FC = () => {
             <div>
               <div className="flex items-start gap-4 mb-3 sm:mb-4">
                 <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.3em] text-pinheirao-green flex-1">Tradição em Pinhais</h2>
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full p-2 shadow-lg flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform duration-300">
+                <div className="w-18 h-18 sm:w-21 sm:h-21 bg-white rounded-full p-2 shadow-lg flex items-center justify-center flex-shrink-0 animate-pulse-slow">
                   <img
-                    src="/crea-pr.svg"
-                    alt="CREA-PR"
+                    src="/crea-pr-pinhais-1.png"
+                    alt="CREA-PR Empresa Registrada"
                     className="w-full h-full object-contain"
                   />
                 </div>

@@ -34,7 +34,7 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex-shrink-0 flex items-center">
             <img
-              src="https://casaspinheirao.com.br/medias/elementor/thumbs/Casas-Pinheirao-Pinhais-As-casas-pre-fabricadas-mais-baratas-do-Brasil-qu5yw0ge1u5iqut4a4yuh23advi1ysrdau4a0yqoe8.png"
+              src="/casas-pinheirao-logo-transparente.png"
               alt="Casas Pinheirão"
               className="h-10 md:h-12 lg:h-14 w-auto object-contain"
             />

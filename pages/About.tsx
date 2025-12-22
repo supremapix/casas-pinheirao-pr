@@ -67,8 +67,39 @@ export const About: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-4 relative">
               <div className="absolute -inset-4 border-2 border-pinheirao-green/10 -z-10 rounded-2xl"></div>
-              <img src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/z3k4qhra_empresa-1.png" alt="Obra Casas Pinheirão" className="rounded-sm shadow-lg mt-8" />
-              <img src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/k9ar5mj9_empresa-2.png" alt="Equipe Casas Pinheirão" className="rounded-sm shadow-lg" />
+
+              {/* Primeira imagem com borda destacada e selo CREA animado */}
+              <div className="relative group mt-8">
+                <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                <div className="relative">
+                  <img
+                    src="/nossa-jornada-empresa.webp"
+                    alt="Obra Casas Pinheirão"
+                    className="relative rounded-lg shadow-xl border-4 border-white w-full"
+                  />
+                  {/* Selo CREA sobreposto com animação */}
+                  <div className="absolute bottom-4 right-4 w-20 h-20 animate-bounce-slow">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-white rounded-full blur-sm opacity-80"></div>
+                      <img
+                        src="/crea-pr.png"
+                        alt="CREA-PR Certificado"
+                        className="relative w-full h-full object-contain drop-shadow-2xl animate-pulse"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Segunda imagem com borda destacada */}
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-deep to-pinheirao-green rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                <img
+                  src="/nossa-jornada-empresa-uma-historia-de-confianca.webp"
+                  alt="Equipe Casas Pinheirão"
+                  className="relative rounded-lg shadow-xl border-4 border-white w-full"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -126,6 +157,21 @@ export const About: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <style>{`
+        @keyframes bounce-slow {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+
+        .animate-bounce-slow {
+          animation: bounce-slow 2s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };

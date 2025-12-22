@@ -170,11 +170,26 @@ export const Home: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
-              <img
-                src="/tradicao-em-pinhais.webp"
-                alt="Tradição em Pinhais - Casas Pinheirão, do aluguel para a casa própria, construímos no seu terreno"
-                className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
-              />
+              <div className="relative">
+                <img
+                  src="/tradicao-em-pinhais.webp"
+                  alt="Tradição em Pinhais - Casas Pinheirão, do aluguel para a casa própria, construímos no seu terreno"
+                  className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
+                />
+                {/* Logo Casas Pinheirão sobreposta com animação */}
+                <div className="absolute bottom-6 right-6 w-32 sm:w-40 animate-float-logo">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-white/90 rounded-lg blur-md"></div>
+                    <div className="relative bg-white/95 p-3 rounded-lg shadow-2xl border-2 border-pinheirao-green/30 hover:scale-110 transition-transform duration-300">
+                      <img
+                        src="/casas-pinheirao-logo-transparente.png"
+                        alt="Casas Pinheirão Logo"
+                        className="w-full h-auto drop-shadow-lg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -394,6 +409,19 @@ export const Home: React.FC = () => {
 
           .animate-pulse-ring {
             animation: pulse-ring 2s ease-in-out infinite;
+          }
+
+          @keyframes float-logo {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
+          }
+
+          .animate-float-logo {
+            animation: float-logo 3s ease-in-out infinite;
           }
 
           .bg-gradient-radial {

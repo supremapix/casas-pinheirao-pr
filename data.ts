@@ -180,7 +180,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.WOOD,
     area: '72.25m²',
     images: [
-      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0056-768x432.jpg'
+      '/casa_de_madeira_pinus_6m_x_7m-noseuterreno.png'
     ],
     description: 'Casa de madeira de pinus 6m x 7m com 72.25m². Combine sustentabilidade com conforto neste projeto charmoso e aconchegante.',
     featured: false
@@ -191,7 +191,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.WOOD,
     area: '60m²',
     images: [
-      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0049-768x432.jpg'
+      '/casa_de_madeira_pinus_5m_x_8m-noseuterreno.png'
     ],
     description: 'Casa de madeira de pinus 5m x 8m com 60m². Conforto térmico natural e beleza rústica, ideal para quem valoriza o contato com a natureza.',
     featured: false
@@ -202,7 +202,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.WOOD,
     area: '36m²',
     images: [
-      'https://casaspinheirao.com.br/medias/IMG-20220113-WA0050-768x432.jpg'
+      '/casa_de_madeira_pinus_6m_x_6m-construida-no-seu-terreno.png'
     ],
     description: 'Casa de madeira de pinus 6m x 6m com 36m². Charmosa casa compacta, perfeita para casais, pousadas ou casa de campo.',
     featured: false
@@ -213,7 +213,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.WOOD,
     area: '25m²',
     images: [
-      'https://casaspinheirao.com.br/medias/casa_mad_mod_03-768x432.jpg'
+      '/casa_de_madeira_pinus_5m_x_5m-construida-no-seu-terreno.png'
     ],
     description: 'Casa de madeira de pinus 5m x 5m com 25m². Solução econômica e versátil, ideal para chalé, escritório, ateliê ou casa de hóspedes.',
     featured: false

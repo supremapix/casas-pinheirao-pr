@@ -4,6 +4,7 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["python313Packages.txgithub"]
 
 [workflows]
 runButton = "Project"

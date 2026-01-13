@@ -30,3 +30,8 @@ dist-ssr
 
 # Vercel
 .vercel
+
+.replit
+.config
+.emergent
+replit.md

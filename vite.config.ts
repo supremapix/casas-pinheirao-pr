@@ -8,13 +8,14 @@ export default defineConfig(({ mode }) => {
     
     return {
       server: {
-        port: 3000,
+        port: 5000,
         host: '0.0.0.0',
-        allowedHosts: ['pinheirao-catalog.preview.emergentagent.com', 'localhost', '.emergentagent.com', '.vercel.app']
+        allowedHosts: true
       },
       preview: {
-        port: 3000,
-        host: '0.0.0.0'
+        port: 5000,
+        host: '0.0.0.0',
+        allowedHosts: true
       },
       plugins: [react()],
       define: {

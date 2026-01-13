@@ -157,12 +157,28 @@ export const Home: React.FC = () => {
             <div>
               <div className="flex items-start gap-4 mb-3 sm:mb-4">
                 <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.3em] text-pinheirao-green flex-1">Tradição em Pinhais</h2>
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-full p-2 shadow-lg flex items-center justify-center flex-shrink-0 animate-pulse-slow">
-                  <img
-                    src="/crea-pr-pinhais-1.png"
-                    alt="CREA-PR Empresa Registrada"
-                    className="w-full h-full object-contain"
-                  />
+                <div className="flex-shrink-0 group">
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
+                    {/* Premium Background Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-pinheirao-green/20 to-pinheirao-deep/10 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+                    
+                    {/* Main Container */}
+                    <div className="relative w-full h-full bg-white rounded-full p-3 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] border border-gray-100 flex items-center justify-center transform group-hover:rotate-[5deg] transition-all duration-500">
+                      <img
+                        src="/crea-pr-pinhais-1.png"
+                        alt="CREA-PR Empresa Registrada"
+                        className="w-full h-full object-contain filter drop-shadow-sm"
+                      />
+                      
+                      {/* Premium Accent */}
+                      <div className="absolute inset-0 rounded-full border-2 border-pinheirao-green/10 pointer-events-none"></div>
+                    </div>
+                    
+                    {/* Trusted Badge Accent */}
+                    <div className="absolute -bottom-1 -right-1 bg-white shadow-md rounded-full p-1 border border-gray-50">
+                      <Shield size={16} className="text-pinheirao-green fill-pinheirao-green/10" />
+                    </div>
+                  </div>
                 </div>
               </div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span></h3>
@@ -220,22 +236,74 @@ export const Home: React.FC = () => {
                   {/* Botão power */}
                   <div className="absolute right-[-3px] top-[150px] w-[3px] h-[70px] bg-[#2a2a2a] rounded-r-sm"></div>
 
-                  {/* Tela interna com vídeo */}
-                  <div className="phone-screen relative w-full h-full bg-black rounded-[36px] sm:rounded-[40px] overflow-hidden shadow-inner">
-                    {/* Play button overlay decorativo */}
-                    <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-pinheirao-green/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-pulse">
-                        <div className="w-0 h-0 border-t-[12px] sm:border-t-[14px] border-t-transparent border-l-[18px] sm:border-l-[22px] border-l-white border-b-[12px] sm:border-b-[14px] border-b-transparent ml-1"></div>
+                  {/* Tela interna com Slider de Vídeos */}
+                  <div className="phone-screen relative w-full h-full bg-black rounded-[36px] sm:rounded-[40px] overflow-hidden shadow-inner group/slider">
+                    <div className="flex h-full transition-transform duration-500 ease-out" id="video-slider">
+                      <div className="min-w-full h-full relative">
+                        <iframe
+                          src="https://www.youtube.com/embed/3ZXzDpzvKRw?autoplay=0&mute=1&loop=1&playlist=3ZXzDpzvKRw&controls=1&modestbranding=1&rel=0&playsinline=1"
+                          title="Tour Virtual 1 - Casas Pinheirão"
+                          className="absolute inset-0 w-full h-full object-cover"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <div className="min-w-full h-full relative">
+                        <iframe
+                          src="https://www.youtube.com/embed/NJTZ2EKwo9s?autoplay=0&mute=1&loop=1&playlist=NJTZ2EKwo9s&controls=1&modestbranding=1&rel=0&playsinline=1"
+                          title="Tour Virtual 2 - Casas Pinheirão"
+                          className="absolute inset-0 w-full h-full object-cover"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <div className="min-w-full h-full relative">
+                        <iframe
+                          src="https://www.youtube.com/embed/YjVEuGj--e8?autoplay=0&mute=1&loop=1&playlist=YjVEuGj--e8&controls=1&modestbranding=1&rel=0&playsinline=1"
+                          title="Tour Virtual 3 - Casas Pinheirão"
+                          className="absolute inset-0 w-full h-full object-cover"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
                       </div>
                     </div>
 
-                    <iframe
-                      src="https://www.youtube.com/embed/3ZXzDpzvKRw?autoplay=1&mute=1&loop=1&playlist=3ZXzDpzvKRw&controls=1&modestbranding=1&rel=0&playsinline=1"
-                      title="Tour Virtual - Casas Pinheirão"
-                      className="absolute inset-0 w-full h-full object-cover"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+                    {/* Navigation Arrows */}
+                    <button 
+                      onClick={() => {
+                        const slider = document.getElementById('video-slider');
+                        if (slider) {
+                          const currentTransform = slider.style.transform || 'translateX(0%)';
+                          const currentIdx = parseInt(currentTransform.match(/-?(\d+)/)?.[1] || '0') / 100;
+                          const nextIdx = (currentIdx - 1 + 3) % 3;
+                          slider.style.transform = `translateX(-${nextIdx * 100}%)`;
+                        }
+                      }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity"
+                    >
+                      <ChevronRight className="rotate-180" size={20} />
+                    </button>
+                    <button 
+                      onClick={() => {
+                        const slider = document.getElementById('video-slider');
+                        if (slider) {
+                          const currentTransform = slider.style.transform || 'translateX(0%)';
+                          const currentIdx = parseInt(currentTransform.match(/-?(\d+)/)?.[1] || '0') / 100;
+                          const nextIdx = (currentIdx + 1) % 3;
+                          slider.style.transform = `translateX(-${nextIdx * 100}%)`;
+                        }
+                      }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity"
+                    >
+                      <ChevronRight size={20} />
+                    </button>
+
+                    {/* Dots indicator */}
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+                      {[0, 1, 2].map((i) => (
+                        <div key={i} className="w-2 h-2 rounded-full bg-white/50"></div>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Reflexo de luz no celular */}

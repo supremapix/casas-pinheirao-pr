@@ -157,29 +157,6 @@ export const Home: React.FC = () => {
             <div>
               <div className="flex items-start gap-4 mb-3 sm:mb-4">
                 <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.3em] text-pinheirao-green flex-1">Tradição em Pinhais</h2>
-                <div className="flex-shrink-0 group">
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
-                    {/* Premium Background Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-pinheirao-green/20 to-pinheirao-deep/10 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
-                    
-                    {/* Main Container */}
-                    <div className="relative w-full h-full bg-white rounded-full p-3 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.15)] border border-gray-100 flex items-center justify-center transform group-hover:rotate-[5deg] transition-all duration-500">
-                      <img
-                        src="/crea-pr-pinhais-1.png"
-                        alt="CREA-PR Empresa Registrada"
-                        className="w-full h-full object-contain filter drop-shadow-sm"
-                      />
-                      
-                      {/* Premium Accent */}
-                      <div className="absolute inset-0 rounded-full border-2 border-pinheirao-green/10 pointer-events-none"></div>
-                    </div>
-                    
-                    {/* Trusted Badge Accent */}
-                    <div className="absolute -bottom-1 -right-1 bg-white shadow-md rounded-full p-1 border border-gray-50">
-                      <Shield size={16} className="text-pinheirao-green fill-pinheirao-green/10" />
-                    </div>
-                  </div>
-                </div>
               </div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span></h3>
               <p className="text-sm sm:text-base text-pinheirao-gray mb-4 sm:mb-6 leading-relaxed font-medium">
@@ -193,13 +170,35 @@ export const Home: React.FC = () => {
                 <ChevronRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform sm:w-4 sm:h-4" />
               </Link>
             </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3"></div>
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3 transition-transform group-hover:rotate-6"></div>
               <img
                 src="/tradicao-em-pinhais.webp"
                 alt="Tradição em Pinhais - Casas Pinheirão, do aluguel para a casa própria, construímos no seu terreno"
                 className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
               />
+              
+              {/* CREA Badge Overlay */}
+              <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 group/crea pointer-events-none">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center scale-90 sm:scale-100">
+                  {/* Subtle Glow */}
+                  <div className="absolute inset-0 bg-white/20 rounded-full blur-lg opacity-0 group-hover/crea:opacity-100 transition-opacity"></div>
+                  
+                  {/* Main Badge Container */}
+                  <div className="relative w-full h-full bg-white/95 backdrop-blur-sm rounded-full p-2.5 shadow-xl border border-white/50 flex items-center justify-center transform group-hover/crea:scale-105 transition-all">
+                    <img
+                      src="/crea-pr-pinhais-1.png"
+                      alt="CREA-PR Empresa Registrada"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  
+                  {/* Floating Trust Indicator */}
+                  <div className="absolute -top-1 -left-1 bg-pinheirao-green shadow-lg rounded-full p-1.5 border border-white/20">
+                    <Shield size={14} className="text-white fill-white/20" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

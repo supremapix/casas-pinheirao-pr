@@ -265,6 +265,15 @@ export const Home: React.FC = () => {
                           allowFullScreen
                         ></iframe>
                       </div>
+                      <div className="min-w-full h-full relative">
+                        <iframe
+                          src="https://www.youtube.com/embed/pVEqexaTWW0?autoplay=0&mute=1&loop=1&playlist=pVEqexaTWW0&controls=1&modestbranding=1&rel=0&playsinline=1"
+                          title="Tour Virtual 4 - Casas Pinheirão"
+                          className="absolute inset-0 w-full h-full object-cover"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
                     </div>
 
                     {/* Navigation Arrows */}
@@ -274,7 +283,7 @@ export const Home: React.FC = () => {
                         if (slider) {
                           const currentTransform = slider.style.transform || 'translateX(0%)';
                           const currentIdx = parseInt(currentTransform.match(/-?(\d+)/)?.[1] || '0') / 100;
-                          const nextIdx = (currentIdx - 1 + 3) % 3;
+                          const nextIdx = (currentIdx - 1 + 4) % 4;
                           slider.style.transform = `translateX(-${nextIdx * 100}%)`;
                         }
                       }}
@@ -288,7 +297,7 @@ export const Home: React.FC = () => {
                         if (slider) {
                           const currentTransform = slider.style.transform || 'translateX(0%)';
                           const currentIdx = parseInt(currentTransform.match(/-?(\d+)/)?.[1] || '0') / 100;
-                          const nextIdx = (currentIdx + 1) % 3;
+                          const nextIdx = (currentIdx + 1) % 4;
                           slider.style.transform = `translateX(-${nextIdx * 100}%)`;
                         }
                       }}
@@ -299,7 +308,7 @@ export const Home: React.FC = () => {
 
                     {/* Dots indicator */}
                     <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
-                      {[0, 1, 2].map((i) => (
+                      {[0, 1, 2, 3].map((i) => (
                         <div key={i} className="w-2 h-2 rounded-full bg-white/50"></div>
                       ))}
                     </div>

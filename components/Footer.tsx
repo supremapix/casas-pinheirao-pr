@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
             <span className="text-white/20 italic">Preços sujeitos a alteração</span>
-            <Link to="#" className="hover:text-white transition-colors">Política de Privacidade</Link>
+            <Link to="/politica-de-privacidade" className="hover:text-white transition-colors">Politica de Privacidade</Link>
           </div>
           <a
             href="https://supremasite.com.br"

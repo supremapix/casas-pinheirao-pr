@@ -72,7 +72,11 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          <div className="hidden lg:hidden" /> {/* Placeholder for alignment */}
+          <div className="lg:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-pinheirao-black">
+              {isOpen ? <X size={32} /> : <Menu size={32} />}
+            </button>
+          </div>
           <style>{`
             @keyframes pulse-slow {
               0%, 100% { opacity: 1; transform: scale(1); }

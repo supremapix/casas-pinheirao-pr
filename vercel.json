@@ -1,5 +1,12 @@
 {
-  "framework": "nextjs",
+  "framework": "vite",
   "buildCommand": "pnpm build",
-  "outputDirectory": ".next"
+  "outputDirectory": "dist",
+  "installCommand": "yarn install",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

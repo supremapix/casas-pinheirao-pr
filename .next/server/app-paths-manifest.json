@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/contato/page": "app/contato/page.js",
+  "/empresa/page": "app/empresa/page.js",
+  "/envie-seu-projeto/page": "app/envie-seu-projeto/page.js",
+  "/page": "app/page.js",
+  "/projetos/page": "app/projetos/page.js",
+  "/promocoes/page": "app/promocoes/page.js"
+}

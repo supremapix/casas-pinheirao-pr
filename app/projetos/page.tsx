@@ -13,6 +13,16 @@ const ConstructionType = {
 
 const PROJECTS = [
   {
+    id: "promo-45",
+    title: "Casa de Alvenaria 45m² - Promoção Especial",
+    type: ConstructionType.MASONRY,
+    area: "45m²",
+    images: ["/promocao-45m-32k.jpeg"],
+    description:
+      "Promoção Especial! Casa de 45m² prática e confortável por apenas R$ 32.000,00. Válido até 28/02/26 para construção até 15km da nossa unidade.",
+    featured: true,
+  },
+  {
     id: "1",
     title: "Triplex de Alvenaria 200m²",
     type: ConstructionType.TRIPLEX,

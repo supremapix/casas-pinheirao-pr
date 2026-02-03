@@ -5,6 +5,18 @@ import { Tag, ChevronRight, MessageSquare, Clock, Star } from "lucide-react"
 
 const promotions = [
   {
+    id: "promo-45",
+    title: "Casa de Alvenaria 45m²",
+    originalPrice: "R$ 42.000",
+    promoPrice: "R$ 32.000",
+    discount: "24%",
+    image: "/promocao-45m-32k.jpeg",
+    description:
+      "Promoção Especial! Casa de 45m² prática e confortável. Válido até 28/02/26 para construção até 15km da nossa unidade.",
+    features: ["45m²", "Prática", "Confortável", "Alvenaria"],
+    limited: true,
+  },
+  {
     id: "1",
     title: "Casa de Madeira 36m²",
     originalPrice: "R$ 45.000",

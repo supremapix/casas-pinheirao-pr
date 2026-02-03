@@ -1,7 +1,0 @@
-{
-  "name": "Casas Pinheirão - Especialista em Casas Pré-Fabricadas",
-  "description": "Site institucional da Casas Pinheirão, líder em construção de casas pré-fabricadas de madeira, alvenaria, sobrados e triplex em Curitiba e região.",
-  "requestFramePermissions": [
-    "geolocation"
-  ]
-}

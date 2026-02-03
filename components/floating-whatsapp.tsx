@@ -1,8 +1,8 @@
+"use client"
 
-import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle } from "lucide-react"
 
-export const FloatingWhatsApp: React.FC = () => {
+export function FloatingWhatsApp() {
   return (
     <a
       href="https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Gostaria de fazer um orçamento."
@@ -16,5 +16,5 @@ export const FloatingWhatsApp: React.FC = () => {
         Fale Conosco
       </span>
     </a>
-  );
-};
+  )
+}

@@ -22,6 +22,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Promoções', path: '/promocoes', highlight: true },
     { name: 'Empresa', path: '/empresa' },
     { name: 'Projetos', path: '/projetos' },
     { name: 'Envie seu Projeto', path: '/envie-seu-projeto' },
@@ -45,11 +46,14 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-xs font-bold uppercase tracking-widest transition-colors hover:text-pinheirao-green ${
-                  location.pathname === link.path ? 'text-pinheirao-green' : 'text-pinheirao-black'
-                }`}
+                className={`text-xs font-bold uppercase tracking-widest transition-all relative group ${
+                  location.pathname === link.path ? 'text-pinheirao-green' : 'text-pinheirao-black hover:text-pinheirao-green'
+                } ${link.highlight ? 'bg-pinheirao-green text-white px-4 py-2 rounded-full animate-pulse-slow shadow-lg hover:scale-105' : ''}`}
               >
                 {link.name}
+                {!link.highlight && (
+                  <span className={`absolute bottom-[-4px] left-0 w-full h-0.5 bg-pinheirao-green transform transition-transform duration-300 ${location.pathname === link.path ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+                )}
               </Link>
             ))}
           </div>
@@ -68,11 +72,16 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-pinheirao-black">
-              {isOpen ? <X size={32} /> : <Menu size={32} />}
-            </button>
-          </div>
+          <div className="hidden lg:hidden" /> {/* Placeholder for alignment */}
+          <style>{`
+            @keyframes pulse-slow {
+              0%, 100% { opacity: 1; transform: scale(1); }
+              50% { opacity: 0.8; transform: scale(1.05); }
+            }
+            .animate-pulse-slow {
+              animation: pulse-slow 2s ease-in-out infinite;
+            }
+          `}</style>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { TestimonialsCarousel } from '../components/TestimonialsCarousel';
+import { InstagramFeed } from '../components/InstagramFeed';
 import { CustomHomeSection } from '../components/CustomHomeSection';
 import { PROJECTS } from '../data';
 import { ConstructionType } from '../types';
@@ -592,6 +593,8 @@ export const Home: React.FC = () => {
       </section>
 
       <CustomHomeSection />
+
+      <InstagramFeed />
 
       <TestimonialsCarousel />
 

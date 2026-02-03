@@ -7,6 +7,7 @@ import { Projects } from './pages/Projects';
 import { ProjectDetail } from './pages/ProjectDetail';
 import { Contact } from './pages/Contact';
 import { SubmitProject } from './pages/SubmitProject';
+import Promotions from './pages/Promotions';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <Route path="/projetos" element={<Projects />} />
             <Route path="/projetos/:id" element={<ProjectDetail />} />
             <Route path="/envie-seu-projeto" element={<SubmitProject />} />
+            <Route path="/promocoes" element={<Promotions />} />
             <Route path="/contato" element={<Contact />} />
           </Routes>
         </main>

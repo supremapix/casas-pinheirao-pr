@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Home, Tag, MessageSquare, Phone } from 'lucide-react';
+import { CheckCircle, Tag, Phone } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 
 const Promotions: React.FC = () => {
@@ -17,7 +17,7 @@ const Promotions: React.FC = () => {
             {/* Image Side */}
             <div className="relative h-[400px] lg:h-auto overflow-hidden group">
               <img 
-                src="https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/WhatsApp_Image_2026-02-03_at_14.58.57_1770143273519.jpeg"
+                src="/promocao-casa-45m.jpeg"
                 alt="Promoção Casa 45m²"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />

@@ -8,6 +8,7 @@ import { ProjectDetail } from './pages/ProjectDetail';
 import { Contact } from './pages/Contact';
 import { SubmitProject } from './pages/SubmitProject';
 import Promotions from './pages/Promotions';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
@@ -28,6 +29,7 @@ const App: React.FC = () => {
             <Route path="/envie-seu-projeto" element={<SubmitProject />} />
             <Route path="/promocoes" element={<Promotions />} />
             <Route path="/contato" element={<Contact />} />
+            <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
           </Routes>
         </main>
         <Footer />

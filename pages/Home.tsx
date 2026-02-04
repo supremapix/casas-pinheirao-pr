@@ -590,8 +590,8 @@ export const Home: React.FC = () => {
             <div className="bg-pinheirao-black rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row group">
               <div className="md:w-1/2 relative overflow-hidden">
                 <img 
-                  src="/casas-pinheirao-1.jpg" 
-                  alt="Promoção Especial" 
+                  src="/promocao-casa-45m.jpeg" 
+                  alt="Promoção Especial - Casa 45m²" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute top-4 left-4 bg-pinheirao-green text-white px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest animate-pulse">

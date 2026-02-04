@@ -9,7 +9,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.MASONRY,
     area: '45m²',
     images: [
-      '/promocao-casa-45m.jpeg'
+      '/casa-madeira-promocao-pinhais-curitbia-parana-brasil.png'
     ],
     description: 'OFERTA IMPERDÍVEL: Casa de alvenaria com 45m² por apenas R$ 32.000,00! Construída no seu terreno com a qualidade e tradição das Casas Pinheirão. Realize o sonho da casa própria agora!',
     featured: true

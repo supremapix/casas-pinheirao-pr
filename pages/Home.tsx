@@ -599,7 +599,7 @@ export const Home: React.FC = () => {
             <div className="bg-pinheirao-black rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row group">
               <div className="md:w-1/2 relative overflow-hidden">
                 <img 
-                  src="/promocao-casa-45m.jpeg" 
+                  src="/casa-madeira-promocao-pinhais-curitbia-parana-brasil.png" 
                   alt="Promoção Especial - Casa 45m²" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />

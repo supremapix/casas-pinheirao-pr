@@ -612,6 +612,18 @@ export const Home: React.FC = () => {
                 <p className="text-white/80 text-sm mb-6 font-medium leading-relaxed">
                   Garanta sua casa de 45m² com condições imperdíveis. Financiamento facilitado e entrega rápida para você sair do aluguel hoje mesmo!
                 </p>
+                
+                <div className="space-y-3 mb-8 pb-8 border-b border-white/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
+                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Válido até final de fevereiro</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
+                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Até 15km da loja</span>
+                  </div>
+                </div>
+                
                 <Link 
                   to="/envie-seu-projeto" 
                   className="inline-flex items-center text-white font-black text-xs uppercase tracking-widest border-b-2 border-pinheirao-green pb-1 hover:text-pinheirao-green transition-colors"

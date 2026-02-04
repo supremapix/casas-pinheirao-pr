@@ -582,6 +582,91 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Seção de Promoção e Atualizações */}
+      <section className="py-20 bg-gradient-to-br from-pinheirao-concrete/20 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+            {/* Promoção Especial */}
+            <div className="bg-pinheirao-black rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row group">
+              <div className="md:w-1/2 relative overflow-hidden">
+                <img 
+                  src="/casas-pinheirao-1.jpg" 
+                  alt="Promoção Especial" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-pinheirao-green text-white px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest animate-pulse">
+                  Oferta Limitada
+                </div>
+              </div>
+              <div className="md:w-1/2 p-8 flex flex-col justify-center">
+                <h3 className="text-pinheirao-green font-black text-3xl mb-4 uppercase italic">Promoção Especial</h3>
+                <p className="text-white/80 text-sm mb-6 font-medium leading-relaxed">
+                  Garanta sua casa de 45m² com condições imperdíveis. Financiamento facilitado e entrega rápida para você sair do aluguel hoje mesmo!
+                </p>
+                <Link 
+                  to="/envie-seu-projeto" 
+                  className="inline-flex items-center text-white font-black text-xs uppercase tracking-widest border-b-2 border-pinheirao-green pb-1 hover:text-pinheirao-green transition-colors"
+                >
+                  Quero saber mais <ChevronRight size={14} className="ml-2" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Últimas Atualizações */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-xl p-8 flex flex-col">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="text-2xl font-black text-pinheirao-black uppercase italic">Últimas Atualizações</h3>
+                  <div className="w-12 h-1 bg-pinheirao-green mt-2"></div>
+                </div>
+                <div className="bg-pinheirao-concrete/30 p-3 rounded-full">
+                  <Rocket size={24} className="text-pinheirao-green" />
+                </div>
+              </div>
+              
+              <div className="space-y-6 flex-grow">
+                <div className="flex gap-4 group cursor-default">
+                  <div className="flex-shrink-0 w-12 h-12 bg-pinheirao-green/10 rounded-xl flex items-center justify-center text-pinheirao-green font-bold group-hover:bg-pinheirao-green group-hover:text-white transition-colors">
+                    01
+                  </div>
+                  <div>
+                    <h4 className="font-black text-pinheirao-black text-sm uppercase mb-1">Novo Modelo 45m²</h4>
+                    <p className="text-xs text-pinheirao-gray font-medium leading-relaxed">Lançamento do projeto otimizado para famílias que buscam praticidade e economia.</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4 group cursor-default">
+                  <div className="flex-shrink-0 w-12 h-12 bg-pinheirao-green/10 rounded-xl flex items-center justify-center text-pinheirao-green font-bold group-hover:bg-pinheirao-green group-hover:text-white transition-colors">
+                    02
+                  </div>
+                  <div>
+                    <h4 className="font-black text-pinheirao-black text-sm uppercase mb-1">Tour Virtual 3D</h4>
+                    <p className="text-xs text-pinheirao-gray font-medium leading-relaxed">Agora você pode visualizar nossos principais modelos em 360° antes de construir.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 group cursor-default">
+                  <div className="flex-shrink-0 w-12 h-12 bg-pinheirao-green/10 rounded-xl flex items-center justify-center text-pinheirao-green font-bold group-hover:bg-pinheirao-green group-hover:text-white transition-colors">
+                    03
+                  </div>
+                  <div>
+                    <h4 className="font-black text-pinheirao-black text-sm uppercase mb-1">Expansão de Atendimento</h4>
+                    <p className="text-xs text-pinheirao-gray font-medium leading-relaxed">Novas equipes de montagem para atender toda a região de Curitiba com mais agilidade.</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link 
+                to="/projetos" 
+                className="mt-8 bg-pinheirao-concrete/50 hover:bg-pinheirao-green hover:text-white text-pinheirao-black py-4 rounded-xl text-xs font-black uppercase tracking-widest text-center transition-all"
+              >
+                Explorar Novidades
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CustomHomeSection />
 
       <TestimonialsCarousel />

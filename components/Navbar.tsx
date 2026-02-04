@@ -26,7 +26,6 @@ export const Navbar: React.FC = () => {
     { name: 'Projetos', path: '/projetos' },
     { name: 'Envie seu Projeto', path: '/envie-seu-projeto' },
     { name: 'Contato', path: '/contato' },
-    { name: 'Atualizações', path: '/atualizacoes' },
   ];
 
   return (

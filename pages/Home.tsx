@@ -607,17 +607,21 @@ export const Home: React.FC = () => {
               <div className="md:w-1/2 p-8 flex flex-col justify-center">
                 <h3 className="text-pinheirao-green font-black text-3xl mb-4 uppercase italic">Casa de Madeira 45m²</h3>
                 <p className="text-white/80 text-sm mb-6 font-medium leading-relaxed">
-                  Prática e confortável, ideal para quem busca qualidade e funcionalidade. Financiamento facilitado e entrega rápida para você sair do aluguel hoje mesmo!
+                  Casa de madeira com 45m², prática e confortável! Construída no seu terreno com a qualidade e tradição das Casas Pinheirão. Realize o sonho da casa própria agora!
                 </p>
 
                 <div className="space-y-3 mb-8 pb-8 border-b border-white/10">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
-                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Projeto otimizado</span>
+                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Construída no seu terreno</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
-                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Entrega rápida</span>
+                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Qualidade e tradição</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
+                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Financiamento facilitado</span>
                   </div>
                 </div>
 

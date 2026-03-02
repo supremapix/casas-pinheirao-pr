@@ -595,40 +595,37 @@ export const Home: React.FC = () => {
       <section className="py-20 bg-gradient-to-br from-pinheirao-concrete/20 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            {/* Promoção Especial */}
+            {/* Casa de Madeira 45m² */}
             <div className="bg-pinheirao-black rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row group">
               <div className="md:w-1/2 relative overflow-hidden">
-                <img 
-                  src="/casa-madeira-promocao-pinhais-curitbia-parana-brasil.png" 
-                  alt="Promoção Especial - Casa 45m²" 
+                <img
+                  src="/casas-pre-fabricadas.png"
+                  alt="Casa de Madeira 45m² - Prática e Confortável"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute top-4 left-4 bg-pinheirao-green text-white px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest animate-pulse">
-                  Oferta Limitada
-                </div>
               </div>
               <div className="md:w-1/2 p-8 flex flex-col justify-center">
-                <h3 className="text-pinheirao-green font-black text-3xl mb-4 uppercase italic">Promoção Especial</h3>
+                <h3 className="text-pinheirao-green font-black text-3xl mb-4 uppercase italic">Casa de Madeira 45m²</h3>
                 <p className="text-white/80 text-sm mb-6 font-medium leading-relaxed">
-                  Garanta sua casa de 45m² com condições imperdíveis. Financiamento facilitado e entrega rápida para você sair do aluguel hoje mesmo!
+                  Prática e confortável, ideal para quem busca qualidade e funcionalidade. Financiamento facilitado e entrega rápida para você sair do aluguel hoje mesmo!
                 </p>
-                
+
                 <div className="space-y-3 mb-8 pb-8 border-b border-white/10">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
-                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Válido até final de fevereiro</span>
+                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Projeto otimizado</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
-                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Até 15km da loja</span>
+                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Entrega rápida</span>
                   </div>
                 </div>
-                
-                <Link 
-                  to="/envie-seu-projeto" 
+
+                <Link
+                  to="/envie-seu-projeto"
                   className="inline-flex items-center text-white font-black text-xs uppercase tracking-widest border-b-2 border-pinheirao-green pb-1 hover:text-pinheirao-green transition-colors"
                 >
-                  Quero saber mais <ChevronRight size={14} className="ml-2" />
+                  Consulte-nos <ChevronRight size={14} className="ml-2" />
                 </Link>
               </div>
             </div>

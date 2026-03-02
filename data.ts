@@ -2,16 +2,16 @@
 import { ConstructionType, Project, Testimonial, Consultant } from './types';
 
 export const PROJECTS: Project[] = [
-  // PROMOÇÕES EM DESTAQUE
+  // CASAS EM DESTAQUE
   {
     id: 'promo-45m',
-    title: 'PROMOÇÃO: Casa de Madeira 45m²',
+    title: 'Casa de Madeira 45m²',
     type: ConstructionType.WOOD,
     area: '45m²',
     images: [
-      '/casa-madeira-promocao-pinhais-curitbia-parana-brasil.png'
+      '/casas-pre-fabricadas.png'
     ],
-    description: 'OFERTA IMPERDÍVEL: Casa de madeira com 45m² por apenas R$ 32.000,00! Válida até 28/02/2026 e até 15km da loja. Construída no seu terreno com a qualidade e tradição das Casas Pinheirão. Realize o sonho da casa própria agora!',
+    description: 'Casa de madeira com 45m², prática e confortável! Construída no seu terreno com a qualidade e tradição das Casas Pinheirão. Projeto otimizado com financiamento facilitado. Realize o sonho da casa própria agora!',
     featured: true
   },
   // TRIPLEX

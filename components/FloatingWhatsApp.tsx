@@ -5,18 +5,34 @@ export const FloatingWhatsApp: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const checkScroll = () => {
-      // Oculta na Hero (topo), surge suavemente da direita para a esquerda ao rolar para baixo (> 350px)
-      if (window.scrollY > 350) {
+    const checkVisibility = () => {
+      const scrollY = window.scrollY;
+      const footerElement = document.querySelector('footer');
+
+      // Verifica se o usuário chegou próximo ou está no footer
+      let isNearFooter = false;
+      if (footerElement) {
+        const footerRect = footerElement.getBoundingClientRect();
+        // Se o topo do footer estiver visível na janela ou prestes a entrar
+        isNearFooter = footerRect.top <= (window.innerHeight - 20);
+      }
+
+      // Oculta no topo da página (< 350px) OU quando o footer estiver visível
+      if (scrollY > 350 && !isNearFooter) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
-    checkScroll();
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    return () => window.removeEventListener('scroll', checkScroll);
+    checkVisibility();
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    window.addEventListener('resize', checkVisibility, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', checkVisibility);
+      window.removeEventListener('resize', checkVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {

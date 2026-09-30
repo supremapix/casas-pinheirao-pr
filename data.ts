@@ -9,6 +9,7 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.WOOD,
     area: '45m²',
     images: [
+      'https://img.supremasite.com.br/pinheirao/casa-45mts.png',
       '/casa-madeira-promocao-pinhais-curitbia-parana-brasil.png',
       '/casas-pre-fabricadas.png',
       '/promocao-45m-32k.jpeg'

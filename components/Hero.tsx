@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ShieldCheck, Award, MapPin, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -11,8 +11,15 @@ const HERO_IMAGES = [
   "/casas-pinheirao-5.jpg"
 ];
 
+const MOBILE_HERO_VIDEOS = [
+  "https://img.supremasite.com.br/pinheirao/casa.mp4",
+  "https://img.supremasite.com.br/pinheirao/casa-montada.mp4"
+];
+
 export const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -21,21 +28,40 @@ export const Hero: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Ensure active mobile video plays continuously in sequence
+  useEffect(() => {
+    const activeVideo = videoRefs.current[currentVideoIdx];
+    if (activeVideo) {
+      activeVideo.currentTime = 0;
+      activeVideo.play().catch(() => {});
+    }
+  }, [currentVideoIdx]);
+
+  const handleVideoEnded = () => {
+    setCurrentVideoIdx((prev) => (prev + 1) % MOBILE_HERO_VIDEOS.length);
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center bg-pinheirao-black overflow-hidden pt-20 pb-12">
       
       {/* Background Container */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Mobile Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 opacity-75 filter brightness-90 contrast-105"
-          src="https://img.supremasite.com.br/pinheirao/casa.mp4"
-        />
+        {/* 2 Sequential Mobile Background Videos with Smooth Crossfade & Maximum Visibility */}
+        {MOBILE_HERO_VIDEOS.map((videoSrc, idx) => (
+          <video
+            key={videoSrc}
+            ref={(el) => { videoRefs.current[idx] = el; }}
+            src={videoSrc}
+            autoPlay={idx === 0}
+            muted
+            playsInline
+            preload="auto"
+            onEnded={handleVideoEnded}
+            className={`sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105 transition-opacity duration-1000 ease-in-out ${
+              idx === currentVideoIdx ? 'opacity-85 z-10' : 'opacity-0 z-0'
+            }`}
+          />
+        ))}
 
         {/* Desktop Background Slideshow with Smooth Crossfade */}
         <div className="hidden sm:block absolute inset-0 w-full h-full">
@@ -52,12 +78,12 @@ export const Hero: React.FC = () => {
           ))}
         </div>
 
-        {/* Professional dark gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black via-pinheirao-black/80 to-pinheirao-black/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/60"></div>
+        {/* Professional dark gradient overlays with high video visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black/90 via-pinheirao-black/60 to-pinheirao-black/40 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/50 z-10"></div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 text-center flex flex-col items-center">
+      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 text-center flex flex-col items-center">
         
         {/* Refined Top Badge - No text break on mobile */}
         <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0F1115]/90 border border-pinheirao-green/50 backdrop-blur-md shadow-xl mb-6 select-none">

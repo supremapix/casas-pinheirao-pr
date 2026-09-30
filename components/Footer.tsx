@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Mail, MapPin, Phone, MessageSquare, ChevronRight, Heart, ShieldCheck, Clock } from 'lucide-react';
 
@@ -41,21 +41,47 @@ export function SupremaCredit() {
   );
 }
 
+const MOBILE_FOOTER_VIDEOS = [
+  "https://img.supremasite.com.br/pinheirao/casa.mp4",
+  "https://img.supremasite.com.br/pinheirao/casa-montada.mp4"
+];
+
 export const Footer: React.FC = () => {
+  const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    const activeVideo = videoRefs.current[currentVideoIdx];
+    if (activeVideo) {
+      activeVideo.currentTime = 0;
+      activeVideo.play().catch(() => {});
+    }
+  }, [currentVideoIdx]);
+
+  const handleVideoEnded = () => {
+    setCurrentVideoIdx((prev) => (prev + 1) % MOBILE_FOOTER_VIDEOS.length);
+  };
+
   return (
     <footer className="relative bg-[#0A0C0E] text-white pt-20 pb-10 border-t-2 border-pinheirao-green overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Mobile Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 opacity-55 filter brightness-90 contrast-105"
-          src="https://img.supremasite.com.br/pinheirao/casa.mp4"
-        />
+        {/* 2 Sequential Mobile Background Videos with Smooth Crossfade & Maximum Visibility */}
+        {MOBILE_FOOTER_VIDEOS.map((videoSrc, idx) => (
+          <video
+            key={videoSrc}
+            ref={(el) => { videoRefs.current[idx] = el; }}
+            src={videoSrc}
+            autoPlay={idx === 0}
+            muted
+            playsInline
+            preload="auto"
+            onEnded={handleVideoEnded}
+            className={`sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105 transition-opacity duration-1000 ease-in-out ${
+              idx === currentVideoIdx ? 'opacity-75 z-10' : 'opacity-0 z-0'
+            }`}
+          />
+        ))}
 
         {/* Desktop Background Image */}
         <img
@@ -65,10 +91,10 @@ export const Footer: React.FC = () => {
           loading="lazy"
         />
         {/* Balanced Photographic Tint - Enhances image visibility while preserving crystal-clear typography */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0C0E]/90 via-[#0C0E12]/80 to-[#0A0C0E]/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0C0E]/85 via-[#0C0E12]/70 to-[#0A0C0E]/90 z-10" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Columns Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-16">

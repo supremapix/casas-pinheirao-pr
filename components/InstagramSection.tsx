@@ -74,7 +74,6 @@ export const InstagramSection: React.FC = () => {
               title="Feed Instagram Casas Pinheirão"
               className="w-full aspect-[9/11] sm:aspect-[4/5] border-0 block"
               loading="lazy"
-              allowTransparency
             />
           </div>
         </div>

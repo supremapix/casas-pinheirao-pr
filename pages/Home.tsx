@@ -209,24 +209,43 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="lg:col-span-6 relative">
-              <div className="relative rounded-sm overflow-hidden shadow-xl bg-pinheirao-black">
+              {/* Layered Architectural Backdrop */}
+              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-tr from-pinheirao-green/15 via-gray-100 to-pinheirao-black/5 rounded-sm -rotate-1 border border-pinheirao-green/20 -z-10" />
+              <div className="absolute -top-3 -right-3 w-28 h-28 bg-pinheirao-green/10 rounded-full blur-2xl -z-10 pointer-events-none" />
+
+              <div className="relative rounded-sm overflow-hidden shadow-2xl bg-pinheirao-black border border-gray-200/80">
+                {/* Top Location Tag */}
+                <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-[#0F1115]/90 backdrop-blur-sm border border-white/15 rounded-sm text-white text-[10px] font-bold uppercase tracking-wider">
+                  <MapPin size={12} className="text-pinheirao-green" />
+                  <span>Sede Própria • Pinhais/PR</span>
+                </div>
+
                 <img
                   src="/tradicao-em-pinhais.webp"
                   alt="Tradição em Pinhais - Casas Pinheirão"
                   className="w-full h-[460px] object-cover opacity-95"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                 
-                {/* CREA Badge Overlay */}
-                <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-sm shadow-xl border border-gray-100 flex items-center gap-4">
-                  <img
-                    src="/crea-pr-pinhais-1.png"
-                    alt="CREA-PR Empresa Registrada"
-                    className="w-12 h-12 object-contain"
-                  />
+                {/* High-Contrast CREA Badge Overlay */}
+                <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 left-4 sm:left-auto z-10 bg-[#0F1115] border-2 border-pinheirao-green shadow-2xl p-3.5 sm:p-4 rounded-sm flex items-center gap-3.5 max-w-sm">
+                  <div className="p-1.5 bg-white rounded-sm shrink-0 shadow-sm flex items-center justify-center">
+                    <img
+                      src="/crea-pr-pinhais-1.png"
+                      alt="CREA-PR Empresa Registrada"
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
                   <div>
-                    <p className="text-xs font-black uppercase text-pinheirao-black">CREA-PR</p>
-                    <p className="text-[11px] text-pinheirao-gray font-medium">Empresa Registrada</p>
+                    <span className="inline-block text-[9px] font-extrabold uppercase tracking-widest text-pinheirao-green mb-0.5">
+                      Registro Oficial CREA-PR
+                    </span>
+                    <p className="text-xs sm:text-sm font-black uppercase text-white tracking-tight leading-tight">
+                      Empresa Registrada
+                    </p>
+                    <p className="text-[10px] text-gray-300 font-medium">
+                      Responsabilidade Técnica Garantida
+                    </p>
                   </div>
                 </div>
               </div>

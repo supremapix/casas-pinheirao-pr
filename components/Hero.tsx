@@ -1,35 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ShieldCheck, Award, MapPin, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Award, MapPin, CheckCircle2, Home, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const HERO_IMAGES = [
-  "https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/k5q0d5b7_hero-imagem-3.png",
-  "/casas-pinheirao-1.jpg",
-  "/casas-pinheirao-2.jpg",
-  "/casas-pinheirao-3.jpg",
-  "/casas-pinheirao-4.jpg",
-  "/casas-pinheirao-5.jpg"
-];
-
-const MOBILE_HERO_VIDEOS = [
+const HERO_VIDEOS = [
   "https://img.supremasite.com.br/pinheirao/casa.mp4",
   "https://img.supremasite.com.br/pinheirao/casa-montada.mp4",
   "https://img.supremasite.com.br/pinheirao/casa45.mp4"
 ];
 
 export const Hero: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Ensure active mobile video plays continuously in sequence
+  // Ensure active video plays continuously in sequence across PC and mobile
   useEffect(() => {
     const activeVideo = videoRefs.current[currentVideoIdx];
     if (activeVideo) {
@@ -39,7 +22,7 @@ export const Hero: React.FC = () => {
   }, [currentVideoIdx]);
 
   const handleVideoEnded = () => {
-    setCurrentVideoIdx((prev) => (prev + 1) % MOBILE_HERO_VIDEOS.length);
+    setCurrentVideoIdx((prev) => (prev + 1) % HERO_VIDEOS.length);
   };
 
   return (
@@ -47,8 +30,8 @@ export const Hero: React.FC = () => {
       
       {/* Background Container */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* 2 Sequential Mobile Background Videos with Smooth Crossfade & Maximum Visibility */}
-        {MOBILE_HERO_VIDEOS.map((videoSrc, idx) => (
+        {/* 3 Sequential Background Videos with Smooth Crossfade & Maximum Visibility on PC and Mobile */}
+        {HERO_VIDEOS.map((videoSrc, idx) => (
           <video
             key={videoSrc}
             ref={(el) => { videoRefs.current[idx] = el; }}
@@ -58,26 +41,11 @@ export const Hero: React.FC = () => {
             playsInline
             preload="auto"
             onEnded={handleVideoEnded}
-            className={`sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105 transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105 transition-opacity duration-1000 ease-in-out ${
               idx === currentVideoIdx ? 'opacity-85 z-10' : 'opacity-0 z-0'
             }`}
           />
         ))}
-
-        {/* Desktop Background Slideshow with Smooth Crossfade */}
-        <div className="hidden sm:block absolute inset-0 w-full h-full">
-          {HERO_IMAGES.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Casas Pinheirão - Especialista em Casas Pré-Fabricadas e Alvenaria ${index + 1}`}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? 'opacity-70 scale-100' : 'opacity-0 scale-105'
-              }`}
-              loading={index === 0 ? "eager" : "lazy"}
-            />
-          ))}
-        </div>
 
         {/* Professional dark gradient overlays with high video visibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black/90 via-pinheirao-black/60 to-pinheirao-black/40 z-10"></div>
@@ -107,27 +75,41 @@ export const Hero: React.FC = () => {
         </p>
 
         {/* Centered CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center w-full sm:w-auto mb-12">
+        <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 items-center justify-center w-full sm:w-auto mb-12">
+          
+          {/* Botão Modelos em Alto Destaque Visual */}
+          <div className="flex flex-col items-center w-full sm:w-auto relative group">
+            {/* Tag de Destaque Animada */}
+            <span className="absolute -top-3 right-4 sm:-right-2 z-30 bg-gradient-to-r from-yellow-400 to-amber-500 text-pinheirao-black text-[9px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full shadow-lg border border-white/60 animate-bounce">
+              🔥 Catálogo
+            </span>
+
+            <Link
+              to="/projetos"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 sm:px-10 py-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-pinheirao-black font-black text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_0_30px_rgba(251,191,36,0.6)] hover:shadow-[0_0_40px_rgba(251,191,36,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-yellow-200"
+            >
+              <Home size={18} className="text-pinheirao-black shrink-0 animate-pulse" />
+              <span>Ver Nossos Modelos</span>
+              <ArrowRight size={17} className="text-pinheirao-black group-hover:translate-x-1.5 transition-transform" />
+            </Link>
+            <span className="text-[10px] text-yellow-300 font-bold mt-1.5 tracking-wide flex items-center gap-1 drop-shadow">
+              <Sparkles size={11} className="text-yellow-400" />
+              Plantas, Fotos & Medidas
+            </span>
+          </div>
+
+          {/* Botão Secundário de Orçamento */}
           <div className="flex flex-col items-center w-full sm:w-auto">
             <Link
               to="/envie-seu-projeto"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm shadow-xl hover:bg-pinheirao-deep transition-all hover:-translate-y-0.5"
             >
-              <span>Orçamento</span>
+              <span>Solicitar Orçamento</span>
               <ArrowRight size={16} />
             </Link>
             <span className="text-[10px] text-gray-300 mt-1.5 font-medium tracking-wide">Sem compromisso</span>
           </div>
 
-          <div className="flex flex-col items-center w-full sm:w-auto">
-            <Link
-              to="/projetos"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold text-xs uppercase tracking-wider border border-white/30 rounded-sm hover:bg-white/20 transition-all hover:-translate-y-0.5"
-            >
-              Modelos
-            </Link>
-            <span className="text-[10px] text-gray-300 mt-1.5 font-medium tracking-wide">Madeira e alvenaria</span>
-          </div>
         </div>
 
         {/* Centered Trust Highlights Strip */}
@@ -165,15 +147,15 @@ export const Hero: React.FC = () => {
 
       </div>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        {HERO_IMAGES.map((_, idx) => (
+      {/* Video Sequence Indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        {HERO_VIDEOS.map((_, idx) => (
           <button
             key={idx}
-            onClick={() => setCurrentSlide(idx)}
-            aria-label={`Slide ${idx + 1}`}
+            onClick={() => setCurrentVideoIdx(idx)}
+            aria-label={`Vídeo ${idx + 1}`}
             className={`h-1.5 transition-all rounded-full ${
-              idx === currentSlide ? 'w-8 bg-pinheirao-green' : 'w-2 bg-white/40 hover:bg-white/70'
+              idx === currentVideoIdx ? 'w-8 bg-pinheirao-green' : 'w-2 bg-white/40 hover:bg-white/70'
             }`}
           />
         ))}

@@ -41,7 +41,7 @@ export function SupremaCredit() {
   );
 }
 
-const MOBILE_FOOTER_VIDEOS = [
+const FOOTER_VIDEOS = [
   "https://img.supremasite.com.br/pinheirao/casa.mp4",
   "https://img.supremasite.com.br/pinheirao/casa-montada.mp4",
   "https://img.supremasite.com.br/pinheirao/casa45.mp4"
@@ -60,15 +60,15 @@ export const Footer: React.FC = () => {
   }, [currentVideoIdx]);
 
   const handleVideoEnded = () => {
-    setCurrentVideoIdx((prev) => (prev + 1) % MOBILE_FOOTER_VIDEOS.length);
+    setCurrentVideoIdx((prev) => (prev + 1) % FOOTER_VIDEOS.length);
   };
 
   return (
     <footer className="relative bg-[#0A0C0E] text-white pt-20 pb-10 border-t-2 border-pinheirao-green overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* 2 Sequential Mobile Background Videos with Smooth Crossfade & Maximum Visibility */}
-        {MOBILE_FOOTER_VIDEOS.map((videoSrc, idx) => (
+        {/* 3 Sequential Background Videos with Smooth Crossfade & Maximum Visibility on PC and Mobile */}
+        {FOOTER_VIDEOS.map((videoSrc, idx) => (
           <video
             key={videoSrc}
             ref={(el) => { videoRefs.current[idx] = el; }}
@@ -78,20 +78,13 @@ export const Footer: React.FC = () => {
             playsInline
             preload="auto"
             onEnded={handleVideoEnded}
-            className={`sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105 transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105 transition-opacity duration-1000 ease-in-out ${
               idx === currentVideoIdx ? 'opacity-75 z-10' : 'opacity-0 z-0'
             }`}
           />
         ))}
 
-        {/* Desktop Background Image */}
-        <img
-          src="https://img.supremasite.com.br/pinheirao/casas-pinhais-pr.jpg"
-          alt="Casas Pinheirão - Sede e Showroom em Pinhais PR"
-          className="hidden sm:block w-full h-full object-cover object-center scale-105 opacity-55 filter brightness-90 contrast-105 transition-opacity duration-700"
-          loading="lazy"
-        />
-        {/* Balanced Photographic Tint - Enhances image visibility while preserving crystal-clear typography */}
+        {/* Balanced Photographic Tint - Enhances video visibility while preserving crystal-clear typography */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0C0E]/85 via-[#0C0E12]/70 to-[#0A0C0E]/90 z-10" />
       </div>
 

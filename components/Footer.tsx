@@ -1,7 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Mail, MapPin, Phone, MessageSquare, ChevronRight, Heart, ShieldCheck, Clock } from 'lucide-react';
-import { ConstructionType } from '../types';
+
+export function SupremaCredit() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 pt-5 border-t border-white/10 flex justify-center items-center">
+      <div className="bg-[#0B0D10]/85 border border-white/15 hover:border-pinheirao-green/50 rounded-full px-6 py-2.5 shadow-lg flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.2)]">
+        <p className="text-gray-200 hover:text-white transition-colors duration-200 text-xs sm:text-sm font-bold flex flex-wrap items-center justify-center gap-2">
+          <span className="opacity-90">Desenvolvido com</span> 
+          
+          {/* Coração pulsante com efeito de sombra */}
+          <Heart 
+            size={14} 
+            className="text-red-500 fill-red-500 animate-[pulse_1.5s_infinite] shrink-0 filter drop-shadow-[0_0_3px_rgba(239,68,68,0.7)]" 
+          /> 
+          
+          <span className="opacity-90">por</span>
+          
+          {/* Link para o site da Suprema */}
+          <a 
+            id="developer-suprema-link"
+            href="https://supremasite.com.br" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-yellow-400 hover:text-yellow-300 transition-all font-black inline-flex items-center gap-2 cursor-pointer border-b border-dashed border-yellow-400/50 hover:border-yellow-300"
+          >
+            Suprema Sites Express
+            
+            {/* Logotipo oficial com efeito de iluminação */}
+            <img 
+              src="https://img.supremamidia.com/suprema-img.png" 
+              alt="Suprema" 
+              className="h-[18px] w-auto inline select-none shrink-0 filter drop-shadow-[0_0_2px_rgba(250,204,21,0.5)] transition-transform duration-300 hover:scale-110" 
+              referrerPolicy="no-referrer"
+            />
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export const Footer: React.FC = () => {
   return (
@@ -195,9 +233,9 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        {/* Bottom Bar: Copyright & Developer Signature */}
-        <div className="pt-8 border-t border-white/15 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-gray-300">
-          <p className="text-center md:text-left font-medium">
+        {/* Legal & Privacy Line */}
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-gray-300">
+          <p className="text-center sm:text-left font-medium">
             © {new Date().getFullYear()} <span className="text-white font-bold">Casas Pinheirão</span> • Todos os direitos reservados.
           </p>
 
@@ -206,36 +244,12 @@ export const Footer: React.FC = () => {
               Política de Privacidade
             </Link>
           </div>
-
-          <a
-            href="https://supremasite.com.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-gray-300 hover:text-pinheirao-green transition-colors group"
-          >
-            <span>Desenvolvido com</span>
-            <Heart size={14} className="text-red-500 fill-red-500 animate-heartbeat inline-block" />
-            <span>por</span>
-            <span className="text-white group-hover:text-pinheirao-green font-bold transition-colors">
-              Suprema Sites Express
-            </span>
-          </a>
         </div>
 
+        {/* Global SupremaCredit Badge */}
+        <SupremaCredit />
+
       </div>
-
-      <style>{`
-        @keyframes heartbeat {
-          0%, 100% { transform: scale(1); }
-          10%, 30% { transform: scale(1.15); }
-          20% { transform: scale(0.92); }
-        }
-
-        .animate-heartbeat {
-          animation: heartbeat 1.5s ease-in-out infinite;
-          display: inline-block;
-        }
-      `}</style>
     </footer>
   );
 };

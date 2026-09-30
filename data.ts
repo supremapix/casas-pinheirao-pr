@@ -9,7 +9,9 @@ export const PROJECTS: Project[] = [
     type: ConstructionType.WOOD,
     area: '45m²',
     images: [
-      '/casas-pre-fabricadas.png'
+      '/casa-madeira-promocao-pinhais-curitbia-parana-brasil.png',
+      '/casas-pre-fabricadas.png',
+      '/promocao-45m-32k.jpeg'
     ],
     description: 'Casa de madeira com 45m², prática e confortável! Construída no seu terreno com a qualidade e tradição das Casas Pinheirão. Projeto otimizado com financiamento facilitado. Realize o sonho da casa própria agora!',
     featured: true

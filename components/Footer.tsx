@@ -43,7 +43,8 @@ export function SupremaCredit() {
 
 const MOBILE_FOOTER_VIDEOS = [
   "https://img.supremasite.com.br/pinheirao/casa.mp4",
-  "https://img.supremasite.com.br/pinheirao/casa-montada.mp4"
+  "https://img.supremasite.com.br/pinheirao/casa-montada.mp4",
+  "https://img.supremasite.com.br/pinheirao/casa45.mp4"
 ];
 
 export const Footer: React.FC = () => {

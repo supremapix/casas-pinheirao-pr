@@ -1,206 +1,109 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { Star, CheckCircle2, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../data';
 
-const getInitials = (name: string): string => {
-  const parts = name.split(' ');
-  if (parts.length >= 2) {
-    return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
-  }
-  return name.substring(0, 2).toUpperCase();
-};
+export const TestimonialsCarousel: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(TESTIMONIALS.length / itemsPerPage);
 
-const avatarColors = [
-  '#4285F4',
-  '#EA4335',
-  '#FBBC04',
-  '#34A853',
-  '#9C27B0',
-  '#FF6B6B',
-  '#3498db',
-  '#e74c3c',
-  '#f39c12',
-  '#1abc9c',
-  '#e67e22',
-  '#95a5a6'
-];
-
-const getAvatarColor = (index: number): string => {
-  return avatarColors[index % avatarColors.length];
-};
-
-const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 !== 0;
-  const emptyStars = 5 - Math.ceil(rating);
+  const currentTestimonials = TESTIMONIALS.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
 
   return (
-    <div className="flex gap-1 mb-4">
-      {[...Array(fullStars)].map((_, i) => (
-        <Star key={`full-${i}`} size={16} className="fill-[#FFD700] text-[#FFD700]" />
-      ))}
-      {hasHalfStar && (
-        <div className="relative">
-          <Star size={16} className="text-[#FFD700]" />
-          <div className="absolute inset-0 overflow-hidden w-1/2">
-            <Star size={16} className="fill-[#FFD700] text-[#FFD700]" />
+    <section className="py-20 md:py-28 bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-2">
+              Avaliações de Clientes
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-pinheirao-black uppercase tracking-tight leading-[1.1]">
+              Mais de 300 famílias que realizaram o sonho.
+            </h2>
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center gap-3 self-start md:self-end">
+            <button
+              onClick={() => setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1))}
+              className="p-3 rounded border border-gray-200 text-pinheirao-black hover:bg-pinheirao-green hover:text-white hover:border-pinheirao-green transition-all"
+              aria-label="Depoimentos anteriores"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <span className="text-xs font-bold uppercase tracking-widest text-pinheirao-gray">
+              {currentPage + 1} / {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0))}
+              className="p-3 rounded border border-gray-200 text-pinheirao-black hover:bg-pinheirao-green hover:text-white hover:border-pinheirao-green transition-all"
+              aria-label="Próximos depoimentos"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
-      )}
-      {[...Array(emptyStars)].map((_, i) => (
-        <Star key={`empty-${i}`} size={16} className="text-gray-300" />
-      ))}
-    </div>
-  );
-};
 
-interface TestimonialCardProps {
-  testimonial: typeof TESTIMONIALS[0];
-  index: number;
-}
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {currentTestimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="bg-gray-50 p-6 sm:p-8 rounded-sm border border-gray-100 flex flex-col justify-between hover:border-pinheirao-green/40 transition-colors shadow-sm"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex gap-1 text-amber-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} className="fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <Quote size={20} className="text-gray-300" />
+                </div>
+                
+                <p className="text-gray-700 text-sm leading-relaxed font-medium mb-6">
+                  "{testimonial.text}"
+                </p>
+              </div>
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, index }) => {
-  const initials = getInitials(testimonial.name);
-  const avatarColor = getAvatarColor(index);
-
-  return (
-    <div className="testimonial-card bg-white p-8 rounded-lg border-t-4 border-pinheirao-green shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 min-h-[280px] flex flex-col">
-      <StarRating rating={testimonial.rating} />
-      <p className="text-gray-600 mb-6 leading-relaxed italic text-sm flex-grow">
-        "{testimonial.text}"
-      </p>
-      <div className="flex items-center gap-4 mt-auto">
-        <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-          style={{ backgroundColor: avatarColor }}
-        >
-          {initials}
+              <div className="pt-4 border-t border-gray-200/60 flex items-center justify-between">
+                <div>
+                  <h4 className="text-sm font-bold uppercase tracking-wide text-pinheirao-black">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-xs text-pinheirao-gray">
+                    {testimonial.city}
+                  </p>
+                </div>
+                <div className="inline-flex items-center gap-1 px-2 py-1 bg-pinheirao-green/10 text-pinheirao-green rounded text-[10px] font-bold uppercase tracking-wider">
+                  <CheckCircle2 size={12} />
+                  <span>Obra Entregue</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <div>
-          <h4 className="font-bold text-sm text-gray-800 uppercase tracking-wide">
-            {testimonial.name}
-          </h4>
-          <p className="text-xs text-pinheirao-green font-semibold">
-            {testimonial.city}
-          </p>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-2 mt-10">
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i)}
+              className={`h-1.5 rounded-full transition-all ${
+                i === currentPage ? 'w-8 bg-pinheirao-green' : 'w-2 bg-gray-300'
+              }`}
+              aria-label={`Ir para página de depoimentos ${i + 1}`}
+            />
+          ))}
         </div>
+
       </div>
-    </div>
-  );
-};
-
-interface ColumnProps {
-  testimonials: typeof TESTIMONIALS;
-  speed: number;
-  reverse?: boolean;
-}
-
-const Column: React.FC<ColumnProps> = ({ testimonials, speed, reverse = false }) => {
-  const [isPaused, setIsPaused] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
-
-    const scrollHeight = scrollElement.scrollHeight / 2;
-    let animationId: number;
-    let currentScroll = reverse ? scrollHeight : 0;
-
-    const animate = () => {
-      if (!isPaused && scrollElement) {
-        if (reverse) {
-          currentScroll -= speed;
-          if (currentScroll <= 0) {
-            currentScroll = scrollHeight;
-          }
-        } else {
-          currentScroll += speed;
-          if (currentScroll >= scrollHeight) {
-            currentScroll = 0;
-          }
-        }
-        scrollElement.scrollTop = currentScroll;
-      }
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    return () => cancelAnimationFrame(animationId);
-  }, [speed, isPaused, reverse]);
-
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
-
-  return (
-    <div
-      ref={scrollRef}
-      className="overflow-hidden h-[600px] hide-scrollbar"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div className="flex flex-col gap-5">
-        {duplicatedTestimonials.map((testimonial, index) => (
-          <TestimonialCard
-            key={`${testimonial.id}-${index}`}
-            testimonial={testimonial}
-            index={parseInt(testimonial.id) - 1}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export const TestimonialsCarousel: React.FC = () => {
-  const column1 = TESTIMONIALS.slice(0, 5);
-  const column2 = TESTIMONIALS.slice(5, 10);
-  const column3 = TESTIMONIALS.slice(10, 15);
-
-  return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none z-10"></div>
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center relative z-20">
-        <h2 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-4">
-          Prova Social
-        </h2>
-        <h3 className="text-4xl font-black text-pinheirao-black mb-4">
-          A voz de quem realizou o sonho com a gente.
-        </h3>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Mais de 500 famílias já realizaram o sonho da casa própria com a Casas Pinheirão
-        </p>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-          <Column testimonials={column1} speed={0.3} />
-          <Column testimonials={column2} speed={0.4} reverse />
-          <Column testimonials={column3} speed={0.35} />
-        </div>
-
-        <div className="hidden md:grid md:grid-cols-2 lg:hidden gap-6">
-          <Column testimonials={[...column1, ...column2.slice(0, 2)]} speed={0.3} />
-          <Column testimonials={[...column2.slice(2), ...column3]} speed={0.35} reverse />
-        </div>
-
-        <div className="md:hidden">
-          <Column testimonials={TESTIMONIALS} speed={0.25} />
-        </div>
-      </div>
-
-      <style>{`
-        .hide-scrollbar {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   );
 };

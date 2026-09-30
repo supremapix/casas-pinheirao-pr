@@ -1,7 +1,7 @@
-
-import React, { useState } from 'react';
-import { Award, Users, Shield, Target, Eye, Heart, LayoutTemplate, Briefcase, Boxes, Eye as EyeIcon, X, ZoomIn } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Target, Eye, Heart, LayoutTemplate, Briefcase, Boxes, Eye as EyeIcon, X, ZoomIn, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
+import { Link } from 'react-router-dom';
 
 interface ImageData {
   src: string;
@@ -12,6 +12,25 @@ interface ImageData {
 
 export const About: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<ImageData | null>(null);
+
+  const closeImageModal = useCallback(() => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset';
+  }, []);
+
+  const openImageModal = (image: ImageData) => {
+    setSelectedImage(image);
+    document.body.style.overflow = 'hidden';
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      if (e.key === 'Escape') closeImageModal();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, closeImageModal]);
 
   const journeyImages: ImageData[] = [
     {
@@ -33,106 +52,96 @@ export const About: React.FC = () => {
       description: 'Vista aérea de nossa estrutura completa para fabricação e construção. Possuímos estoque de materiais certificados, área de produção moderna e equipe técnica especializada pronta para transformar seu sonho em realidade.'
     }
   ];
+
   const ourServices = [
     {
-      icon: <LayoutTemplate size={32} className="text-pinheirao-green" />,
+      icon: <LayoutTemplate size={28} className="text-pinheirao-green" />,
       title: 'Design Personalizado',
       desc: 'Projetos sob medida criados por nossa equipe de arquitetura para atender suas necessidades exatas.'
     },
     {
-      icon: <Briefcase size={32} className="text-pinheirao-green" />,
-      title: 'Gestão de Projetos',
+      icon: <Briefcase size={28} className="text-pinheirao-green" />,
+      title: 'Gestão de Obras',
       desc: 'Cuidamos de toda a burocracia e cronograma, garantindo que sua obra flua sem preocupações.'
     },
     {
-      icon: <Boxes size={32} className="text-pinheirao-green" />,
+      icon: <Boxes size={28} className="text-pinheirao-green" />,
       title: 'Seleção de Materiais',
       desc: 'Utilizamos apenas madeiras de lei certificadas e materiais de primeira linha com garantia.'
     },
     {
-      icon: <EyeIcon size={32} className="text-pinheirao-green" />,
-      title: 'Supervisão Técnica',
+      icon: <EyeIcon size={28} className="text-pinheirao-green" />,
+      title: 'Supervisão Técnica CREA',
       desc: 'Engenheiros qualificados acompanham cada etapa da construção para assegurar a perfeição estrutural.'
     }
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-white">
       <EnhancedSEO
         title="Sobre a Empresa - Nossa História e Valores"
         description="Conheça a Casas Pinheirão: mais de 20 anos de experiência em casas pré-fabricadas de madeira e alvenaria. Tradição, qualidade e comprometimento com o sonho da casa própria."
         canonical="/empresa"
         keywords="empresa casas pré-fabricadas, história Casas Pinheirão, tradição casas madeira, casas pré-fabricadas Pinhais, empresa construção Curitiba"
       />
+
       {/* Page Header */}
-      <section className="bg-pinheirao-concrete/30 py-16 md:py-24">
+      <section className="bg-gray-50 py-16 md:py-24 border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-6">Quem Somos</h2>
-          <h1 className="text-4xl md:text-5xl font-black text-pinheirao-black mb-6">Tradição em Pinhais</h1>
-          <p className="text-pinheirao-gray max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
+            Quem Somos
+          </p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-pinheirao-black uppercase tracking-tight mb-4">
+            Tradição e Confiança em Pinhais
+          </h1>
+          <p className="text-pinheirao-gray max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-normal">
             Mais de duas décadas construindo lares e realizando sonhos em Curitiba e Região Metropolitana.
           </p>
         </div>
       </section>
 
-      {/* History (About Us Section) */}
-      <section className="py-24 bg-gradient-to-b from-white to-pinheirao-concrete/10">
+      {/* History */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="bg-pinheirao-green text-white inline-block px-6 py-3 rounded-sm text-xs font-black uppercase tracking-widest mb-6">
-              Nossa Jornada
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-pinheirao-green/10 text-pinheirao-green rounded text-xs font-bold uppercase tracking-wider mb-4">
+              <ShieldCheck size={16} />
+              <span>CREA-PR • Empresa Registrada</span>
             </div>
-            <div className="flex items-center justify-center gap-6 mb-6">
-              <h2 className="text-4xl md:text-5xl font-black text-pinheirao-black">
-                Uma história de confiança e qualidade
-              </h2>
-              <div className="w-24 h-24 bg-white rounded-full p-3 shadow-lg flex items-center justify-center flex-shrink-0 animate-pulse-slow">
-                <img
-                  src="/crea-pr-pinhais-1.png"
-                  alt="CREA-PR Empresa Registrada"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            <div className="w-24 h-1 bg-pinheirao-green mx-auto mb-8"></div>
-            <p className="text-pinheirao-gray max-w-3xl mx-auto text-lg leading-relaxed font-medium">
-              A <strong className="text-pinheirao-black">Casas Pinheirão</strong> nasceu em Pinhais com o propósito de oferecer uma alternativa viável, segura e de alta qualidade para quem deseja construir a casa própria. Ao longo de mais de 20 anos, evoluímos nossos processos construtivos e expandimos nossa equipe para nos tornarmos referência no segmento.
+            <h2 className="text-3xl sm:text-4xl font-black text-pinheirao-black uppercase tracking-tight">
+              Uma história construída sobre bases sólidas
+            </h2>
+            <p className="text-pinheirao-gray text-base sm:text-lg mt-4 leading-relaxed font-normal">
+              A <strong className="text-pinheirao-black font-bold">Casas Pinheirão</strong> nasceu com o propósito de oferecer uma alternativa viável, segura e de alta qualidade para quem deseja construir a casa própria. Com mais de 20 anos de dedicação, entregamos centenas de unidades em todo o Paraná.
             </p>
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {journeyImages.map((image, idx) => (
               <div
                 key={idx}
-                className="relative group cursor-pointer overflow-hidden rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-500"
-                onClick={() => setSelectedImage(image)}
+                className="group cursor-pointer overflow-hidden rounded-sm border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all"
+                onClick={() => openImageModal(image)}
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"></div>
-
-                <div className="relative aspect-[4/3] overflow-hidden bg-pinheirao-concrete/20">
+                <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-
-                  {/* Overlay com zoom icon */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black/80 via-pinheirao-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <ZoomIn className="text-white" size={48} strokeWidth={2} />
-                      <p className="text-white font-bold text-sm mt-2 uppercase tracking-wider">Ver Detalhes</p>
-                    </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2">
+                    <ZoomIn size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Ampliar</span>
                   </div>
                 </div>
 
-                {/* Image Title */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pinheirao-black via-pinheirao-black/90 to-transparent p-6">
-                  <h3 className="text-white font-black text-xl mb-2 uppercase tracking-tight">
+                <div className="p-6">
+                  <h3 className="text-base font-bold uppercase tracking-wide text-pinheirao-black mb-2">
                     {image.title}
                   </h3>
-                  <p className="text-white/80 text-sm font-medium line-clamp-2">
+                  <p className="text-xs text-pinheirao-gray line-clamp-3 leading-relaxed">
                     {image.description}
                   </p>
                 </div>
@@ -140,82 +149,55 @@ export const About: React.FC = () => {
             ))}
           </div>
 
-          {/* Additional Content */}
-          <div className="mt-16 max-w-4xl mx-auto space-y-6 text-pinheirao-gray leading-relaxed font-medium text-center">
-            <p className="text-lg">
-              Nossa expertise vai além da construção em si; nós entendemos as expectativas e os desafios de cada família. Por isso, oferecemos um atendimento consultivo que guia o cliente desde a escolha do modelo ideal até o acabamento final.
-            </p>
-            <p className="text-lg">
-              Hoje, com <strong className="text-pinheirao-black">centenas de unidades entregues</strong>, nossa maior recompensa é a satisfação e o sorriso no rosto de cada novo morador.
-            </p>
+          {/* CTAs */}
+          <div className="mt-14 flex flex-col sm:flex-row justify-center gap-6 items-center">
+            <div className="flex flex-col items-center">
+              <a
+                href="https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Gostaria de agendar uma visita à sede da Casas Pinheirão."
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-all shadow-md"
+              >
+                <span>Agendar Visita</span>
+                <ArrowRight size={16} />
+              </a>
+              <span className="text-[10px] text-pinheirao-gray mt-1 font-medium">Showroom em Pinhais</span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <Link
+                to="/projetos"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-gray-100 text-pinheirao-black font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-gray-200 transition-all"
+              >
+                <span>Ver Catálogo</span>
+              </Link>
+              <span className="text-[10px] text-pinheirao-gray mt-1 font-medium">Projetos prontos</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Image Modal/Lightbox */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button
-            onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 text-white hover:text-pinheirao-green transition-colors p-2 bg-white/10 rounded-full hover:bg-white/20 backdrop-blur-sm"
-            aria-label="Fechar"
-          >
-            <X size={32} strokeWidth={2} />
-          </button>
-
-          <div
-            className="max-w-6xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl animate-scale-in"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative aspect-video bg-pinheirao-concrete/20">
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                className="w-full h-full object-contain"
-              />
-            </div>
-
-            <div className="p-8 bg-gradient-to-br from-white to-pinheirao-concrete/10">
-              <h3 className="text-3xl font-black text-pinheirao-black mb-4 uppercase tracking-tight">
-                {selectedImage.title}
-              </h3>
-              <p className="text-pinheirao-gray text-lg leading-relaxed font-medium">
-                {selectedImage.description}
-              </p>
-
-              <div className="mt-6 pt-6 border-t border-pinheirao-concrete/30">
-                <a
-                  href="https://wa.me/5541996301028?text=Olá! Gostaria de conhecer mais sobre a história e estrutura da Casas Pinheirão."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-pinheirao-green hover:bg-pinheirao-deep text-white px-8 py-4 rounded-sm font-black uppercase tracking-wider text-sm transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  Conheça Nossa Estrutura
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Our Services Section */}
-      <section className="py-24 bg-pinheirao-concrete/10 border-y border-pinheirao-concrete/20">
+      {/* Services */}
+      <section className="py-20 md:py-28 bg-gray-50 border-y border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-4">Nossos Serviços</h2>
-            <h3 className="text-4xl font-black text-pinheirao-black mb-6">Excelência em cada etapa da construção.</h3>
-            <div className="w-20 h-1 bg-pinheirao-green mx-auto"></div>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-2">
+              Diferenciais
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-black text-pinheirao-black uppercase tracking-tight">
+              Excelência e Rigor Técnico
+            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ourServices.map((service, idx) => (
-              <div key={idx} className="bg-white p-10 rounded-sm shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col items-center text-center group">
-                <div className="mb-6 p-4 bg-pinheirao-concrete/30 rounded-full group-hover:scale-110 transition-transform">
+              <div key={idx} className="bg-white p-8 rounded-sm border border-gray-100 shadow-sm flex flex-col">
+                <div className="mb-5 p-3 bg-pinheirao-green/10 rounded-sm w-fit">
                   {service.icon}
                 </div>
-                <h4 className="text-lg font-black text-pinheirao-black mb-4 uppercase tracking-tighter">{service.title}</h4>
+                <h3 className="text-base font-bold uppercase tracking-wider text-pinheirao-black mb-2">
+                  {service.title}
+                </h3>
                 <p className="text-sm text-pinheirao-gray font-medium leading-relaxed">
                   {service.desc}
                 </p>
@@ -226,83 +208,119 @@ export const About: React.FC = () => {
       </section>
 
       {/* Mission Vision Values */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-12 rounded-sm shadow-sm text-center border-b-4 border-pinheirao-green">
-              <div className="bg-pinheirao-green/10 p-4 rounded-full w-fit mx-auto mb-6 text-pinheirao-green">
-                <Target size={36} />
+            <div className="p-8 bg-gray-50 rounded-sm border-t-4 border-pinheirao-green border-x border-b border-gray-100">
+              <div className="p-3 bg-pinheirao-green/10 text-pinheirao-green rounded-sm w-fit mb-5">
+                <Target size={24} />
               </div>
-              <h3 className="text-xl font-black mb-4 uppercase tracking-widest">Missão</h3>
-              <p className="text-pinheirao-gray text-sm leading-relaxed font-medium">Construir casas de excelência com agilidade e preço justo, proporcionando segurança e bem-estar para nossos clientes.</p>
+              <h3 className="text-lg font-bold uppercase tracking-wide text-pinheirao-black mb-3">Missão</h3>
+              <p className="text-sm text-pinheirao-gray leading-relaxed font-medium">
+                Construir casas de excelência com agilidade, preço justo e transparência, proporcionando segurança e bem-estar para famílias realizarem o sonho da casa própria.
+              </p>
             </div>
-            <div className="bg-white p-12 rounded-sm shadow-sm text-center border-b-4 border-pinheirao-black">
-              <div className="bg-pinheirao-black/10 p-4 rounded-full w-fit mx-auto mb-6 text-pinheirao-black">
-                <Eye size={36} />
+
+            <div className="p-8 bg-gray-50 rounded-sm border-t-4 border-pinheirao-black border-x border-b border-gray-100">
+              <div className="p-3 bg-pinheirao-black/10 text-pinheirao-black rounded-sm w-fit mb-5">
+                <Eye size={24} />
               </div>
-              <h3 className="text-xl font-black mb-4 uppercase tracking-widest">Visão</h3>
-              <p className="text-pinheirao-gray text-sm leading-relaxed font-medium">Ser a empresa de casas pré-fabricadas mais admirada do Paraná, reconhecida pela inovação e transparência em todos os processos.</p>
+              <h3 className="text-lg font-bold uppercase tracking-wide text-pinheirao-black mb-3">Visão</h3>
+              <p className="text-sm text-pinheirao-gray leading-relaxed font-medium">
+                Ser a construtora de casas pré-fabricadas e alvenaria mais confiável e recomendada do Paraná, reconhecida pela solidez técnica e respeito ao cliente.
+              </p>
             </div>
-            <div className="bg-white p-12 rounded-sm shadow-sm text-center border-b-4 border-pinheirao-deep">
-              <div className="bg-pinheirao-deep/10 p-4 rounded-full w-fit mx-auto mb-6 text-pinheirao-deep">
-                <Heart size={36} />
+
+            <div className="p-8 bg-gray-50 rounded-sm border-t-4 border-pinheirao-deep border-x border-b border-gray-100">
+              <div className="p-3 bg-pinheirao-deep/10 text-pinheirao-deep rounded-sm w-fit mb-5">
+                <Heart size={24} />
               </div>
-              <h3 className="text-xl font-black mb-4 uppercase tracking-widest">Valores</h3>
-              <p className="text-pinheirao-gray text-sm leading-relaxed font-medium">Ética, comprometimento, respeito ao meio ambiente, foco no cliente e valorização das pessoas.</p>
+              <h3 className="text-lg font-bold uppercase tracking-wide text-pinheirao-black mb-3">Valores</h3>
+              <p className="text-sm text-pinheirao-gray leading-relaxed font-medium">
+                Ética, pontualidade, respeito ao meio ambiente, madeira nobre certificada e compromisso incondicional com a satisfação do cliente.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <style>{`
-        @keyframes bounce-slow {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
+      {/* Semantic Image Lightbox Modal */}
+      {selectedImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="about-modal-title"
+          aria-describedby="about-modal-desc"
+          className="fixed inset-0 bg-black/95 z-[100] flex flex-col items-center justify-between p-4 sm:p-6 overflow-y-auto animate-fade-in"
+          onClick={closeImageModal}
+        >
+          {/* Header Bar */}
+          <div className="w-full max-w-4xl flex items-center justify-between py-2 text-white border-b border-white/10 shrink-0" onClick={(e) => e.stopPropagation()}>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-pinheirao-green">
+                Nossa Estrutura • Pinhais / PR
+              </p>
+              <h2 id="about-modal-title" className="text-base sm:text-lg font-bold text-white uppercase tracking-tight">
+                {selectedImage.title}
+              </h2>
+            </div>
+            <button
+              onClick={closeImageModal}
+              className="p-2 sm:px-3 sm:py-1.5 rounded-full sm:rounded-sm bg-white/10 hover:bg-white/20 text-white flex items-center gap-1.5"
+              aria-label="Fechar janela"
+              title="Fechar (Esc)"
+            >
+              <X size={20} />
+              <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider">Fechar</span>
+            </button>
+          </div>
 
-        .animate-bounce-slow {
-          animation: bounce-slow 2s ease-in-out infinite;
-        }
+          {/* Stage */}
+          <div className="max-w-4xl w-full my-auto flex flex-col items-center justify-center py-4" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full max-h-[55vh] flex items-center justify-center overflow-hidden rounded-sm bg-black">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="max-h-[55vh] w-auto max-w-full object-contain rounded-sm shadow-2xl"
+              />
+            </div>
 
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
+            {/* Semantic Descriptive Box */}
+            <div className="w-full mt-4 p-4 sm:p-6 bg-[#1E2229] border border-white/10 rounded-sm">
+              <p id="about-modal-desc" className="text-gray-200 text-sm sm:text-base leading-relaxed font-normal">
+                {selectedImage.description}
+              </p>
+            </div>
+          </div>
 
-        @keyframes scale-in {
-          from {
-            opacity: 0;
-            transform: scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
+          {/* Bottom Action Bar with Direct Close Button */}
+          <div className="w-full max-w-4xl pt-3 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 shrink-0" onClick={(e) => e.stopPropagation()}>
+            <p className="text-xs text-gray-400 font-medium text-center sm:text-left flex items-center gap-1.5">
+              <MapPin size={14} className="text-pinheirao-green shrink-0" />
+              <span>Av. Jacob Macanhan, 1369 - Jardim Claudia, Pinhais/PR</span>
+            </p>
+            <div className="flex items-center gap-3 w-full sm:w-auto">
+              <a
+                href="https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Gostaria de agendar uma visita à sede da Casas Pinheirão."
+                target="_blank"
+                rel="noopener"
+                onClick={closeImageModal}
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-all shadow-md"
+              >
+                <span>Agendar Visita</span>
+                <ArrowRight size={14} />
+              </a>
+              <button
+                onClick={closeImageModal}
+                className="flex-1 sm:flex-initial px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-all border border-white/20"
+              >
+                Fechar Visualização
+              </button>
+            </div>
+          </div>
 
-        .animate-fade-in {
-          animation: fade-in 0.3s ease-out;
-        }
-
-        .animate-scale-in {
-          animation: scale-in 0.4s ease-out;
-        }
-
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}</style>
+        </div>
+      )}
     </div>
   );
 };

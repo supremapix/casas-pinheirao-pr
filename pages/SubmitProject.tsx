@@ -194,22 +194,31 @@ export const SubmitProject: React.FC = () => {
                   ></textarea>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center gap-6 pt-6">
-                  <button 
-                    disabled={loading}
-                    type="submit" 
-                    className="w-full md:w-fit bg-pinheirao-green text-white px-14 py-5 rounded-sm font-black text-xs uppercase tracking-widest hover:bg-pinheirao-deep transition-all shadow-xl disabled:opacity-50 flex items-center justify-center"
-                  >
-                    {loading ? 'Enviando...' : 'Enviar Projeto'}
-                    <Send size={16} className="ml-3" />
-                  </button>
-                  <a 
-                    href="https://api.whatsapp.com/send?phone=5541996301028" 
-                    className="w-full md:w-fit border-2 border-pinheirao-black text-pinheirao-black font-black text-xs uppercase tracking-widest px-14 py-5 rounded-sm hover:bg-pinheirao-black hover:text-white transition-all flex items-center justify-center"
-                  >
-                    Falar via WhatsApp
-                    <MessageSquare size={16} className="ml-3" />
-                  </a>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                  <div className="flex flex-col">
+                    <button 
+                      disabled={loading}
+                      type="submit" 
+                      className="w-full bg-pinheirao-green text-white py-4 rounded-sm font-bold text-xs uppercase tracking-wider hover:bg-pinheirao-deep transition-all shadow-md disabled:opacity-50 flex items-center justify-center gap-2"
+                    >
+                      {loading ? 'Enviando...' : 'Enviar Projeto'}
+                      <Send size={16} />
+                    </button>
+                    <span className="text-[10px] text-pinheirao-gray mt-1 text-center font-medium">Análise de viabilidade gratuita</span>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <a 
+                      href="https://api.whatsapp.com/send?phone=5541996301028" 
+                      target="_blank"
+                      rel="noopener"
+                      className="w-full border border-pinheirao-black text-pinheirao-black font-bold text-xs uppercase tracking-wider py-4 rounded-sm hover:bg-pinheirao-black hover:text-white transition-all flex items-center justify-center gap-2"
+                    >
+                      <span>WhatsApp</span>
+                      <MessageSquare size={16} />
+                    </a>
+                    <span className="text-[10px] text-pinheirao-gray mt-1 text-center font-medium">Atendimento imediato</span>
+                  </div>
                 </div>
               </form>
             </div>

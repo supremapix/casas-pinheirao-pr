@@ -1,19 +1,17 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { PROJECTS } from '../data';
 import { ConstructionType, Project } from '../types';
 import {
-  Maximize2, Bed, Bath, Square, ArrowRight,
+  Bed, Square, ArrowRight,
   X, ChevronLeft, ChevronRight, Image as ImageIcon,
-  ExternalLink, ZoomIn, Package, TreePine, Building2, Building, Layers
+  ExternalLink, ZoomIn
 } from 'lucide-react';
 
 export const Projects: React.FC = () => {
   const [filter, setFilter] = useState<ConstructionType | 'ALL'>('ALL');
   const [lightbox, setLightbox] = useState<{ project: Project; index: number } | null>(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const filteredProjects = filter === 'ALL' 
     ? PROJECTS 
@@ -61,66 +59,55 @@ export const Projects: React.FC = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightbox, closeLightbox, nextImage, prevImage]);
-  // Scroll reveal effect
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const cards = document.querySelectorAll('.property-card');
-    cards.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
-  }, [filter]);
 
   return (
-    <div className="pt-20 md:pt-20 pt-16">
+    <div className="pt-20 bg-white min-h-screen">
       <EnhancedSEO
         title="Nossos Projetos e Modelos de Casas"
         description="Conheça nossos modelos de casas pré-fabricadas: casas de madeira, alvenaria, sobrados e triplex. Projetos personalizados para realizar seu sonho da casa própria em Pinhais e Curitiba."
         canonical="/projetos"
         keywords="projetos casas pré-fabricadas, modelos casas madeira, casas alvenaria, sobrados pré-fabricados, triplex Pinhais, projetos personalizados"
       />
-      {/* Hero Section - Reduzido em mobile */}
-      <section className="bg-pinheirao-concrete/30 py-12 md:py-24 border-b border-pinheirao-concrete">
+
+      {/* Hero Header */}
+      <section className="bg-gray-50 py-14 md:py-20 border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-4 md:mb-6">Modelos & Projetos</h2>
-          <h1 className="text-3xl md:text-5xl font-black text-pinheirao-black mb-4 md:mb-8 leading-tight">Escolha o seu lar sob medida.</h1>
-          <p className="text-pinheirao-gray max-w-2xl mx-auto font-medium text-sm md:text-base">Nossos modelos servem como base para a sua criatividade. Todo projeto pode ser 100% personalizado conforme sua necessidade e terreno.</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
+            Catálogo de Modelos
+          </p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-pinheirao-black uppercase tracking-tight mb-4">
+            Escolha seu Modelo de Casa
+          </h1>
+          <p className="text-pinheirao-gray max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-normal">
+            Modelos pré-fabricados de madeira nobre e alvenaria tradicional. Todos os projetos podem ser personalizados para o seu terreno.
+          </p>
         </div>
       </section>
 
-      {/* Sticky Filter Bar - Desktop e Mobile */}
-      <section className="py-3 md:py-10 bg-white sticky top-16 md:top-20 z-40 border-b shadow-sm">
+      {/* Segmented Filter Bar */}
+      <section className="py-4 bg-white sticky top-16 md:top-20 z-40 border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Desktop - Botões em linha */}
-          <div className="hidden md:flex flex-wrap justify-center gap-4">
+          {/* Desktop Filter */}
+          <div className="hidden sm:flex flex-wrap justify-center gap-2">
             <button
               onClick={() => setFilter('ALL')}
-              className={`px-8 py-3 text-[10px] font-black uppercase tracking-widest transition-all rounded-sm border ${
+              className={`px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-sm transition-all ${
                 filter === 'ALL' 
-                  ? 'bg-pinheirao-green text-white border-pinheirao-green shadow-lg' 
-                  : 'bg-white text-pinheirao-gray border-gray-200 hover:bg-gray-50'
+                  ? 'bg-pinheirao-green text-white shadow-sm' 
+                  : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
               }`}
             >
-              Todos os Projetos
+              Todos ({PROJECTS.length})
             </button>
             {Object.values(ConstructionType).map((type) => (
               <button
                 key={type}
                 onClick={() => setFilter(type)}
-                className={`px-8 py-3 text-[10px] font-black uppercase tracking-widest transition-all rounded-sm border ${
+                className={`px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-sm transition-all ${
                   filter === type 
-                    ? 'bg-pinheirao-green text-white border-pinheirao-green shadow-lg' 
-                    : 'bg-white text-pinheirao-gray border-gray-200 hover:bg-gray-50'
+                    ? 'bg-pinheirao-green text-white shadow-sm' 
+                    : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                 }`}
               >
                 {type}
@@ -128,20 +115,14 @@ export const Projects: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile - Select Dropdown */}
-          <div className="md:hidden">
+          {/* Mobile Filter */}
+          <div className="sm:hidden">
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value as ConstructionType | 'ALL')}
-              className="w-full px-4 py-3 text-sm font-bold uppercase tracking-wide bg-pinheirao-green text-white border-2 border-pinheirao-green rounded-lg shadow-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-pinheirao-green focus:ring-offset-2"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'right 1rem center',
-                backgroundSize: '1.5rem'
-              }}
+              className="w-full px-4 py-3 text-xs font-bold uppercase tracking-wider bg-gray-50 border border-gray-200 rounded-sm text-pinheirao-black focus:outline-none focus:border-pinheirao-green"
             >
-              <option value="ALL">Todos os Projetos</option>
+              <option value="ALL">Todos os Projetos ({PROJECTS.length})</option>
               <option value={ConstructionType.WOOD}>Casas de Madeira</option>
               <option value={ConstructionType.MASONRY}>Casas de Alvenaria</option>
               <option value={ConstructionType.SOBRADO}>Sobrados</option>
@@ -152,189 +133,211 @@ export const Projects: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      {/* Projects Grid */}
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
               <div 
                 key={project.id} 
-                className="property-card group flex flex-col h-full bg-white border border-gray-100 transition-all hover:shadow-2xl overflow-hidden rounded-sm"
+                className="group flex flex-col h-full bg-white border border-gray-200 rounded-sm overflow-hidden hover:border-pinheirao-green/60 hover:shadow-lg transition-all"
               >
-                {/* Image Section - Clicking here opens the Lightbox */}
+                {/* Image / Lightbox trigger */}
                 <div 
-                  className="relative h-72 overflow-hidden bg-pinheirao-black cursor-zoom-in"
+                  className="relative h-64 overflow-hidden bg-black cursor-pointer"
                   onClick={(e) => openLightbox(e, project)}
                 >
                   <img 
                     src={project.images[0]} 
                     alt={project.title} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-90" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" 
                     loading="lazy"
                   />
-                  <div className="absolute top-6 left-6 bg-pinheirao-green text-white text-[9px] font-black px-4 py-2 rounded-sm uppercase tracking-widest shadow-lg z-10">
+                  <div className="absolute top-4 left-4 bg-pinheirao-black/90 text-white text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-wider">
                     {project.type}
                   </div>
                   
-                  {/* Overlay for Lightbox trigger */}
-                  <div className="absolute inset-0 bg-pinheirao-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center">
-                    <div className="bg-white/95 p-5 rounded-full text-pinheirao-black shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      <ZoomIn size={28} />
+                  {project.images.length > 1 && (
+                    <div className="absolute bottom-3 right-3 flex items-center gap-1.5 text-white bg-black/70 px-2.5 py-1 rounded-sm text-[10px] font-bold uppercase">
+                      <ImageIcon size={12} className="text-pinheirao-green" />
+                      <span>{project.images.length} Fotos</span>
                     </div>
-                    <span className="text-white text-[10px] font-black uppercase tracking-[0.3em] mt-4 drop-shadow-lg">Explorar Galeria</span>
-                    
-                    {project.images.length > 1 && (
-                      <div className="absolute bottom-6 right-6 flex items-center space-x-2 text-white bg-black/60 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
-                        <ImageIcon size={14} className="text-pinheirao-green" />
-                        <span className="text-[10px] font-black uppercase tracking-widest">{project.images.length} Fotos</span>
-                      </div>
-                    )}
+                  )}
+
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white gap-2">
+                    <ZoomIn size={24} />
+                    <span className="text-xs font-bold uppercase tracking-wider">Ampliar</span>
                   </div>
                 </div>
 
-                {/* Content Section - Clicking here goes to Detail Page */}
-                <Link to={`/projetos/${project.id}`} className="p-10 flex flex-col flex-grow group/card">
-                  <h3 className="font-black text-2xl mb-4 text-pinheirao-black uppercase tracking-tighter italic group-hover/card:text-pinheirao-green transition-colors leading-tight">
-                    {project.title}
-                  </h3>
-                  
-                  <div className="flex items-center gap-6 py-4 border-y border-gray-50 mb-8 text-pinheirao-gray">
-                    <div className="flex items-center gap-2">
-                      <Square size={16} className="text-pinheirao-green" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">{project.area}</span>
+                {/* Content */}
+                <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                  <div className="flex items-center gap-4 py-2 border-b border-gray-100 mb-4 text-xs font-bold uppercase text-pinheirao-gray">
+                    <div className="flex items-center gap-1.5 text-pinheirao-black">
+                      <Square size={14} className="text-pinheirao-green" />
+                      <span>{project.area}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Bed size={16} className="text-pinheirao-green" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">2-3 Quartos</span>
+                    <span>·</span>
+                    <div className="flex items-center gap-1.5 text-pinheirao-black">
+                      <Bed size={14} className="text-pinheirao-green" />
+                      <span>2-3 Quartos</span>
                     </div>
                   </div>
 
-                  <p className="text-pinheirao-gray text-sm mb-10 leading-relaxed font-medium flex-grow line-clamp-3">
+                  <h3 className="font-bold text-xl mb-3 text-pinheirao-black uppercase tracking-tight group-hover:text-pinheirao-green transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-pinheirao-gray text-xs sm:text-sm mb-6 leading-relaxed line-clamp-3 font-normal">
                     {project.description}
                   </p>
                   
-                  <div className="mt-auto flex items-center text-[10px] font-black uppercase tracking-widest text-pinheirao-green group-hover/card:text-pinheirao-deep transition-all">
-                    Ver Projeto Completo <ArrowRight size={14} className="ml-2 group-hover/card:translate-x-2 transition-transform" />
+                  <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <Link 
+                      to={`/projetos/${project.id}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-pinheirao-black group-hover:text-pinheirao-green transition-colors"
+                    >
+                      <span>Ver Detalhes</span>
+                      <ArrowRight size={14} />
+                    </Link>
+                    <Link
+                      to={`/envie-seu-projeto?title=${encodeURIComponent(project.title)}&type=${encodeURIComponent(project.type)}`}
+                      className="px-4 py-2 bg-pinheirao-green text-white text-[11px] font-bold uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-colors"
+                    >
+                      Orçamento
+                    </Link>
                   </div>
-                </Link>
+                </div>
               </div>
             ))}
           </div>
-          
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-40">
-              <h3 className="text-2xl font-black text-pinheirao-concrete uppercase tracking-[0.3em]">Nenhum projeto encontrado.</h3>
-            </div>
-          )}
         </div>
       </section>
 
-      {/* Grid Page Lightbox - Fully Responsive & Interactive */}
+      {/* Semantic Lightbox Modal */}
       {lightbox && (
         <div 
-          className="fixed inset-0 z-[100] bg-black/85 flex flex-col items-center justify-center animate-fade-in backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
+          aria-describedby="project-modal-desc"
+          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-between p-4 sm:p-6 overflow-y-auto animate-fade-in"
           onClick={closeLightbox}
         >
-          {/* Top Interface */}
-          <div className="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-[110]">
-             <div className="flex flex-col animate-fade-in-down">
-               <span className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-1 drop-shadow-lg">{lightbox.project.title}</span>
-               <div className="flex items-center space-x-3">
-                 <span className="bg-pinheirao-green text-white text-[9px] font-black px-3 py-1 rounded-sm uppercase tracking-widest">
-                   {lightbox.project.type}
-                 </span>
-                 <span className="text-white/80 text-[9px] font-bold uppercase tracking-widest">
-                   Imagem {lightbox.index + 1} de {lightbox.project.images.length}
-                 </span>
-               </div>
-             </div>
-             
-             <div className="flex items-center space-x-3 md:space-x-6 animate-fade-in-down">
-               <Link 
-                to={`/projetos/${lightbox.project.id}`} 
-                onClick={(e) => e.stopPropagation()}
-                className="hidden sm:flex items-center bg-white/10 hover:bg-pinheirao-green text-white px-8 py-4 rounded-sm text-[10px] font-black uppercase tracking-widest transition-all shadow-xl group border border-white/5"
-               >
-                 Ver Ficha Técnica <ExternalLink size={14} className="ml-2 group-hover:rotate-12 transition-transform" />
-               </Link>
-               <button 
-                className="bg-white hover:bg-gray-100 text-black p-4 rounded-full transition-all shadow-xl hover:rotate-90 duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                onClick={closeLightbox}
-                aria-label="Fechar Galeria"
+          {/* Top Header Bar */}
+          <div className="w-full max-w-5xl flex items-center justify-between py-2 text-white border-b border-white/10 shrink-0" onClick={(e) => e.stopPropagation()}>
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-pinheirao-green">
+                {lightbox.project.type} • Foto {lightbox.index + 1} de {lightbox.project.images.length}
+              </p>
+              <h2 id="project-modal-title" className="text-base sm:text-lg font-bold text-white uppercase tracking-tight">
+                {lightbox.project.title} ({lightbox.project.area})
+              </h2>
+            </div>
+            <div className="flex items-center gap-3">
+              <Link
+                to={`/projetos/${lightbox.project.id}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeLightbox();
+                }}
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-white/10 text-white rounded-sm text-xs font-bold uppercase tracking-wider hover:bg-pinheirao-green transition-colors"
               >
-                <X size={24} strokeWidth={3} />
+                <span>Ficha Completa</span>
+                <ExternalLink size={14} />
+              </Link>
+              <button
+                onClick={closeLightbox}
+                className="p-2 sm:px-3 sm:py-1.5 rounded-full sm:rounded-sm bg-white/10 hover:bg-white/20 text-white flex items-center gap-1.5"
+                aria-label="Fechar galeria"
+                title="Fechar (Esc)"
+              >
+                <X size={20} />
+                <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider">Fechar</span>
               </button>
-             </div>
+            </div>
           </div>
 
-          <div 
-            className="relative w-full h-full flex items-center justify-center p-4 md:p-24"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Nav Arrows - Desktop */}
-            {lightbox.project.images.length > 1 && (
-              <>
-                <button 
-                  className="absolute left-6 md:left-12 z-[110] text-white hover:text-pinheirao-green bg-white/5 hover:bg-white/10 p-6 md:p-8 rounded-full transition-all shadow-2xl backdrop-blur-md border border-white/5 hidden md:block"
-                  onClick={prevImage}
-                  title="Anterior"
-                >
-                  <ChevronLeft size={40} />
-                </button>
-                <button 
-                  className="absolute right-6 md:right-12 z-[110] text-white hover:text-pinheirao-green bg-white/5 hover:bg-white/10 p-6 md:p-8 rounded-full transition-all shadow-2xl backdrop-blur-md border border-white/5 hidden md:block"
-                  onClick={nextImage}
-                  title="Próxima"
-                >
-                  <ChevronRight size={40} />
-                </button>
-              </>
-            )}
+          {/* Image & Controls Stage */}
+          <div className="relative max-w-5xl w-full flex flex-col items-center justify-center my-auto py-4" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full flex items-center justify-center">
+              {lightbox.project.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 p-3 bg-black/70 hover:bg-pinheirao-green text-white rounded-full z-10 transition-all shadow-xl"
+                    aria-label="Foto anterior"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 p-3 bg-black/70 hover:bg-pinheirao-green text-white rounded-full z-10 transition-all shadow-xl"
+                    aria-label="Próxima foto"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </>
+              )}
 
-            {/* Main Content Area */}
-            <div className="relative w-full h-full flex items-center justify-center select-none">
-              <img 
-                key={`${lightbox.project.id}-${lightbox.index}`}
-                src={lightbox.project.images[lightbox.index]} 
-                alt={`${lightbox.project.title} - Visualização ${lightbox.index + 1}`} 
-                className="max-w-full max-h-[75vh] object-contain shadow-[0_0_100px_rgba(0,0,0,0.5)] animate-fade-in rounded-sm pointer-events-none"
-              />
-              
-              {/* Mobile Only Nav overlays */}
-              <div className="absolute inset-0 flex md:hidden">
-                <div className="flex-1 cursor-pointer" onClick={prevImage} title="Anterior"></div>
-                <div className="flex-1 cursor-pointer" onClick={nextImage} title="Próxima"></div>
+              <div className="max-h-[55vh] flex items-center justify-center overflow-hidden rounded-sm bg-black">
+                <img
+                  src={lightbox.project.images[lightbox.index]}
+                  alt={`${lightbox.project.title} foto ${lightbox.index + 1}`}
+                  className="max-h-[55vh] w-auto max-w-full object-contain rounded-sm shadow-2xl"
+                />
               </div>
+            </div>
+
+            {/* Semantic Project Description */}
+            <div className="w-full mt-4 p-4 sm:p-5 bg-[#1E2229] border border-white/10 rounded-sm">
+              <p id="project-modal-desc" className="text-gray-200 text-xs sm:text-sm leading-relaxed font-normal">
+                {lightbox.project.description}
+              </p>
             </div>
 
             {/* Thumbnails Navigation Strip */}
             {lightbox.project.images.length > 1 && (
-              <div className="absolute bottom-8 md:bottom-12 left-0 w-full px-6 flex justify-center items-center gap-3 overflow-x-auto pb-4 scrollbar-hide no-scrollbar animate-fade-in-up">
-                <div className="flex gap-2 md:gap-4 p-2 bg-white/5 rounded-sm border border-white/10 backdrop-blur-sm">
-                  {lightbox.project.images.map((img, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setLightbox({ ...lightbox, index: i })}
-                      className={`w-16 h-12 md:w-28 md:h-18 rounded-sm overflow-hidden border-2 transition-all duration-300 flex-shrink-0 ${i === lightbox.index ? 'border-pinheirao-green scale-110 shadow-[0_0_15px_rgba(11,181,151,0.5)]' : 'border-transparent opacity-30 hover:opacity-100 hover:scale-105'}`}
-                      aria-label={`Ir para imagem ${i + 1}`}
-                    >
-                      <img src={img} className="w-full h-full object-cover" alt="miniatura" loading="lazy" />
-                    </button>
-                  ))}
-                </div>
+              <div className="w-full mt-3 flex justify-center gap-2 overflow-x-auto pb-1">
+                {lightbox.project.images.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setLightbox({ ...lightbox, index: idx })}
+                    className={`w-14 h-10 rounded-sm overflow-hidden border-2 transition-all shrink-0 ${
+                      idx === lightbox.index ? 'border-pinheirao-green opacity-100 shadow-md' : 'border-transparent opacity-40 hover:opacity-80'
+                    }`}
+                    aria-label={`Ver foto ${idx + 1}`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  </button>
+                ))}
               </div>
             )}
           </div>
-          
-          {/* Mobile Info Bar at Bottom */}
-          <div className="absolute bottom-4 left-0 w-full sm:hidden flex justify-center px-6 animate-fade-in-up">
-             <Link 
-              to={`/projetos/${lightbox.project.id}`} 
-              onClick={(e) => e.stopPropagation()}
-              className="bg-pinheirao-green text-white w-full py-4 rounded-sm text-center text-[10px] font-black uppercase tracking-widest shadow-xl flex items-center justify-center"
-             >
-               Ver Ficha Técnica <ArrowRight size={14} className="ml-2" />
-             </Link>
+
+          {/* Bottom Bar with Direct Close Button */}
+          <div className="w-full max-w-5xl pt-3 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 shrink-0" onClick={(e) => e.stopPropagation()}>
+            <p className="text-xs text-gray-400 font-medium text-center sm:text-left">
+              Construímos este modelo no seu lote com garantia e financiamento facilitado.
+            </p>
+            <div className="flex items-center gap-3 w-full sm:w-auto">
+              <Link
+                to={`/envie-seu-projeto?title=${encodeURIComponent(lightbox.project.title)}&type=${encodeURIComponent(lightbox.project.type)}`}
+                onClick={closeLightbox}
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-all shadow-md"
+              >
+                <span>Orçamento Deste Modelo</span>
+                <ArrowRight size={14} />
+              </Link>
+              <button
+                onClick={closeLightbox}
+                className="flex-1 sm:flex-initial px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-all border border-white/20"
+              >
+                Fechar Galeria
+              </button>
+            </div>
           </div>
+
         </div>
       )}
     </div>

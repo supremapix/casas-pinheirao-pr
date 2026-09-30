@@ -192,21 +192,30 @@ export const ProjectDetail: React.FC = () => {
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <button 
-                  onClick={handleQuoteRequest}
-                  className="w-full bg-pinheirao-green hover:bg-pinheirao-deep text-white py-6 rounded-sm font-black text-xs uppercase tracking-[0.3em] transition-all shadow-xl flex items-center justify-center gap-3 active:scale-95 group"
-                >
-                  Solicitar Orçamento Personalizado
-                  <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </button>
-                <a 
-                  href={`https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Me interessei pelo modelo: ${project.title}`}
-                  className="w-full border-2 border-pinheirao-black hover:bg-pinheirao-black hover:text-white text-pinheirao-black py-6 rounded-sm font-black text-xs uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-3"
-                >
-                  <MessageSquare size={18} />
-                  Falar com Especialista
-                </a>
+              <div className="space-y-6">
+                <div className="flex flex-col">
+                  <button 
+                    onClick={handleQuoteRequest}
+                    className="w-full bg-pinheirao-green hover:bg-pinheirao-deep text-white py-4 rounded-sm font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 group"
+                  >
+                    <span>Pedir Orçamento</span>
+                    <Send size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <span className="text-[10px] text-pinheirao-gray mt-1 text-center font-medium tracking-wide">Projeto sob medida</span>
+                </div>
+
+                <div className="flex flex-col">
+                  <a 
+                    href={`https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Me interessei pelo modelo: ${project.title}`}
+                    target="_blank"
+                    rel="noopener"
+                    className="w-full border border-pinheirao-black hover:bg-pinheirao-black hover:text-white text-pinheirao-black py-4 rounded-sm font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                  >
+                    <MessageSquare size={16} />
+                    <span>Falar no WhatsApp</span>
+                  </a>
+                  <span className="text-[10px] text-pinheirao-gray mt-1 text-center font-medium tracking-wide">Atendimento imediato</span>
+                </div>
               </div>
             </div>
           </div>
@@ -255,88 +264,122 @@ export const ProjectDetail: React.FC = () => {
         </section>
       )}
 
-      {/* High-Quality Custom Lightbox */}
+      {/* Semantic Custom Lightbox Modal */}
       {lightboxIndex !== null && (
         <div 
-          className="fixed inset-0 z-[100] bg-pinheirao-black/98 flex flex-col items-center justify-center animate-fade-in transition-all"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-detail-modal-title"
+          aria-describedby="project-detail-modal-desc"
+          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-between p-4 sm:p-6 overflow-y-auto animate-fade-in"
           onClick={closeLightbox}
         >
-          {/* Top Header */}
-          <div className="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-center z-[110]">
-             <div className="flex flex-col">
-               <span className="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-1">{project.title}</span>
-               <span className="text-pinheirao-green text-[9px] font-bold uppercase tracking-widest">Foto {lightboxIndex + 1} de {project.images.length}</span>
+          {/* Top Header Bar */}
+          <div className="w-full max-w-5xl flex items-center justify-between py-2 text-white border-b border-white/10 shrink-0" onClick={(e) => e.stopPropagation()}>
+             <div>
+               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-pinheirao-green">
+                 {project.type} • Foto {lightboxIndex + 1} de {project.images.length}
+               </p>
+               <h2 id="project-detail-modal-title" className="text-base sm:text-lg font-bold text-white uppercase tracking-tight">
+                 {project.title} ({project.area})
+               </h2>
              </div>
              <button 
-              className="bg-white/10 hover:bg-pinheirao-green text-white p-3 rounded-full transition-all shadow-xl group"
+              className="p-2 sm:px-3 sm:py-1.5 rounded-full sm:rounded-sm bg-white/10 hover:bg-white/20 text-white flex items-center gap-1.5"
               onClick={closeLightbox}
+              aria-label="Fechar galeria"
               title="Fechar (Esc)"
             >
-              <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
+              <X size={20} />
+              <span className="hidden sm:inline text-xs font-bold uppercase tracking-wider">Fechar</span>
             </button>
           </div>
 
+          {/* Main Stage & Controls */}
           <div 
-            className="relative w-full h-full flex items-center justify-center p-4 md:p-16 lg:p-24"
+            className="relative max-w-5xl w-full flex flex-col items-center justify-center my-auto py-4"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Desktop Navigation Arrows */}
             {project.images.length > 1 && (
               <>
                 <button 
-                  className="absolute left-6 md:left-12 z-[110] text-white hover:text-pinheirao-green bg-white/5 hover:bg-white/10 p-5 rounded-full transition-all shadow-2xl backdrop-blur-sm hidden md:block"
+                  className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 p-3 bg-black/70 hover:bg-pinheirao-green text-white rounded-full z-10 transition-all shadow-xl"
                   onClick={prevImage}
-                  title="Anterior (Seta Esquerda)"
+                  aria-label="Foto anterior"
                 >
-                  <ChevronLeft size={32} />
+                  <ChevronLeft size={24} />
                 </button>
                 <button 
-                  className="absolute right-6 md:right-12 z-[110] text-white hover:text-pinheirao-green bg-white/5 hover:bg-white/10 p-5 rounded-full transition-all shadow-2xl backdrop-blur-sm hidden md:block"
+                  className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 p-3 bg-black/70 hover:bg-pinheirao-green text-white rounded-full z-10 transition-all shadow-xl"
                   onClick={nextImage}
-                  title="Próxima (Seta Direita)"
+                  aria-label="Próxima foto"
                 >
-                  <ChevronRight size={32} />
+                  <ChevronRight size={24} />
                 </button>
               </>
             )}
 
             {/* Main Stage Image */}
-            <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            <div className="max-h-[55vh] flex items-center justify-center overflow-hidden rounded-sm bg-black">
               <img 
                 key={project.images[lightboxIndex]}
                 src={project.images[lightboxIndex]} 
-                alt={`${project.title} expandida`} 
-                className="max-w-full max-h-full object-contain shadow-2xl animate-fade-in select-none"
+                alt={`${project.title} foto ${lightboxIndex + 1}`} 
+                className="max-h-[55vh] w-auto max-w-full object-contain rounded-sm shadow-2xl animate-fade-in select-none"
                 draggable="false"
               />
             </div>
             
-            {/* Mobile Swipe Simulation Navigation (Arrows always visible at bottom for mobile) */}
-            <div className="absolute bottom-32 flex md:hidden space-x-6">
-               <button onClick={prevImage} className="bg-white/10 p-4 rounded-full text-white"><ChevronLeft size={24} /></button>
-               <button onClick={nextImage} className="bg-white/10 p-4 rounded-full text-white"><ChevronRight size={24} /></button>
+            {/* Semantic Project Description */}
+            <div className="w-full mt-4 p-4 sm:p-5 bg-[#1E2229] border border-white/10 rounded-sm">
+              <p id="project-detail-modal-desc" className="text-gray-200 text-xs sm:text-sm leading-relaxed font-normal">
+                {project.description}
+              </p>
             </div>
 
             {/* Thumbnails Navigation Track */}
             {project.images.length > 1 && (
-              <div className="absolute bottom-10 left-0 w-full px-8 overflow-hidden pointer-events-none">
-                <div className="max-w-3xl mx-auto flex justify-center gap-3 md:gap-4 pointer-events-auto">
-                  {project.images.map((img, i) => (
-                    <button
-                      key={i}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setLightboxIndex(i);
-                      }}
-                      className={`w-16 h-12 md:w-24 md:h-16 rounded-sm overflow-hidden border-2 transition-all flex-shrink-0 shadow-lg ${i === lightboxIndex ? 'border-pinheirao-green scale-110' : 'border-transparent opacity-30 hover:opacity-100 hover:scale-105'}`}
-                    >
-                      <img src={img} className="w-full h-full object-cover" alt={`Thumb ${i + 1}`} />
-                    </button>
-                  ))}
-                </div>
+              <div className="w-full mt-3 flex justify-center gap-2 overflow-x-auto pb-1">
+                {project.images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setLightboxIndex(i)}
+                    className={`w-14 h-10 rounded-sm overflow-hidden border-2 transition-all flex-shrink-0 shadow-lg ${i === lightboxIndex ? 'border-pinheirao-green opacity-100 shadow-md' : 'border-transparent opacity-40 hover:opacity-80'}`}
+                    aria-label={`Ver foto ${i + 1}`}
+                  >
+                    <img src={img} className="w-full h-full object-cover" alt={`Thumb ${i + 1}`} />
+                  </button>
+                ))}
               </div>
             )}
           </div>
+
+          {/* Bottom Bar with Direct Close Button */}
+          <div className="w-full max-w-5xl pt-3 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 shrink-0" onClick={(e) => e.stopPropagation()}>
+            <p className="text-xs text-gray-400 font-medium text-center sm:text-left">
+              Estrutura em {project.type} com responsabilidade técnica registrada no CREA-PR.
+            </p>
+            <div className="flex items-center gap-3 w-full sm:w-auto">
+              <button
+                onClick={() => {
+                  closeLightbox();
+                  handleQuoteRequest();
+                }}
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-all shadow-md"
+              >
+                <span>Orçamento Deste Modelo</span>
+                <Send size={14} />
+              </button>
+              <button
+                onClick={closeLightbox}
+                className="flex-1 sm:flex-initial px-6 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-sm transition-all border border-white/20"
+              >
+                Fechar Galeria
+              </button>
+            </div>
+          </div>
+
         </div>
       )}
     </div>

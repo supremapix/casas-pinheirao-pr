@@ -71,43 +71,43 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: Contact Info */}
           <div className="lg:col-span-1">
-            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-10 underline decoration-2 underline-offset-8 decoration-pinheirao-green/30">Contato</h3>
-            <ul className="space-y-6 text-xs text-pinheirao-concrete/80 uppercase tracking-widest font-bold">
+            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-10 underline decoration-2 underline-offset-8 decoration-pinheirao-green/30">Contato Direto</h3>
+            <ul className="space-y-6 text-sm text-pinheirao-concrete uppercase tracking-wide font-bold">
               <li className="flex items-start">
-                <MapPin size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <a href="https://www.google.com/maps/dir//Av.+Jacob+Macanhan,+1369+-+Jardim+Claudia,+Pinhais+-+PR,+83321-000" target="_blank" rel="noopener" className="leading-relaxed hover:text-pinheirao-green transition-colors">Av. Jacob Macanhan, 1369<br />Pinhais/PR</a>
+                <MapPin size={20} className="mr-4 text-pinheirao-green shrink-0 mt-1" />
+                <a href="https://www.google.com/maps/dir//Av.+Jacob+Macanhan,+1369+-+Jardim+Claudia,+Pinhais+-+PR,+83321-000" target="_blank" rel="noopener" className="leading-relaxed hover:text-pinheirao-green transition-colors text-white underline">Av. Jacob Macanhan, 1369 - Pinhais/PR</a>
               </li>
               <li className="flex items-center">
-                <Phone size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <a href="tel:4136678015" className="hover:text-pinheirao-green transition-colors">(41) 3667-8015</a>
+                <Phone size={20} className="mr-4 text-pinheirao-green shrink-0" />
+                <a href="tel:4136678015" className="hover:text-pinheirao-green transition-colors text-white underline text-base font-black">(41) 3667-8015</a>
               </li>
               <li className="flex items-center">
-                <MessageSquare size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <a href="https://api.whatsapp.com/send?phone=5541996301028" target="_blank" rel="noopener" className="hover:text-pinheirao-green transition-colors">(41) 99630-1028</a>
+                <MessageSquare size={20} className="mr-4 text-pinheirao-green shrink-0" />
+                <a href="https://api.whatsapp.com/send?phone=5541996301028" target="_blank" rel="noopener" className="hover:text-pinheirao-green transition-colors text-white underline text-base font-black">(41) 99630-1028</a>
               </li>
               <li className="flex items-center">
-                <Mail size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <a href="mailto:casaspinheirao@casaspinheirao.com.br" className="break-all lowercase tracking-normal font-medium hover:text-pinheirao-green transition-colors">casaspinheirao@casaspinheirao.com.br</a>
+                <Mail size={20} className="mr-4 text-pinheirao-green shrink-0" />
+                <a href="mailto:casaspinheirao@casaspinheirao.com.br" className="break-all lowercase tracking-normal font-medium hover:text-pinheirao-green transition-colors text-xs">casaspinheirao@casaspinheirao.com.br</a>
               </li>
             </ul>
           </div>
 
           {/* Column 4: Schedule */}
           <div className="lg:col-span-1">
-             <h3 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-10 underline decoration-2 underline-offset-8 decoration-pinheirao-green/30">Atendimento</h3>
-             <div className="space-y-4 text-xs font-bold text-pinheirao-concrete/80 uppercase tracking-widest">
-               <p className="flex justify-between border-b border-white/5 pb-2">
+             <h3 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-10 underline decoration-2 underline-offset-8 decoration-pinheirao-green/30">Atendimento & Horários</h3>
+             <div className="space-y-4 text-sm font-bold text-pinheirao-concrete uppercase tracking-wide">
+               <p className="flex justify-between border-b border-white/10 pb-3">
                  <span>Seg a Sex:</span>
-                 <span className="text-white">08:30 - 18:00</span>
+                 <span className="text-white font-black">08:30 - 18:00</span>
                </p>
-               <p className="flex justify-between border-b border-white/5 pb-2">
+               <p className="flex justify-between border-b border-white/10 pb-3">
                  <span>Sábados:</span>
-                 <span className="text-white">09:00 - 13:00</span>
+                 <span className="text-white font-black">09:00 - 13:00</span>
                </p>
              </div>
-             <div className="mt-8 p-6 bg-white/5 border border-white/10 rounded-sm">
-               <p className="text-[10px] font-black uppercase tracking-widest text-pinheirao-green mb-2">Presença em Todo PR</p>
-               <p className="text-[11px] text-pinheirao-concrete/60 font-medium">Pinhais, Curitiba, Região Metropolitana e Litoral do Paraná.</p>
+             <div className="mt-8 p-6 bg-pinheirao-green/10 border border-pinheirao-green/30 rounded-sm">
+               <p className="text-xs font-black uppercase tracking-widest text-pinheirao-green mb-2">CREA-PR | Empresa Registrada</p>
+               <p className="text-xs text-pinheirao-concrete font-medium">Segurança total e garantia para o seu investimento em Curitiba e Região.</p>
              </div>
           </div>
         </div>

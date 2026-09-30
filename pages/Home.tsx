@@ -1,22 +1,45 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { TestimonialsCarousel } from '../components/TestimonialsCarousel';
 import { CustomHomeSection } from '../components/CustomHomeSection';
-import { PROJECTS } from '../data';
+import { InstagramSection } from '../components/InstagramSection';
 import { ConstructionType } from '../types';
 import {
-  CheckCircle, Shield, Award, Users,
-  Clock, Package, HardHat, PencilRuler,
-  ClipboardList, Truck, ChevronRight,
+  Shield, Award, Users, Clock,
+  HardHat, PencilRuler, ChevronRight,
   MessageSquare, Home as HomeIcon, Key,
-  MapPin, Settings, CreditCard, LayoutTemplate, Briefcase, Boxes, Eye,
-  Star, Rocket, Phone
+  MapPin, Settings, LayoutTemplate, Briefcase, Boxes, Eye,
+  Play, CheckCircle2, Phone, ArrowRight
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
+  const [selectedVideo, setSelectedVideo] = useState(0);
+
+  const videoTours = [
+    {
+      id: '3ZXzDpzvKRw',
+      title: 'Tour Casa de Madeira 45m²',
+      desc: 'Projeto compacto, funcional e térmico, construído com madeira nobre de lei em Pinhais/PR.'
+    },
+    {
+      id: 'NJTZ2EKwo9s',
+      title: 'Sobrado em Madeira e Alvenaria',
+      desc: 'Aproveitamento inteligente do terreno em dois pavimentos com acabamento de alto padrão.'
+    },
+    {
+      id: 'YjVEuGj--e8',
+      title: 'Casa Térrea de Alvenaria Personalizada',
+      desc: 'Solidez e durabilidade da alvenaria tradicional com distribuição de planta moderna.'
+    },
+    {
+      id: 'pVEqexaTWW0',
+      title: 'Entrega de Chaves & Depoimento Real',
+      desc: 'Acompanhe a finalização completa da obra e a satisfação do cliente na entrega das chaves.'
+    }
+  ];
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -65,61 +88,47 @@ export const Home: React.FC = () => {
   };
 
   const constructionTypes = [
-    { type: ConstructionType.WOOD, image: '/casas-madeira-nossos_modelos.png', desc: 'Conforto térmico e beleza natural das madeiras de lei.' },
-    { type: ConstructionType.MASONRY, image: '/casas-alvenaria-nossos_modelos.png', desc: 'Solidez e durabilidade da construção tradicional.' },
-    { type: ConstructionType.SOBRADO, image: '/sobrado-nossos_modelos.png', desc: 'Aproveitamento inteligente de espaço em dois pavimentos.' },
-    { type: ConstructionType.TRIPLEX, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/21ubrgoy_triplex.png', desc: 'O máximo em amplitude e luxo para sua família.' },
+    { type: ConstructionType.WOOD, image: '/casas-madeira-nossos_modelos.png', desc: 'Conforto térmico natural e beleza das madeiras de lei certificadas.' },
+    { type: ConstructionType.MASONRY, image: '/casas-alvenaria-nossos_modelos.png', desc: 'Solidez e durabilidade da alvenaria tradicional sob medida.' },
+    { type: ConstructionType.SOBRADO, image: '/sobrado-nossos_modelos.png', desc: 'Dois pavimentos com aproveitamento inteligente do terreno.' },
+    { type: ConstructionType.TRIPLEX, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/21ubrgoy_triplex.png', desc: 'Máxima amplitude, iluminação e espaço para sua família.' },
   ];
 
   const steps = [
-    { id: 1, title: 'Contato', icon: <MessageSquare />, desc: 'Primeiro atendimento e entendimento do sonho.' },
-    { id: 2, title: 'Projeto', icon: <PencilRuler />, desc: 'Escolha do modelo ou criação personalizada.' },
-    { id: 3, title: 'Visita', icon: <MapPin />, desc: 'Avaliação técnica do terreno e viabilidade.' },
-    { id: 4, title: 'Ajustes', icon: <Settings />, desc: 'Refinamento de detalhes e materiais.' },
-    { id: 5, title: 'Início', icon: <HardHat />, desc: 'Preparação do terreno e início da montagem.' },
-    { id: 6, title: 'Entrega', icon: <Key />, desc: 'Finalização total e entrega das chaves.' },
-    { id: 7, title: 'Pós-Venda', icon: <Shield />, desc: 'Garantia estrutural e suporte contínuo.' },
-  ];
-
-  const kits = [
-    {
-      title: "Kit Madeira",
-      items: ["Paredes em madeira nobre certificada", "Estrutura de telhado e oitões", "Forro e assoalho de alta qualidade", "Esquadrias padrão em madeira"],
-      icon: <Package size={40} />
-    },
-    {
-      title: "Chave na Mão",
-      items: ["Fundação/Radier incluídos", "Montagem completa e acabamento", "Instalações elétricas e hidráulicas", "Revestimentos cerâmicos e pintura"],
-      icon: <HardHat size={40} />,
-      highlight: true
-    }
+    { id: 1, title: 'Atendimento', icon: <MessageSquare size={20} />, desc: 'Consultoria e alinhamento do sonho.' },
+    { id: 2, title: 'Projeto', icon: <PencilRuler size={20} />, desc: 'Escolha de modelo ou planta 100% autoral.' },
+    { id: 3, title: 'Vistoria', icon: <MapPin size={20} />, desc: 'Avaliação técnica no seu terreno.' },
+    { id: 4, title: 'Adequação', icon: <Settings size={20} />, desc: 'Definição de materiais e cronograma.' },
+    { id: 5, title: 'Construção', icon: <HardHat size={20} />, desc: 'Montagem estrutural e acabamentos.' },
+    { id: 6, title: 'Chaves na Mão', icon: <Key size={20} />, desc: 'Finalização e entrega oficial da casa.' },
+    { id: 7, title: 'Garantia', icon: <Shield size={20} />, desc: 'Garantia estrutural e suporte CREA-PR.' },
   ];
 
   const ourServices = [
     {
-      icon: <LayoutTemplate size={32} className="text-pinheirao-green" />,
+      icon: <LayoutTemplate size={28} className="text-pinheirao-green" />,
       title: 'Design Personalizado',
-      desc: 'Projetos sob medida criados por nossa equipe de arquitetura para atender suas necessidades exatas.'
+      desc: 'Projetos sob medida desenvolvidos para atender a metragem e estilo da sua família.'
     },
     {
-      icon: <Briefcase size={32} className="text-pinheirao-green" />,
-      title: 'Gestão de Projetos',
-      desc: 'Cuidamos de toda a burocracia e cronograma, garantindo que sua obra flua sem preocupações.'
+      icon: <Briefcase size={28} className="text-pinheirao-green" />,
+      title: 'Gestão de Obra',
+      desc: 'Cronograma rigoroso sem dores de cabeça ou custos imprevistos.'
     },
     {
-      icon: <Boxes size={32} className="text-pinheirao-green" />,
-      title: 'Seleção de Materiais',
-      desc: 'Utilizamos apenas madeiras de lei certificadas e materiais de primeira linha com garantia.'
+      icon: <Boxes size={28} className="text-pinheirao-green" />,
+      title: 'Madeira Nobre',
+      desc: 'Apenas madeiras de lei tratadas e certificadas com alta resistência biológica.'
     },
     {
-      icon: <Eye size={32} className="text-pinheirao-green" />,
-      title: 'Supervisão Técnica',
-      desc: 'Engenheiros qualificados acompanham cada etapa da construção para assegurar a perfeição estrutural.'
+      icon: <Eye size={28} className="text-pinheirao-green" />,
+      title: 'Supervisão CREA-PR',
+      desc: 'Responsabilidade técnica de engenheiros qualificados em todas as fases.'
     }
   ];
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       <EnhancedSEO
         title="Realize o Sonho da Casa Própria"
         description="Casas Pinheirão: Especialista em casas pré-fabricadas de madeira e alvenaria em Curitiba e Região. Mais de 20 anos de tradição e qualidade. Financiamento facilitado."
@@ -127,394 +136,213 @@ export const Home: React.FC = () => {
         keywords="casas pré-fabricadas, casas de madeira, casas de alvenaria, sobrados, casas Pinhais, casas Curitiba, casa própria Pinhais, financiamento casa, casas pré-fabricadas Curitiba, casas de madeira Pinhais"
         structuredData={structuredData}
       />
+      
+      {/* 1. Hero Principal */}
       <Hero />
 
-      {/* Diferenciais Rápidos */}
-      <section className="bg-pinheirao-concrete/10 py-8 sm:py-12 border-b border-pinheirao-concrete/20">
+      {/* 2. Destaques / Métricas de Confiança */}
+      <section className="bg-gray-50 py-8 sm:py-10 border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {[
-              { icon: <Clock size={20} />, text: '20 Anos de Mercado' },
-              { icon: <Users size={20} />, text: '300+ Famílias Felizes' },
-              { icon: <Shield size={20} />, text: 'Garantia Estrutural' },
-              { icon: <Award size={20} />, text: 'Atendimento Consultivo' },
+              { icon: <Clock size={20} />, title: '20 Anos de Mercado', sub: 'Tradição em Pinhais' },
+              { icon: <Users size={20} />, title: '300+ Lares Entregues', sub: 'Famílias realizadas' },
+              { icon: <Shield size={20} />, title: 'Garantia Estrutural', sub: 'Registro no CREA-PR' },
+              { icon: <Award size={20} />, title: 'Atendimento Consultivo', sub: 'Direto no seu terreno' },
             ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center group">
-                <div className="text-pinheirao-green mb-2 sm:mb-3 group-hover:scale-110 transition-transform">
-                  {React.cloneElement(item.icon as React.ReactElement, { className: 'w-5 h-5 sm:w-6 sm:h-6' })}
+              <div key={idx} className="flex flex-col items-center text-center">
+                <div className="text-pinheirao-green mb-2">
+                  {item.icon}
                 </div>
-                <span className="text-[11px] sm:text-xs font-black uppercase tracking-wide sm:tracking-widest text-pinheirao-black">{item.text}</span>
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wide text-pinheirao-black">
+                  {item.title}
+                </span>
+                <span className="text-[11px] text-pinheirao-gray font-medium mt-0.5">
+                  {item.sub}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Nossa História (About Us Section) */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white">
+      {/* 3. Tradição em Pinhais / História */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
-            <div>
-              <div className="flex items-start gap-4 mb-3 sm:mb-4">
-                <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.3em] text-pinheirao-green flex-1">Tradição em Pinhais</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <div className="lg:col-span-6 space-y-6">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green">
+                Tradição em Pinhais
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-pinheirao-black uppercase tracking-tight leading-[1.1]">
+                Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span>
+              </h2>
+              <p className="text-base text-pinheirao-gray font-medium leading-relaxed">
+                Referência em casas pré-fabricadas em toda Curitiba e Região Metropolitana, a Casas Pinheirão une a agilidade da construção modular ao cuidado artesanal das madeiras nobres e solidez da alvenaria.
+              </p>
+              <p className="text-base text-pinheirao-gray font-medium leading-relaxed">
+                Nosso compromisso é entregar a estrutura perfeita onde sua família construirá as melhores memórias, com o melhor custo-benefício do Paraná.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6 pt-3 pb-4 border-y border-gray-100">
+                <div>
+                  <p className="text-2xl font-black text-pinheirao-black">20 Anos</p>
+                  <p className="text-xs text-pinheirao-gray font-medium">De sólida experiência</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-black text-pinheirao-black">300+ Lares</p>
+                  <p className="text-xs text-pinheirao-gray font-medium">Famílias realizadas</p>
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">Uma história construída sobre <span className="text-pinheirao-green">bases sólidas.</span></h3>
-              <p className="text-sm sm:text-base text-pinheirao-gray mb-4 sm:mb-6 leading-relaxed font-medium">
-                Referência em casas pré-fabricadas em toda Curitiba e Região Metropolitana, a Casas Pinheirão une a velocidade da construção moderna com o cuidado artesanal das madeiras nobres.
-              </p>
-              <p className="text-sm sm:text-base text-pinheirao-gray mb-8 sm:mb-10 leading-relaxed font-medium">
-                Nosso compromisso é entregar não apenas uma estrutura, mas o cenário onde sua família construirá as melhores memórias, com o melhor custo-benefício do Paraná.
-              </p>
-              <Link to="/empresa" className="inline-flex items-center text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest text-pinheirao-black group">
-                Conheça nossa trajetória
-                <ChevronRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform sm:w-4 sm:h-4" />
-              </Link>
+
+              <div className="flex flex-col items-start pt-2">
+                <Link 
+                  to="/empresa" 
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-pinheirao-black text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-green transition-all shadow-md"
+                >
+                  <span>Nossa História</span>
+                  <ChevronRight size={16} />
+                </Link>
+                <span className="text-[10px] text-pinheirao-gray mt-1 font-medium tracking-wide">Conheça nossa trajetória</span>
+              </div>
             </div>
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-pinheirao-green/5 rounded-2xl -z-10 rotate-3 transition-transform group-hover:rotate-6"></div>
-              <img
-                src="/tradicao-em-pinhais.webp"
-                alt="Tradição em Pinhais - Casas Pinheirão, do aluguel para a casa própria, construímos no seu terreno"
-                className="rounded-xl shadow-2xl w-full h-[450px] object-cover"
-              />
-              
-              {/* CREA Badge Overlay */}
-              <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 group/crea pointer-events-none">
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center scale-90 sm:scale-100">
-                  {/* Subtle Glow */}
-                  <div className="absolute inset-0 bg-white/20 rounded-full blur-lg opacity-0 group-hover/crea:opacity-100 transition-opacity"></div>
-                  
-                  {/* Main Badge Container */}
-                  <div className="relative w-full h-full bg-white/95 backdrop-blur-sm rounded-full p-2.5 shadow-xl border border-white/50 flex items-center justify-center transform group-hover/crea:scale-105 transition-all">
-                    <img
-                      src="/crea-pr-pinhais-1.png"
-                      alt="CREA-PR Empresa Registrada"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  
-                  {/* Floating Trust Indicator */}
-                  <div className="absolute -top-1 -left-1 bg-pinheirao-green shadow-lg rounded-full p-1.5 border border-white/20">
-                    <Shield size={14} className="text-white fill-white/20" />
+
+            <div className="lg:col-span-6 relative">
+              <div className="relative rounded-sm overflow-hidden shadow-xl bg-pinheirao-black">
+                <img
+                  src="/tradicao-em-pinhais.webp"
+                  alt="Tradição em Pinhais - Casas Pinheirão"
+                  className="w-full h-[460px] object-cover opacity-95"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                
+                {/* CREA Badge Overlay */}
+                <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-sm shadow-xl border border-gray-100 flex items-center gap-4">
+                  <img
+                    src="/crea-pr-pinhais-1.png"
+                    alt="CREA-PR Empresa Registrada"
+                    className="w-12 h-12 object-contain"
+                  />
+                  <div>
+                    <p className="text-xs font-black uppercase text-pinheirao-black">CREA-PR</p>
+                    <p className="text-[11px] text-pinheirao-gray font-medium">Empresa Registrada</p>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Nova Seção de Vídeo com Mockup de Celular - Estilo Premium */}
-      <section className="video-showcase-section py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] relative overflow-hidden">
-        {/* Efeitos de fundo animados */}
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-gradient-radial from-pinheirao-green/15 via-pinheirao-green/5 to-transparent top-[-300px] right-[-200px] blur-3xl animate-float"></div>
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-pinheirao-deep/10 to-transparent bottom-[-250px] left-[-150px] blur-3xl animate-float-delayed"></div>
-
-        {/* Grid de pontos decorativo */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
-
+      {/* 4. Showcase de Vídeos e Tours Virtuais (Substitui o mockup de celular com design arquitetônico de alto nível) */}
+      <section className="py-20 md:py-28 bg-[#15171C] text-white border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          
+          <div className="max-w-3xl mb-12">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-2">
+              Tours Virtuais & Obras Entregues
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-[1.1]">
+              Veja a qualidade dos nossos projetos em vídeo.
+            </h2>
+            <p className="text-gray-300 text-base sm:text-lg mt-3 font-normal">
+              Acompanhe detalhes dos modelos, distribuição dos ambientes internos e depoimentos de quem já mora em uma casa construída pela Casas Pinheirão.
+            </p>
+          </div>
 
-            {/* Coluna Esquerda (5/12 = ~40%) - Mockup de Celular Premium */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-start">
-              <div className="phone-mockup-wrapper relative">
-                {/* Glow effect atrás do celular */}
-                <div className="absolute inset-0 bg-gradient-to-br from-pinheirao-green/30 to-pinheirao-deep/30 blur-[80px] scale-110"></div>
-
-                {/* Mockup do iPhone */}
-                <div className="phone-device relative w-[300px] sm:w-[340px] h-[610px] sm:h-[690px] bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] rounded-[45px] sm:rounded-[50px] p-3 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.1)] transform hover:scale-[1.02] transition-all duration-500 z-10">
-
-                  {/* Notch do iPhone (Dynamic Island style) */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[110px] sm:w-[130px] h-[28px] sm:h-[32px] bg-black rounded-full z-20 shadow-inner"></div>
-
-                  {/* Botão de volume */}
-                  <div className="absolute left-[-3px] top-[120px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm"></div>
-                  <div className="absolute left-[-3px] top-[180px] w-[3px] h-[50px] bg-[#2a2a2a] rounded-l-sm"></div>
-
-                  {/* Botão power */}
-                  <div className="absolute right-[-3px] top-[150px] w-[3px] h-[70px] bg-[#2a2a2a] rounded-r-sm"></div>
-
-                  {/* Tela interna com Slider de Vídeos */}
-                  <div className="phone-screen relative w-full h-full bg-black rounded-[36px] sm:rounded-[40px] overflow-hidden shadow-inner group/slider">
-                    <div className="flex h-full transition-transform duration-500 ease-out" id="video-slider">
-                      <div className="min-w-full h-full relative">
-                        <iframe
-                          src="https://www.youtube.com/embed/3ZXzDpzvKRw?autoplay=0&mute=1&loop=1&playlist=3ZXzDpzvKRw&controls=1&modestbranding=1&rel=0&playsinline=1"
-                          title="Tour Virtual 1 - Casas Pinheirão"
-                          className="absolute inset-0 w-full h-full object-cover"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                      <div className="min-w-full h-full relative">
-                        <iframe
-                          src="https://www.youtube.com/embed/NJTZ2EKwo9s?autoplay=0&mute=1&loop=1&playlist=NJTZ2EKwo9s&controls=1&modestbranding=1&rel=0&playsinline=1"
-                          title="Tour Virtual 2 - Casas Pinheirão"
-                          className="absolute inset-0 w-full h-full object-cover"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                      <div className="min-w-full h-full relative">
-                        <iframe
-                          src="https://www.youtube.com/embed/YjVEuGj--e8?autoplay=0&mute=1&loop=1&playlist=YjVEuGj--e8&controls=1&modestbranding=1&rel=0&playsinline=1"
-                          title="Tour Virtual 3 - Casas Pinheirão"
-                          className="absolute inset-0 w-full h-full object-cover"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                      <div className="min-w-full h-full relative">
-                        <iframe
-                          src="https://www.youtube.com/embed/pVEqexaTWW0?autoplay=0&mute=1&loop=1&playlist=pVEqexaTWW0&controls=1&modestbranding=1&rel=0&playsinline=1"
-                          title="Tour Virtual 4 - Casas Pinheirão"
-                          className="absolute inset-0 w-full h-full object-cover"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    </div>
-
-                    {/* Navigation Arrows */}
-                    <button 
-                      onClick={() => {
-                        const slider = document.getElementById('video-slider');
-                        if (slider) {
-                          const currentTransform = slider.style.transform || 'translateX(0%)';
-                          const currentIdx = parseInt(currentTransform.match(/-?(\d+)/)?.[1] || '0') / 100;
-                          const nextIdx = (currentIdx - 1 + 4) % 4;
-                          slider.style.transform = `translateX(-${nextIdx * 100}%)`;
-                        }
-                      }}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity"
-                    >
-                      <ChevronRight className="rotate-180" size={20} />
-                    </button>
-                    <button 
-                      onClick={() => {
-                        const slider = document.getElementById('video-slider');
-                        if (slider) {
-                          const currentTransform = slider.style.transform || 'translateX(0%)';
-                          const currentIdx = parseInt(currentTransform.match(/-?(\d+)/)?.[1] || '0') / 100;
-                          const nextIdx = (currentIdx + 1) % 4;
-                          slider.style.transform = `translateX(-${nextIdx * 100}%)`;
-                        }
-                      }}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity"
-                    >
-                      <ChevronRight size={20} />
-                    </button>
-
-                    {/* Dots indicator */}
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
-                      {[0, 1, 2, 3].map((i) => (
-                        <div key={i} className="w-2 h-2 rounded-full bg-white/50"></div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Reflexo de luz no celular */}
-                  <div className="absolute top-0 left-0 w-full h-full rounded-[45px] sm:rounded-[50px] bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none"></div>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Main Video Viewport (16:9 responsive) */}
+            <div className="lg:col-span-8 bg-black rounded-sm overflow-hidden border border-white/10 shadow-2xl">
+              <div className="relative aspect-video w-full bg-black">
+                <iframe
+                  key={videoTours[selectedVideo].id}
+                  src={`https://www.youtube.com/embed/${videoTours[selectedVideo].id}?autoplay=0&rel=0&modestbranding=1`}
+                  title={videoTours[selectedVideo].title}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
-            </div>
-
-            {/* Coluna Direita (7/12 = ~60%) - Conteúdo */}
-            <div className="lg:col-span-7 space-y-5 sm:space-y-6 lg:space-y-7">
-
-              {/* Badge Superior com ícone */}
-              <div className="inline-flex items-center gap-2 sm:gap-2.5 bg-gradient-to-r from-pinheirao-green/15 to-pinheirao-deep/15 border border-pinheirao-green/40 px-4 sm:px-5 py-2.5 sm:py-3 rounded-full backdrop-blur-sm shadow-lg">
-                <Star size={20} className="text-pinheirao-green fill-pinheirao-green" />
-                <span className="text-pinheirao-green font-bold text-xs sm:text-sm tracking-wider uppercase">CASAS PINHEIRÃO</span>
-              </div>
-
-              {/* Título Principal com Destaque */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
-                Não é Milagre, é{' '}
-                <span className="relative inline-block">
-                  <span className="relative z-10 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green bg-clip-text text-transparent animate-gradient">
-                    Casas Pinheirão!
-                  </span>
-                  <span className="absolute bottom-1 left-0 w-full h-3 sm:h-4 bg-pinheirao-green/20 -z-0"></span>
-                </span>
-              </h2>
-
-              {/* Descrição com destaque */}
-              <p className="text-base sm:text-lg lg:text-xl text-gray-300/90 leading-relaxed max-w-2xl">
-                Nossa <strong className="text-white font-bold">construção especializada</strong> oferece casas pré-fabricadas no conforto da sua casa. Cansado de pagar aluguel?
-                <strong className="text-pinheirao-green font-bold"> Dê o play na sua vida</strong> e veja a transformação!
-              </p>
-
-              {/* Destaque de localização */}
-              <div className="inline-block bg-gradient-to-r from-pinheirao-green/10 to-transparent pl-5 pr-8 py-3 border-l-4 border-pinheirao-green rounded-r-lg">
-                <p className="text-pinheirao-green font-bold text-sm sm:text-base">
-                  Atendimento em Pinhais, Curitiba e Região Metropolitana.
+              <div className="p-4 sm:p-6 bg-[#1A1D24]">
+                <h3 className="text-lg font-bold text-white">
+                  {videoTours[selectedVideo].title}
+                </h3>
+                <p className="text-sm text-gray-300 mt-1 font-normal">
+                  {videoTours[selectedVideo].desc}
                 </p>
               </div>
+            </div>
 
-              {/* Lista de Benefícios com ícones circulares */}
-              <ul className="space-y-3.5 sm:space-y-4 py-3 sm:py-4">
-                {[
-                  'Casas de madeira e alvenaria com tecnologia de ponta',
-                  'Financiamento facilitado direto com a construtora',
-                  'Projetos personalizados e entrega em tempo recorde'
-                ].map((benefit, idx) => (
-                  <li key={idx} className="flex items-start gap-3 sm:gap-4 text-gray-100 group">
-                    <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 bg-gradient-to-br from-pinheirao-green to-pinheirao-deep text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg group-hover:scale-110 transition-transform">
-                      <CheckCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
-                    </span>
-                    <span className="text-sm sm:text-base lg:text-lg leading-relaxed font-medium pt-0.5">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Video Selector Tabs */}
+            <div className="lg:col-span-4 space-y-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                Selecione o Tour:
+              </p>
+              {videoTours.map((tour, idx) => (
+                <button
+                  key={tour.id}
+                  onClick={() => setSelectedVideo(idx)}
+                  className={`w-full p-4 rounded-sm border text-left transition-all flex items-start gap-3.5 ${
+                    selectedVideo === idx
+                      ? 'bg-[#1E2229] border-pinheirao-green text-white shadow-md'
+                      : 'bg-[#181B20] border-white/5 text-gray-400 hover:text-white hover:border-white/20'
+                  }`}
+                >
+                  <div className={`p-2 rounded shrink-0 ${selectedVideo === idx ? 'bg-pinheirao-green text-white' : 'bg-white/5 text-gray-400'}`}>
+                    <Play size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wide text-white">
+                      {tour.title}
+                    </h4>
+                    <p className="text-[11px] text-gray-400 line-clamp-2 mt-1">
+                      {tour.desc}
+                    </p>
+                  </div>
+                </button>
+              ))}
 
-              {/* Botões de Ação com Gradiente */}
-              <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 pt-3 sm:pt-4">
+              <div className="pt-4 flex flex-col gap-2">
                 <Link
                   to="/envie-seu-projeto"
-                  className="group relative inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-4 sm:py-4.5 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green text-white font-bold text-sm sm:text-base rounded-full shadow-[0_8px_20px_rgba(11,181,151,0.5)] hover:shadow-[0_12px_28px_rgba(11,181,151,0.7)] hover:-translate-y-1 hover:scale-105 transition-all overflow-hidden animate-pulse-slow"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-colors shadow-md"
                 >
-                  <span className="relative z-10 flex items-center gap-2">
-                    <span>Quero Minha Casa Assim!</span>
-                    <HomeIcon size={20} className="animate-bounce-slow" />
-                  </span>
-                  {/* Efeito de brilho animado */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                  {/* Anel pulsante */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep rounded-full opacity-30 blur-md animate-pulse-ring"></div>
+                  <span>Orçamento deste Modelo</span>
+                  <ArrowRight size={16} />
                 </Link>
-
-                <Link
-                  to="/projetos"
-                  className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 sm:py-4.5 bg-white/5 backdrop-blur-sm text-white font-bold text-sm sm:text-base border-2 border-white/20 rounded-full hover:bg-white/10 hover:border-white/40 hover:-translate-y-1 transition-all"
-                >
-                  Conhecer Projetos
-                </Link>
+                <span className="text-[10px] text-gray-400 text-center font-medium">Consulte opções para o seu terreno</span>
               </div>
-
             </div>
 
           </div>
+
         </div>
-
-        <style>{`
-          @keyframes float {
-            0%, 100% {
-              transform: translate(0, 0) scale(1);
-              opacity: 0.6;
-            }
-            50% {
-              transform: translate(-40px, 40px) scale(1.1);
-              opacity: 0.8;
-            }
-          }
-
-          @keyframes float-delayed {
-            0%, 100% {
-              transform: translate(0, 0) scale(1);
-              opacity: 0.5;
-            }
-            50% {
-              transform: translate(40px, -40px) scale(1.15);
-              opacity: 0.7;
-            }
-          }
-
-          @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-          }
-
-          @keyframes pulse-slow {
-            0%, 100% {
-              opacity: 1;
-            }
-            50% {
-              opacity: 0.95;
-            }
-          }
-
-          @keyframes bounce-slow {
-            0%, 100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-3px);
-            }
-          }
-
-          @keyframes pulse-ring {
-            0%, 100% {
-              opacity: 0.3;
-              transform: scale(1);
-            }
-            50% {
-              opacity: 0.5;
-              transform: scale(1.05);
-            }
-          }
-
-          .animate-float {
-            animation: float 10s ease-in-out infinite;
-          }
-
-          .animate-float-delayed {
-            animation: float-delayed 12s ease-in-out infinite;
-          }
-
-          .animate-gradient {
-            background-size: 200% auto;
-            animation: gradient 3s ease infinite;
-          }
-
-          .animate-pulse-slow {
-            animation: pulse-slow 3s ease-in-out infinite;
-          }
-
-          .animate-bounce-slow {
-            animation: bounce-slow 2s ease-in-out infinite;
-          }
-
-          .animate-pulse-ring {
-            animation: pulse-ring 2s ease-in-out infinite;
-          }
-
-          @keyframes float-logo {
-            0%, 100% {
-              transform: translateY(0px);
-            }
-            50% {
-              transform: translateY(-10px);
-            }
-          }
-
-          .animate-float-logo {
-            animation: float-logo 3s ease-in-out infinite;
-          }
-
-          .bg-gradient-radial {
-            background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-to));
-          }
-        `}</style>
       </section>
 
-      {/* Our Services Section (Added below About Us as requested) */}
-      <section className="py-24 bg-pinheirao-concrete/10 border-y border-pinheirao-concrete/20">
+      {/* 5. Nossos Serviços de Engenharia */}
+      <section className="py-20 md:py-28 bg-gray-50 border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-4">Nossos Serviços</h2>
-            <h3 className="text-4xl font-black text-pinheirao-black mb-6">Excelência em cada etapa da construção.</h3>
-            <div className="w-20 h-1 bg-pinheirao-green mx-auto"></div>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-2">
+              Nossos Serviços
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-black text-pinheirao-black uppercase tracking-tight">
+              Excelência em cada etapa da construção.
+            </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ourServices.map((service, idx) => (
-              <div key={idx} className="bg-white p-10 rounded-sm shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col items-center text-center group">
-                <div className="mb-6 p-4 bg-pinheirao-concrete/30 rounded-full group-hover:scale-110 transition-transform">
+              <div key={idx} className="bg-white p-8 rounded-sm border border-gray-100 shadow-sm flex flex-col hover:border-pinheirao-green/40 transition-colors">
+                <div className="mb-5 p-3 bg-pinheirao-green/10 rounded-sm w-fit">
                   {service.icon}
                 </div>
-                <h4 className="text-lg font-black text-pinheirao-black mb-4 uppercase tracking-tighter">{service.title}</h4>
+                <h3 className="text-base font-bold uppercase tracking-wider text-pinheirao-black mb-2">
+                  {service.title}
+                </h3>
                 <p className="text-sm text-pinheirao-gray font-medium leading-relaxed">
                   {service.desc}
                 </p>
@@ -524,65 +352,81 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section (Refined header above differentiators) */}
-      <section className="bg-white pt-24 pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-4">Qualidade Casas Pinheirão</h2>
-          <h3 className="text-4xl md:text-5xl font-black text-pinheirao-black mb-6 uppercase tracking-tight italic">
-            Por que escolher a nossa <span className="text-pinheirao-green">expertise?</span>
-          </h3>
-          <p className="text-lg md:text-xl text-pinheirao-gray max-w-3xl mx-auto font-medium">
-            Experiencie a diferença com nosso compromisso inabalável com a qualidade, velocidade de entrega e atendimento personalizado.
-          </p>
-        </div>
-      </section>
-
-      {/* Como Funciona - Timeline */}
-      <section className="py-16 sm:py-20 md:py-24 bg-pinheirao-concrete/20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-[0.4em] text-pinheirao-green mb-3 sm:mb-4">Nosso Processo</h2>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-pinheirao-black px-4">Como transformamos seu sonho em realidade.</h3>
+      {/* 6. Como Funciona - Processo Linear */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-2">
+              Processo Construtivo
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-black text-pinheirao-black uppercase tracking-tight">
+              Como transformamos seu sonho em realidade.
+            </h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 sm:gap-4 relative">
-            <div className="absolute top-1/4 left-0 w-full h-0.5 bg-pinheirao-green/20 -z-10 hidden lg:block"></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
             {steps.map((step) => (
-              <div key={step.id} className="relative group text-center px-1 sm:px-2">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center text-pinheirao-green shadow-lg border border-pinheirao-green/20 mx-auto mb-4 sm:mb-6 group-hover:bg-pinheirao-green group-hover:text-white transition-all duration-300 relative">
-                  <span className="absolute -top-1.5 sm:-top-2 -right-1.5 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 bg-pinheirao-black text-white text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center">{step.id}</span>
-                  {React.cloneElement(step.icon as React.ReactElement, { size: 20, className: 'sm:w-6 sm:h-6' })}
+              <div key={step.id} className="p-5 bg-gray-50 border border-gray-100 rounded-sm text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-pinheirao-green text-white font-bold text-xs flex items-center justify-center mb-4">
+                  {step.id}
                 </div>
-                <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-wide sm:tracking-widest text-pinheirao-black mb-1.5 sm:mb-2">{step.title}</h4>
-                <p className="text-[9px] sm:text-[10px] text-pinheirao-gray font-medium leading-relaxed hidden sm:block">{step.desc}</p>
+                <div className="text-pinheirao-green mb-2">
+                  {step.icon}
+                </div>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-pinheirao-black mb-1">
+                  {step.title}
+                </h4>
+                <p className="text-[11px] text-pinheirao-gray leading-relaxed font-medium">
+                  {step.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Categorias */}
-      <section className="py-24 bg-white">
+      {/* 7. Catálogo de Modelos */}
+      <section className="py-20 md:py-28 bg-gray-50 border-t border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-4">Nossos Modelos</h2>
-              <h3 className="text-4xl font-black text-pinheirao-black">A maior variedade de casas pré-fabricadas.</h3>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-2">
+                Tipologias Construtivas
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-pinheirao-black uppercase tracking-tight">
+                Nossos Principais Modelos
+              </h2>
             </div>
-            <Link to="/projetos" className="bg-pinheirao-black text-white px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-pinheirao-green transition-all rounded-sm flex items-center">
-              Ver Catálogo Completo <ChevronRight size={14} className="ml-2" />
-            </Link>
+            <div className="flex flex-col">
+              <Link 
+                to="/projetos" 
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-pinheirao-black text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-green transition-all shadow-md"
+              >
+                <span>Catálogo Completo</span>
+                <ChevronRight size={16} />
+              </Link>
+              <span className="text-[10px] text-pinheirao-gray mt-1 font-medium">Todos os modelos e plantas</span>
+            </div>
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {constructionTypes.map((item) => (
-              <div key={item.type} className="group relative overflow-hidden bg-pinheirao-black h-[450px] rounded-sm shadow-2xl">
-                <img src={item.image} alt={item.type} className="w-full h-full object-cover opacity-60 transition-all duration-700 group-hover:scale-110 group-hover:opacity-40" />
-                <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-8 w-full">
-                  <h3 className="text-2xl font-black mb-3 text-white uppercase tracking-tighter italic">{item.type}</h3>
-                  <p className="text-xs text-pinheirao-concrete/70 mb-8 leading-relaxed font-medium">{item.desc}</p>
-                  <Link to="/projetos" className="inline-flex items-center text-[10px] font-black uppercase tracking-widest text-pinheirao-green border-b border-pinheirao-green pb-1 group-hover:border-white group-hover:text-white transition-colors">
-                    Explorar Modelos
+              <div key={item.type} className="group relative overflow-hidden bg-pinheirao-black h-[420px] rounded-sm shadow-lg">
+                <img 
+                  src={item.image} 
+                  alt={item.type} 
+                  className="w-full h-full object-cover opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-6 w-full">
+                  <h3 className="text-xl font-bold mb-2 text-white uppercase tracking-tight">{item.type}</h3>
+                  <p className="text-xs text-gray-300 mb-6 leading-relaxed font-normal">{item.desc}</p>
+                  <Link 
+                    to="/projetos" 
+                    className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-pinheirao-green hover:text-white transition-colors"
+                  >
+                    <span>Ver Projetos</span>
+                    <ChevronRight size={14} className="ml-1" />
                   </Link>
                 </div>
               </div>
@@ -591,177 +435,104 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Seção de Promoção e Atualizações */}
-      <section className="py-20 bg-gradient-to-br from-pinheirao-concrete/20 to-white">
+      {/* 8. Destaque Modelo 45m² */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            {/* Casa de Madeira 45m² */}
-            <div className="bg-pinheirao-black rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row group">
-              <div className="md:w-1/2 relative overflow-hidden">
-                <img
-                  src="/casas-pre-fabricadas.png"
-                  alt="Casa de Madeira 45m² - Prática e Confortável"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="md:w-1/2 p-8 flex flex-col justify-center">
-                <h3 className="text-pinheirao-green font-black text-3xl mb-4 uppercase italic">Casa de Madeira 45m²</h3>
-                <p className="text-white/80 text-sm mb-6 font-medium leading-relaxed">
-                  Casa de madeira com 45m², prática e confortável! Construída no seu terreno com a qualidade e tradição das Casas Pinheirão. Realize o sonho da casa própria agora!
-                </p>
-
-                <div className="space-y-3 mb-8 pb-8 border-b border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
-                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Construída no seu terreno</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
-                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Qualidade e tradição</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-pinheirao-green rounded-full"></div>
-                    <span className="text-white/90 text-xs font-bold uppercase tracking-wider">Financiamento facilitado</span>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#15171C] text-white rounded-sm overflow-hidden p-6 sm:p-10 lg:p-12 shadow-xl">
+            <div className="lg:col-span-6 rounded-sm overflow-hidden h-[300px] sm:h-[380px]">
+              <img
+                src="https://img.supremasite.com.br/pinheirao/casa-45mts.png"
+                alt="Casa de Madeira 45m² - Casas Pinheirão"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="lg:col-span-6 space-y-6">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green">
+                Modelo em Destaque
+              </p>
+              <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
+                Casa de Madeira 45m²
+              </h3>
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed font-normal">
+                Prática, funcional e com excelente isolamento térmico. Construída diretamente no seu lote com fundação, estrutura nobre e acabamentos completos.
+              </p>
+              <div className="space-y-2.5 pt-2 pb-2">
+                <div className="flex items-center gap-2.5 text-xs text-gray-200">
+                  <CheckCircle2 size={16} className="text-pinheirao-green shrink-0" />
+                  <span>Construída no seu terreno em Pinhais, Curitiba e Litoral</span>
                 </div>
-
+                <div className="flex items-center gap-2.5 text-xs text-gray-200">
+                  <CheckCircle2 size={16} className="text-pinheirao-green shrink-0" />
+                  <span>Madeira nobre tratada com certificação de procedência</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs text-gray-200">
+                  <CheckCircle2 size={16} className="text-pinheirao-green shrink-0" />
+                  <span>Financiamento facilitado com parcelamento na obra</span>
+                </div>
+              </div>
+              <div className="pt-2 flex flex-col items-start">
                 <Link
                   to="/envie-seu-projeto"
-                  className="inline-flex items-center text-white font-black text-xs uppercase tracking-widest border-b-2 border-pinheirao-green pb-1 hover:text-pinheirao-green transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-all shadow-md"
                 >
-                  Consulte-nos <ChevronRight size={14} className="ml-2" />
+                  <span>Orçamento 45m²</span>
+                  <ArrowRight size={16} />
                 </Link>
+                <span className="text-[10px] text-gray-400 mt-1 font-medium">Atendimento rápido sem compromisso</span>
               </div>
-            </div>
-
-            {/* Últimas Atualizações */}
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-xl p-8 flex flex-col">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <h3 className="text-2xl font-black text-pinheirao-black uppercase italic">Últimas Atualizações</h3>
-                  <div className="w-12 h-1 bg-pinheirao-green mt-2"></div>
-                </div>
-                <div className="bg-pinheirao-concrete/30 p-3 rounded-full">
-                  <Rocket size={24} className="text-pinheirao-green" />
-                </div>
-              </div>
-              
-              <div className="space-y-6 flex-grow">
-                <div className="flex gap-4 group cursor-default">
-                  <div className="flex-shrink-0 w-12 h-12 bg-pinheirao-green/10 rounded-xl flex items-center justify-center text-pinheirao-green font-bold group-hover:bg-pinheirao-green group-hover:text-white transition-colors">
-                    01
-                  </div>
-                  <div>
-                    <h4 className="font-black text-pinheirao-black text-sm uppercase mb-1">Novo Modelo 45m²</h4>
-                    <p className="text-xs text-pinheirao-gray font-medium leading-relaxed">Lançamento do projeto otimizado para famílias que buscam praticidade e economia.</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4 group cursor-default">
-                  <div className="flex-shrink-0 w-12 h-12 bg-pinheirao-green/10 rounded-xl flex items-center justify-center text-pinheirao-green font-bold group-hover:bg-pinheirao-green group-hover:text-white transition-colors">
-                    02
-                  </div>
-                  <div>
-                    <h4 className="font-black text-pinheirao-black text-sm uppercase mb-1">Tour Virtual 3D</h4>
-                    <p className="text-xs text-pinheirao-gray font-medium leading-relaxed">Agora você pode visualizar nossos principais modelos em 360° antes de construir.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 group cursor-default">
-                  <div className="flex-shrink-0 w-12 h-12 bg-pinheirao-green/10 rounded-xl flex items-center justify-center text-pinheirao-green font-bold group-hover:bg-pinheirao-green group-hover:text-white transition-colors">
-                    03
-                  </div>
-                  <div>
-                    <h4 className="font-black text-pinheirao-black text-sm uppercase mb-1">Expansão de Atendimento</h4>
-                    <p className="text-xs text-pinheirao-gray font-medium leading-relaxed">Novas equipes de montagem para atender toda a região de Curitiba com mais agilidade.</p>
-                  </div>
-                </div>
-              </div>
-
-              <Link 
-                to="/projetos" 
-                className="mt-8 bg-pinheirao-concrete/50 hover:bg-pinheirao-green hover:text-white text-pinheirao-black py-4 rounded-xl text-xs font-black uppercase tracking-widest text-center transition-all"
-              >
-                Explorar Novidades
-              </Link>
             </div>
           </div>
         </div>
       </section>
 
+      {/* 9. Seção de Personalização Arquitetônica */}
       <CustomHomeSection />
 
+      {/* 10. Depoimentos Reais */}
       <TestimonialsCarousel />
 
-      {/* CTA Final - Construa seu Futuro */}
-      <section className="py-20 sm:py-24 md:py-28 bg-pinheirao-black text-white text-center relative overflow-hidden">
-        {/* Imagem de fundo com overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/fundo_cta_casas_pinheirao.png"
-            alt="Casas Pinheirão - Construa seu futuro"
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-pinheirao-black/85 via-pinheirao-black/75 to-pinheirao-black/90"></div>
-        </div>
+      {/* 11. Seção Oficial do Instagram */}
+      <InstagramSection />
 
-        {/* Efeitos decorativos */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-radial from-pinheirao-green/10 to-transparent top-[-200px] left-1/2 -translate-x-1/2 blur-3xl"></div>
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Badge superior */}
-          <div className="inline-flex items-center gap-2 bg-pinheirao-green/10 border border-pinheirao-green/30 px-5 py-2.5 rounded-full backdrop-blur-sm mb-8">
-            <span className="text-2xl">🏡</span>
-            <span className="text-pinheirao-green font-bold text-sm tracking-wider uppercase">Última Chance de Garantir Sua Casa!</span>
-          </div>
-
-          {/* Título principal */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-            Construa o seu futuro sobre uma{' '}
-            <span className="relative inline-block">
-              <span className="text-pinheirao-green">base sólida.</span>
-              <span className="absolute bottom-0 left-0 w-full h-2 sm:h-3 bg-pinheirao-green/30 -z-10"></span>
-            </span>
+      {/* 12. CTA Final de Conversão */}
+      <section className="py-20 md:py-28 bg-[#111317] text-white relative border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
+            Atendimento em Todo o Paraná
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 uppercase tracking-tight text-white leading-tight">
+            Construa o seu futuro com quem tem tradição.
           </h2>
-
-          {/* Descrição */}
-          <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-10 sm:mb-12 max-w-3xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            Agende uma visita técnica ou peça seu orçamento hoje mesmo. Equipe especializada em Pinhais pronta para lhe atender.
+          <p className="text-gray-300 text-base sm:text-lg mb-10 max-w-2xl mx-auto font-normal leading-relaxed">
+            Agende uma visita ao nosso showroom em Pinhais ou envie sua ideia de planta para um orçamento detalhado.
           </p>
 
-          {/* Botões de ação */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-8">
-            <Link
-              to="/envie-seu-projeto"
-              className="group relative inline-flex items-center justify-center gap-3 px-10 sm:px-14 py-5 sm:py-6 bg-gradient-to-r from-pinheirao-green via-pinheirao-deep to-pinheirao-green text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-full shadow-[0_10px_30px_rgba(11,181,151,0.6)] hover:shadow-[0_15px_40px_rgba(11,181,151,0.8)] hover:-translate-y-2 hover:scale-105 transition-all overflow-hidden animate-pulse-slow"
-            >
-              <span className="relative z-10 flex items-center gap-3">
-                <span>Calcular Meu Projeto Agora!</span>
-                <Rocket size={24} className="animate-bounce-slow" />
-              </span>
-              {/* Efeito de brilho */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-              {/* Anel pulsante */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-pinheirao-green to-pinheirao-deep rounded-full opacity-30 blur-lg animate-pulse-ring"></div>
-            </Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
+            <div className="flex flex-col items-center w-full sm:w-auto">
+              <Link
+                to="/envie-seu-projeto"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-9 py-4 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm shadow-md hover:bg-pinheirao-deep transition-all"
+              >
+                <span>Orçamento</span>
+                <ArrowRight size={16} />
+              </Link>
+              <span className="text-[10px] text-gray-400 mt-1 font-medium">Simulação grátis</span>
+            </div>
 
-            <a
-              href="tel:4136678015"
-              className="inline-flex items-center justify-center gap-2 px-10 sm:px-14 py-5 sm:py-6 bg-white/5 backdrop-blur-sm text-white font-black text-sm sm:text-base uppercase tracking-wider border-2 border-pinheirao-green/50 rounded-full hover:bg-pinheirao-green/10 hover:border-pinheirao-green hover:-translate-y-2 transition-all"
-            >
-              <Phone size={20} />
-              <span>(41) 3667-8015</span>
-            </a>
-          </div>
-
-          {/* Urgência/escassez */}
-          <div className="inline-flex items-center gap-2 text-pinheirao-green/80 text-sm font-semibold">
-            <span className="w-2 h-2 bg-pinheirao-green rounded-full animate-pulse"></span>
-            <span>Vagas limitadas para novos projetos em 2025</span>
+            <div className="flex flex-col items-center w-full sm:w-auto">
+              <a
+                href="tel:4136678015"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-9 py-4 bg-white/10 text-white font-bold text-xs uppercase tracking-wider border border-white/30 rounded-sm hover:bg-white/20 transition-all"
+              >
+                <Phone size={16} />
+                <span>(41) 3667-8015</span>
+              </a>
+              <span className="text-[10px] text-gray-400 mt-1 font-medium">Atendimento telefônico</span>
+            </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

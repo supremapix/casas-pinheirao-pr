@@ -163,9 +163,12 @@ export const Contact: React.FC = () => {
                     <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">Mensagem *</label>
                     <textarea required name="message" rows={5} value={formData.message} onChange={handleInputChange} className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="Como podemos ajudar?"></textarea>
                   </div>
-                  <button type="submit" disabled={loading} className="w-full bg-pinheirao-green text-white font-black text-xs uppercase tracking-widest py-6 rounded-sm hover:bg-pinheirao-deep transition-all shadow-xl active:scale-95 disabled:opacity-50 flex items-center justify-center">
-                    {loading ? 'Enviando...' : 'Enviar Mensagem'}
-                  </button>
+                  <div className="flex flex-col">
+                    <button type="submit" disabled={loading} className="w-full bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider py-4 rounded-sm hover:bg-pinheirao-deep transition-all shadow-md disabled:opacity-50 flex items-center justify-center">
+                      {loading ? 'Enviando...' : 'Enviar'}
+                    </button>
+                    <span className="text-[10px] text-pinheirao-gray mt-1 text-center font-medium">Retorno rápido em horário comercial</span>
+                  </div>
                 </form>
               )}
             </div>

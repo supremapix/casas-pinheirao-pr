@@ -12,18 +12,33 @@ export const PrivacyPolicy: React.FC = () => {
         keywords="politica de privacidade, LGPD, protecao de dados, Casas Pinheirao"
       />
 
-      {/* Page Header */}
-      <section className="bg-pinheirao-concrete/30 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="bg-pinheirao-green/10 p-4 rounded-full">
-              <Shield size={48} className="text-pinheirao-green" />
+      {/* Page Header Elegante com Imagem de Fundo em Destaque */}
+      <section className="relative bg-pinheirao-black py-20 md:py-28 border-b border-white/10 overflow-hidden">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/casas-pinhais-pr.jpg"
+            alt="Casas Pinheirão - Segurança e Transparência em Pinhais PR"
+            className="w-full h-full object-cover object-center scale-105 opacity-60 filter brightness-95 contrast-110"
+            loading="eager"
+          />
+          {/* Degradê elegante para destacar a imagem com máxima legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black/95 via-pinheirao-black/75 to-pinheirao-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex justify-center mb-4">
+            <div className="bg-black/60 border border-pinheirao-green/50 backdrop-blur-md p-3.5 rounded-full shadow-lg">
+              <Shield size={36} className="text-pinheirao-green" />
             </div>
           </div>
-          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-6">Transparencia e Seguranca</h2>
-          <h1 className="text-4xl md:text-5xl font-black text-pinheirao-black mb-6">Politica de Privacidade</h1>
-          <p className="text-pinheirao-gray max-w-2xl mx-auto text-lg leading-relaxed font-medium">
-            Sua privacidade e importante para nos. Conheca como tratamos seus dados pessoais.
+          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-3">Transparência e Segurança</h2>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 uppercase tracking-tight drop-shadow-md">
+            Política de <span className="text-pinheirao-green">Privacidade</span>
+          </h1>
+          <p className="text-gray-200 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-medium drop-shadow">
+            Sua privacidade é fundamental para nós. Saiba como tratamos e protegemos seus dados pessoais.
           </p>
         </div>
       </section>

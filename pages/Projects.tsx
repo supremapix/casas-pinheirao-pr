@@ -69,16 +69,31 @@ export const Projects: React.FC = () => {
         keywords="projetos casas pré-fabricadas, modelos casas madeira, casas alvenaria, sobrados pré-fabricados, triplex Pinhais, projetos personalizados"
       />
 
-      {/* Hero Header */}
-      <section className="bg-gray-50 py-14 md:py-20 border-b border-gray-200/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
-            Catálogo de Modelos
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-pinheirao-black uppercase tracking-tight mb-4">
-            Escolha seu Modelo de Casa
+      {/* Hero Header Elegante com Imagem de Fundo em Destaque */}
+      <section className="relative bg-pinheirao-black py-16 md:py-24 border-b border-white/10 overflow-hidden">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/casas-pinhais-pr.jpg"
+            alt="Casas Pinheirão - Modelos de Casas Pré-Fabricadas e Alvenaria em Pinhais"
+            className="w-full h-full object-cover object-center scale-105 opacity-60 filter brightness-95 contrast-110"
+            loading="eager"
+          />
+          {/* Degradê elegante para destacar a imagem com máxima legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black/95 via-pinheirao-black/75 to-pinheirao-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-pinheirao-green/50 backdrop-blur-md shadow-lg mb-4">
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green">
+              Catálogo de Modelos
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-md">
+            Escolha seu Modelo de <span className="text-pinheirao-green">Casa</span>
           </h1>
-          <p className="text-pinheirao-gray max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-normal">
+          <p className="text-gray-200 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed font-medium drop-shadow">
             Modelos pré-fabricados de madeira nobre e alvenaria tradicional. Todos os projetos podem ser personalizados para o seu terreno.
           </p>
         </div>

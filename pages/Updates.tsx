@@ -113,7 +113,7 @@ export const Updates: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24 pb-16">
+    <div className="min-h-screen bg-white pt-20 pb-16">
       <EnhancedSEO
         title="Atualizações - Casas Pinheirão"
         description="Acompanhe as atualizações e melhorias do site Casas Pinheirão em tempo real."
@@ -121,16 +121,38 @@ export const Updates: React.FC = () => {
         keywords="atualizações, melhorias, GitHub, Vercel, desenvolvimento"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-black mb-4 text-pinheirao-black">
-            Atualizações do Site
+      {/* Header Elegante com Imagem de Fundo em Destaque */}
+      <section className="relative bg-pinheirao-black py-20 md:py-28 border-b border-white/10 overflow-hidden mb-12">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/casas-pinhais-pr.jpg"
+            alt="Casas Pinheirão - Transparência e Atualizações"
+            className="w-full h-full object-cover object-center scale-105 opacity-60 filter brightness-95 contrast-110"
+            loading="eager"
+          />
+          {/* Degradê elegante para destacar a imagem com máxima legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black/95 via-pinheirao-black/75 to-pinheirao-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-pinheirao-green/50 backdrop-blur-md shadow-lg mb-4">
+            <Zap size={15} className="text-pinheirao-green" />
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-white">
+              Log de Desenvolvimento
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 uppercase tracking-tight drop-shadow-md">
+            Atualizações do <span className="text-pinheirao-green">Site</span>
           </h1>
-          <p className="text-lg text-pinheirao-gray max-w-2xl mx-auto">
-            Acompanhe em tempo real todas as melhorias e atualizações do nosso site.
+          <p className="text-gray-200 text-base sm:text-lg max-w-2xl mx-auto font-medium drop-shadow">
+            Acompanhe em tempo real todas as melhorias técnicas, novos recursos e atualizações contínuas do nosso portal.
           </p>
         </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {loading ? (
           <div className="flex justify-center items-center py-16">

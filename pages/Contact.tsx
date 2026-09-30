@@ -36,12 +36,31 @@ export const Contact: React.FC = () => {
         canonical="/contato"
         keywords="contato Casas Pinheirão, telefone casas pré-fabricadas Pinhais, WhatsApp Casas Pinheirão, endereço Pinhais, orçamento casa pré-fabricada"
       />
-      {/* Page Header */}
-      <section className="bg-pinheirao-concrete/30 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xs font-black uppercase tracking-[0.4em] text-pinheirao-green mb-6">Fale Conosco</h2>
-          <h1 className="text-4xl md:text-5xl font-black text-pinheirao-black mb-4 leading-tight">Estamos prontos para atender você.</h1>
-          <p className="text-pinheirao-gray max-w-2xl mx-auto font-medium">
+      {/* Page Header Elegante com Imagem de Fundo em Destaque */}
+      <section className="relative bg-pinheirao-black py-20 md:py-28 border-b border-white/10 overflow-hidden">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/casas-pinhais-pr.jpg"
+            alt="Casas Pinheirão - Atendimento e Showroom em Pinhais PR"
+            className="w-full h-full object-cover object-center scale-105 opacity-60 filter brightness-95 contrast-110"
+            loading="eager"
+          />
+          {/* Degradê elegante para destacar a imagem com máxima legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black/95 via-pinheirao-black/75 to-pinheirao-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-pinheirao-green/50 backdrop-blur-md shadow-lg mb-4">
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-pinheirao-green">
+              Fale Conosco
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight drop-shadow-md">
+            Estamos prontos para <span className="text-pinheirao-green">atender você</span>
+          </h1>
+          <p className="text-gray-200 max-w-2xl mx-auto font-medium text-base sm:text-lg leading-relaxed drop-shadow">
             Tire suas dúvidas, solicite uma visita técnica ou peça um orçamento sem compromisso.
           </p>
         </div>

@@ -85,16 +85,32 @@ export const About: React.FC = () => {
         keywords="empresa casas pré-fabricadas, história Casas Pinheirão, tradição casas madeira, casas pré-fabricadas Pinhais, empresa construção Curitiba"
       />
 
-      {/* Page Header */}
-      <section className="bg-gray-50 py-16 md:py-24 border-b border-gray-200/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
-            Quem Somos
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-pinheirao-black uppercase tracking-tight mb-4">
-            Tradição e Confiança em Pinhais
+      {/* Page Header Elegante com Imagem de Fundo em Destaque */}
+      <section className="relative bg-pinheirao-black py-20 md:py-28 border-b border-white/10 overflow-hidden">
+        {/* Background Image Container */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/casas-pinhais-pr.jpg"
+            alt="Casas Pinheirão - Sede e Showroom em Pinhais PR"
+            className="w-full h-full object-cover object-center scale-105 opacity-60 filter brightness-95 contrast-110"
+            loading="eager"
+          />
+          {/* Degradê elegante para destacar a imagem com máxima legibilidade */}
+          <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black/95 via-pinheirao-black/75 to-pinheirao-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/70" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-pinheirao-green/50 backdrop-blur-md shadow-lg mb-4">
+            <ShieldCheck size={16} className="text-pinheirao-green" />
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-white">
+              Quem Somos
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight mb-4 drop-shadow-md">
+            Tradição e Confiança em <span className="text-pinheirao-green">Pinhais</span>
           </h1>
-          <p className="text-pinheirao-gray max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-normal">
+          <p className="text-gray-200 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-medium drop-shadow">
             Mais de duas décadas construindo lares e realizando sonhos em Curitiba e Região Metropolitana.
           </p>
         </div>

@@ -4,6 +4,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZV7H6RCCYW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZV7H6RCCYW', { send_page_view: false });
+
+      (function () {
+        var ORIGIN = location.origin;
+
+        function routePath() {
+          var h = location.hash.replace(/^#/, '');
+          if (!h || h === '/') return '/';
+          return h.split('?')[0];
+        }
+        function formNameFromRoute() {
+          var p = routePath().replace(/^\//, '');
+          return (p || 'home').replace(/[^a-z0-9]+/gi, '_');
+        }
+
+        var lastPath = null;
+        function sendPageView() {
+          var path = routePath();
+          if (path === lastPath) return;
+          lastPath = path;
+          gtag('event', 'page_view', {
+            page_location: ORIGIN + path + location.search,
+            page_path: path,
+            page_title: document.title
+          });
+        }
+        sendPageView();
+        window.addEventListener('hashchange', function () { setTimeout(sendPageView, 50); });
+        window.addEventListener('popstate', function () { setTimeout(sendPageView, 50); });
+        // O roteador do site troca a rota via history.pushState (não dispara hashchange)
+        ['pushState', 'replaceState'].forEach(function (m) {
+          var orig = history[m];
+          history[m] = function () {
+            var r = orig.apply(this, arguments);
+            setTimeout(sendPageView, 50);
+            return r;
+          };
+        });
+
+        function clickLocation(el) {
+          if (el.closest('header, nav')) return 'header';
+          if (el.closest('footer')) return 'rodape';
+          var n = el;
+          while (n && n !== document.body) {
+            var pos = getComputedStyle(n).position;
+            if (pos === 'fixed' || pos === 'sticky') return 'flutuante';
+            n = n.parentElement;
+          }
+          return 'conteudo';
+        }
+
+        function send(name, a, extra) {
+          var params = {
+            link_url: (a.getAttribute('href') || '').split('?')[0],
+            link_text: (a.innerText || a.getAttribute('aria-label') || a.title || '').trim().slice(0, 100),
+            click_location: clickLocation(a),
+            page_path: routePath()
+          };
+          for (var k in extra) params[k] = extra[k];
+          gtag('event', name, params);
+        }
+
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a[href]');
+          if (!a) return;
+          var href = (a.getAttribute('href') || '').toLowerCase();
+
+          if (/wa\.me|api\.whatsapp\.com|web\.whatsapp\.com|^whatsapp:/.test(href)) {
+            send('whatsapp_click', a);
+          } else if (href.indexOf('tel:') === 0) {
+            send('phone_click', a);
+          } else if (/google\.[a-z.]+\/maps|maps\.google\.|maps\.app\.goo\.gl|goo\.gl\/maps|waze\.com|maps\.apple\.com/.test(href)) {
+            send('directions_click', a);
+          } else if (href.indexOf('mailto:') === 0) {
+            send('email_click', a);
+          } else if (/instagram\.com|facebook\.com|fb\.com|youtube\.com|tiktok\.com/.test(href)) {
+            var net = (href.match(/instagram|facebook|fb|youtube|tiktok/) || [''])[0];
+            send('social_click', a, { social_network: net === 'fb' ? 'facebook' : net });
+          } else if (/envie-seu-projeto/.test(href)) {
+            send('cta_click', a, { cta_destination: 'envie_seu_projeto' });
+          }
+        }, true);
+
+        var started = new WeakSet();
+        document.addEventListener('input', function (e) {
+          var f = e.target.form || (e.target.closest && e.target.closest('form'));
+          if (!f || started.has(f)) return;
+          started.add(f);
+          gtag('event', 'form_start', { form_name: formNameFromRoute(), page_path: routePath() });
+        }, true);
+
+        document.addEventListener('change', function (e) {
+          if (e.target.type === 'file' && e.target.files && e.target.files.length) {
+            gtag('event', 'file_upload', { form_name: formNameFromRoute(), page_path: routePath() });
+          }
+        }, true);
+
+        var lastLead = 0;
+        document.addEventListener('submit', function (e) {
+          var now = Date.now();
+          if (now - lastLead < 3000) return;
+          lastLead = now;
+          gtag('event', 'generate_lead', {
+            form_name: formNameFromRoute(),
+            page_path: routePath()
+          });
+        }, true);
+      })();
+    </script>
     <title>Casas Pinheirão - Realize o Sonho da Casa Própria</title>
     <meta name="description" content="Casas Pinheirão: Referência em casas de madeira e alvenaria sob medida com mais de 20 anos de tradição.">
     

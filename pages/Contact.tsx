@@ -1,9 +1,33 @@
 
-import React from 'react';
-import { Mail, Phone, MessageSquare, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, MessageSquare, MapPin, Clock, Facebook, Instagram, Send } from 'lucide-react';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 
 export const Contact: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    whatsapp: '',
+    email: '',
+    subject: 'Orçamento',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSuccess(true);
+    }, 1200);
+  };
+
   return (
     <div className="pt-20">
       <EnhancedSEO
@@ -37,7 +61,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-black text-sm uppercase tracking-widest text-pinheirao-black mb-1">Nosso Endereço</h4>
-                      <p className="text-pinheirao-gray font-medium">Av. Jacob Macanhan, 1369 - Pinhais/PR</p>
+                      <a href="https://www.google.com/maps/dir//Av.+Jacob+Macanhan,+1369+-+Jardim+Claudia,+Pinhais+-+PR,+83321-000" target="_blank" rel="noopener" className="text-pinheirao-gray font-medium hover:text-pinheirao-green transition-colors">Av. Jacob Macanhan, 1369 - Pinhais/PR</a>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -46,7 +70,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-black text-sm uppercase tracking-widest text-pinheirao-black mb-1">Telefone Fixo</h4>
-                      <p className="text-pinheirao-gray font-medium">(41) 3667-8015</p>
+                      <a href="tel:4136678015" className="text-pinheirao-gray font-medium hover:text-pinheirao-green transition-colors">(41) 3667-8015</a>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -55,7 +79,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-black text-sm uppercase tracking-widest text-pinheirao-green mb-1">WhatsApp</h4>
-                      <p className="text-pinheirao-gray font-medium">(41) 99630-1028</p>
+                      <a href="https://api.whatsapp.com/send?phone=5541996301028" target="_blank" rel="noopener" className="text-pinheirao-gray font-medium hover:text-pinheirao-green transition-colors">(41) 99630-1028</a>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -64,7 +88,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="font-black text-sm uppercase tracking-widest text-pinheirao-black mb-1">E-mail</h4>
-                      <p className="text-pinheirao-gray font-medium break-all">casaspinheirao@casaspinheirao.com.br</p>
+                      <a href="mailto:casaspinheirao@casaspinheirao.com.br" className="text-pinheirao-gray font-medium break-all hover:text-pinheirao-green transition-colors">casaspinheirao@casaspinheirao.com.br</a>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -83,10 +107,10 @@ export const Contact: React.FC = () => {
               <div>
                 <h3 className="text-xs font-black uppercase tracking-[0.3em] text-pinheirao-green mb-6">Siga Nossas Obras</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="bg-pinheirao-black text-white p-5 rounded-sm hover:bg-pinheirao-green transition-all shadow-lg">
+                  <a href="https://facebook.com/casasprefabricadapinheirao" target="_blank" rel="noopener noreferrer" className="bg-pinheirao-black text-white p-5 rounded-sm hover:bg-pinheirao-green transition-all shadow-lg">
                     <Facebook size={24} />
                   </a>
-                  <a href="#" className="bg-pinheirao-black text-white p-5 rounded-sm hover:bg-pinheirao-green transition-all shadow-lg">
+                  <a href="https://instagram.com/casas_pinheirao" target="_blank" rel="noopener noreferrer" className="bg-pinheirao-black text-white p-5 rounded-sm hover:bg-pinheirao-green transition-all shadow-lg">
                     <Instagram size={24} />
                   </a>
                 </div>
@@ -96,38 +120,54 @@ export const Contact: React.FC = () => {
             {/* Form Column */}
             <div className="bg-white p-10 md:p-14 rounded-sm shadow-2xl border border-gray-50">
               <h2 className="text-2xl font-black text-pinheirao-black mb-10 uppercase tracking-tighter italic">Envie uma Mensagem</h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">Seu Nome</label>
-                    <input type="text" className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="Ex: João" />
+              {success ? (
+                <div className="bg-pinheirao-concrete/10 border border-pinheirao-green/30 p-8 rounded-sm text-center">
+                  <div className="bg-pinheirao-green text-white p-4 rounded-full w-fit mx-auto mb-4">
+                    <Send size={32} />
+                  </div>
+                  <h3 className="text-2xl font-black text-pinheirao-black mb-3 uppercase">Mensagem Enviada!</h3>
+                  <p className="text-pinheirao-gray mb-6 text-sm font-medium">Recebemos sua mensagem. Entraremos em contato em breve.</p>
+                  <button 
+                    onClick={() => setSuccess(false)}
+                    className="bg-pinheirao-green text-white px-8 py-3 rounded-sm font-black text-xs uppercase tracking-widest hover:bg-pinheirao-deep transition-all"
+                  >
+                    Enviar Nova Mensagem
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">Seu Nome *</label>
+                      <input required name="name" type="text" value={formData.name} onChange={handleInputChange} className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="Ex: João" />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">WhatsApp *</label>
+                      <input required name="whatsapp" type="tel" value={formData.whatsapp} onChange={handleInputChange} className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="(41) 99999-9999" />
+                    </div>
                   </div>
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">WhatsApp</label>
-                    <input type="tel" className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="(41) 99999-9999" />
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">E-mail *</label>
+                    <input required name="email" type="email" value={formData.email} onChange={handleInputChange} className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="seu@email.com" />
                   </div>
-                </div>
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">E-mail</label>
-                  <input type="email" className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="seu@email.com" />
-                </div>
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">Assunto</label>
-                  <select className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium appearance-none">
-                    <option>Orçamento</option>
-                    <option>Dúvidas Técnicas</option>
-                    <option>Financeiro</option>
-                    <option>Outros</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">Mensagem</label>
-                  <textarea rows={5} className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="Como podemos ajudar?"></textarea>
-                </div>
-                <button className="w-full bg-pinheirao-green text-white font-black text-xs uppercase tracking-widest py-6 rounded-sm hover:bg-pinheirao-deep transition-all shadow-xl active:scale-95">
-                  Enviar Mensagem
-                </button>
-              </form>
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">Assunto</label>
+                    <select name="subject" value={formData.subject} onChange={handleInputChange} className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium appearance-none">
+                      <option>Orçamento</option>
+                      <option>Dúvidas Técnicas</option>
+                      <option>Financeiro</option>
+                      <option>Outros</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-pinheirao-black mb-3">Mensagem *</label>
+                    <textarea required name="message" rows={5} value={formData.message} onChange={handleInputChange} className="w-full px-5 py-4 bg-pinheirao-concrete/20 border border-gray-100 rounded-sm focus:outline-none focus:border-pinheirao-green transition-all font-medium" placeholder="Como podemos ajudar?"></textarea>
+                  </div>
+                  <button type="submit" disabled={loading} className="w-full bg-pinheirao-green text-white font-black text-xs uppercase tracking-widest py-6 rounded-sm hover:bg-pinheirao-deep transition-all shadow-xl active:scale-95 disabled:opacity-50 flex items-center justify-center">
+                    {loading ? 'Enviando...' : 'Enviar Mensagem'}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

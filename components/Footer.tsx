@@ -75,19 +75,19 @@ export const Footer: React.FC = () => {
             <ul className="space-y-6 text-xs text-pinheirao-concrete/80 uppercase tracking-widest font-bold">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <span className="leading-relaxed">Av. Jacob Macanhan, 1369<br />Pinhais/PR</span>
+                <a href="https://www.google.com/maps/dir//Av.+Jacob+Macanhan,+1369+-+Jardim+Claudia,+Pinhais+-+PR,+83321-000" target="_blank" rel="noopener" className="leading-relaxed hover:text-pinheirao-green transition-colors">Av. Jacob Macanhan, 1369<br />Pinhais/PR</a>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <span>(41) 3667-8015</span>
+                <a href="tel:4136678015" className="hover:text-pinheirao-green transition-colors">(41) 3667-8015</a>
               </li>
               <li className="flex items-center">
                 <MessageSquare size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <span>(41) 99630-1028</span>
+                <a href="https://api.whatsapp.com/send?phone=5541996301028" target="_blank" rel="noopener" className="hover:text-pinheirao-green transition-colors">(41) 99630-1028</a>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-4 text-pinheirao-green shrink-0" />
-                <span className="break-all lowercase tracking-normal font-medium">casaspinheirao@casaspinheirao.com.br</span>
+                <a href="mailto:casaspinheirao@casaspinheirao.com.br" className="break-all lowercase tracking-normal font-medium hover:text-pinheirao-green transition-colors">casaspinheirao@casaspinheirao.com.br</a>
               </li>
             </ul>
           </div>

@@ -244,6 +244,49 @@ export const About: React.FC = () => {
         </div>
       </section>
 
+      {/* Dark CTA Section with construa-casa.jpg background */}
+      <section className="relative py-20 md:py-28 bg-[#0C0E12] text-white border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/construa-casa.jpg"
+            alt="Construa sua Casa - Casas Pinheirão"
+            className="w-full h-full object-cover object-center opacity-45 sm:opacity-55 filter brightness-95 contrast-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0C0E12]/85 via-[#0C0E12]/75 to-[#0C0E12]/90" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
+            Venha nos Conhecer
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-6 leading-tight">
+            Visite nossa sede própria em Pinhais.
+          </h2>
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl mx-auto font-normal">
+            Conheça de perto nosso showroom, mostruário de madeiras nobres tratadas e converse pessoalmente com engenheiros e projetistas especializados.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
+            <a
+              href="https://www.google.com/maps/dir//Av.+Jacob+Macanhan,+1369+-+Jardim+Claudia,+Pinhais+-+PR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-all shadow-md"
+            >
+              <MapPin size={16} />
+              <span>Como Chegar ao Showroom</span>
+            </a>
+            <Link
+              to="/envie-seu-projeto"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white font-bold text-xs uppercase tracking-wider border border-white/20 rounded-sm hover:bg-white/20 transition-all"
+            >
+              <span>Solicitar Orçamento Online</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Semantic Image Lightbox Modal */}
       {selectedImage && (
         <div

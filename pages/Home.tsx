@@ -255,9 +255,20 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Showcase de Vídeos e Tours Virtuais (Substitui o mockup de celular com design arquitetônico de alto nível) */}
-      <section className="py-20 md:py-28 bg-[#15171C] text-white border-y border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 4. Showcase de Vídeos e Tours Virtuais */}
+      <section className="relative py-20 md:py-28 bg-[#101216] text-white border-y border-white/10 overflow-hidden">
+        {/* Background Image com Máxima Visibilidade */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/construa-casa.jpg"
+            alt="Construa sua Casa - Casas Pinheirão"
+            className="w-full h-full object-cover object-center opacity-45 sm:opacity-55 filter brightness-95 contrast-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#101216]/90 via-[#101216]/75 to-[#101216]/90" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12">
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-2">
@@ -457,15 +468,26 @@ export const Home: React.FC = () => {
       {/* 8. Destaque Modelo 45m² */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#15171C] text-white rounded-sm overflow-hidden p-6 sm:p-10 lg:p-12 shadow-xl">
-            <div className="lg:col-span-6 rounded-sm overflow-hidden h-[300px] sm:h-[380px]">
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#101216] text-white rounded-sm overflow-hidden p-6 sm:p-10 lg:p-12 shadow-xl border border-white/10">
+            {/* Background Image com Máxima Visibilidade */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <img
+                src="https://img.supremasite.com.br/pinheirao/construa-casa.jpg"
+                alt="Construa sua Casa - Casas Pinheirão"
+                className="w-full h-full object-cover object-center opacity-40 sm:opacity-50 filter brightness-90 contrast-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#101216]/95 via-[#101216]/80 to-[#101216]/90" />
+            </div>
+
+            <div className="relative z-10 lg:col-span-6 rounded-sm overflow-hidden h-[300px] sm:h-[380px] shadow-lg border border-white/10">
               <img
                 src="https://img.supremasite.com.br/pinheirao/casa-45mts.png"
                 alt="Casa de Madeira 45m² - Casas Pinheirão"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="lg:col-span-6 space-y-6">
+            <div className="relative z-10 lg:col-span-6 space-y-6">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green">
                 Modelo em Destaque
               </p>
@@ -514,8 +536,19 @@ export const Home: React.FC = () => {
       <InstagramSection />
 
       {/* 12. CTA Final de Conversão */}
-      <section className="py-20 md:py-28 bg-[#111317] text-white relative border-t border-white/10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 md:py-28 bg-[#0C0E12] text-white relative border-t border-white/10 overflow-hidden">
+        {/* Background Image com Máxima Visibilidade */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/construa-casa.jpg"
+            alt="Construa sua Casa - Casas Pinheirão"
+            className="w-full h-full object-cover object-center opacity-45 sm:opacity-55 filter brightness-95 contrast-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0C0E12]/85 via-[#0C0E12]/75 to-[#0C0E12]/90" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
             Atendimento em Todo o Paraná
           </p>

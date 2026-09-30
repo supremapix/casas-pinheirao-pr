@@ -90,8 +90,19 @@ export const CustomHomeSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#15171C] text-white relative border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-28 bg-[#101216] text-white relative border-t border-white/10 overflow-hidden">
+      {/* Background Image com Máxima Visibilidade */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="https://img.supremasite.com.br/pinheirao/construa-casa.jpg"
+          alt="Construa sua Casa Personalizada - Casas Pinheirão"
+          className="w-full h-full object-cover object-center opacity-45 sm:opacity-55 filter brightness-95 contrast-105"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#101216]/90 via-[#101216]/75 to-[#101216]/90" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-14">

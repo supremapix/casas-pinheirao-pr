@@ -214,6 +214,48 @@ export const Projects: React.FC = () => {
         </div>
       </section>
 
+      {/* Dark CTA Section with construa-casa.jpg background */}
+      <section className="relative py-20 md:py-28 bg-[#0C0E12] text-white border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="https://img.supremasite.com.br/pinheirao/construa-casa.jpg"
+            alt="Construa sua Casa - Casas Pinheirão"
+            className="w-full h-full object-cover object-center opacity-45 sm:opacity-55 filter brightness-95 contrast-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0C0E12]/85 via-[#0C0E12]/75 to-[#0C0E12]/90" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-pinheirao-green mb-3">
+            Projetos Sob Medida
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white mb-6 leading-tight">
+            Não encontrou a planta ideal? Construímos seu projeto exclusivo.
+          </h2>
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl mx-auto font-normal">
+            Traga seu croqui, ideia ou projeto arquitetônico pronto. Nossa equipe de engenharia e arquitetura adapta cada detalhe às características do seu terreno.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
+            <Link
+              to="/envie-seu-projeto"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-pinheirao-green text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-pinheirao-deep transition-all shadow-md"
+            >
+              <span>Envie Sua Ideia de Planta</span>
+              <ArrowRight size={16} />
+            </Link>
+            <a
+              href="https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Gostaria de tirar dúvidas sobre os modelos de casas."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/10 text-white font-bold text-xs uppercase tracking-wider border border-white/20 rounded-sm hover:bg-white/20 transition-all"
+            >
+              <span>Falar com Consultor</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Semantic Lightbox Modal */}
       {lightbox && (
         <div 

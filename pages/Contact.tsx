@@ -181,12 +181,13 @@ export const Contact: React.FC = () => {
         <div className="absolute inset-0 bg-pinheirao-black/20 flex items-center justify-center">
           {/* Imagem de fundo da sede */}
           <img
-            src="/visite-nossa-sede.png"
+            src="https://img.supremasite.com.br/pinheirao/construa-casa.jpg"
             alt="Casas Pinheirão - Visite Nossa Sede em Pinhais"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center filter brightness-90 contrast-105"
+            loading="lazy"
           />
           {/* Overlay para melhor legibilidade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black/90 via-pinheirao-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black/90 via-pinheirao-black/40 to-pinheirao-black/30"></div>
 
           {/* Card de informações */}
           <div className="absolute z-10 bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl mx-auto">

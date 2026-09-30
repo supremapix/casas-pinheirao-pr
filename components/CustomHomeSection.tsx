@@ -110,47 +110,63 @@ export const CustomHomeSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Gallery Viewport */}
-          <div className="lg:col-span-7 bg-[#1E2229] border border-white/10 rounded-sm p-4 sm:p-6 shadow-xl">
+          <div className="lg:col-span-7 bg-[#1E2229] border border-white/10 rounded-sm p-4 sm:p-5 shadow-xl flex flex-col">
             <div 
-              className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden rounded-sm bg-black cursor-pointer group"
+              className="relative w-full h-[320px] sm:h-[400px] overflow-hidden rounded-sm bg-[#0B0D10] flex items-center justify-center cursor-pointer group border border-white/5"
               onClick={() => openLightbox(activeImage)}
             >
+              {/* Full Image without cropping */}
               <img
                 src={projectImages[activeImage].url}
                 alt={projectImages[activeImage].label}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500 group-hover:scale-105 select-none"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               
-              <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                <div>
-                  <h3 className="text-white text-base sm:text-lg font-bold">
-                    {projectImages[activeImage].label}
-                  </h3>
-                  <p className="text-gray-300 text-xs sm:text-sm line-clamp-2 mt-1 font-normal max-w-xl">
-                    {projectImages[activeImage].description}
-                  </p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm p-2.5 rounded text-white shrink-0 ml-3">
-                  <Maximize2 size={18} />
-                </div>
+              {/* Top Zoom Tag */}
+              <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0F1115]/90 hover:bg-pinheirao-green text-white text-[11px] font-bold uppercase tracking-wider rounded-sm border border-white/15 backdrop-blur-sm transition-colors shadow-lg">
+                <Maximize2 size={14} />
+                <span>Ampliar Foto</span>
+              </div>
+
+              {/* Model Badge */}
+              <div className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 bg-pinheirao-green text-white text-[11px] font-bold uppercase tracking-wider rounded-sm shadow-md">
+                <span>{projectImages[activeImage].label}</span>
               </div>
             </div>
 
+            {/* Model Info Card Below Image */}
+            <div className="mt-3.5 p-3.5 sm:p-4 bg-[#15171C] rounded-sm border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h3 className="text-white text-sm sm:text-base font-bold uppercase tracking-tight">
+                  {projectImages[activeImage].label}
+                </h3>
+                <p className="text-gray-300 text-xs mt-0.5 leading-relaxed font-normal">
+                  {projectImages[activeImage].description}
+                </p>
+              </div>
+              <button
+                onClick={() => openLightbox(activeImage)}
+                className="inline-flex items-center gap-1.5 text-pinheirao-green hover:text-white text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors pt-1 sm:pt-0"
+              >
+                <span>Ver Detalhes</span>
+                <ArrowRight size={14} />
+              </button>
+            </div>
+
             {/* Thumbnails Strip */}
-            <div className="grid grid-cols-5 gap-2 sm:gap-3 mt-4">
+            <div className="grid grid-cols-5 gap-2 sm:gap-2.5 mt-3.5">
               {projectImages.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImage(idx)}
-                  className={`relative aspect-[4/3] rounded-sm overflow-hidden border-2 transition-all ${
+                  className={`relative aspect-[4/3] rounded-sm overflow-hidden border-2 bg-[#0B0D10] flex items-center justify-center p-1 transition-all ${
                     idx === activeImage 
-                      ? 'border-pinheirao-green opacity-100 shadow-md' 
-                      : 'border-transparent opacity-50 hover:opacity-80'
+                      ? 'border-pinheirao-green opacity-100 shadow-md scale-[1.02]' 
+                      : 'border-white/10 opacity-50 hover:opacity-90'
                   }`}
-                  aria-label={`Ver foto ${idx + 1}`}
+                  aria-label={`Ver modelo ${img.label}`}
                 >
-                  <img src={img.url} alt={img.label} className="w-full h-full object-cover" />
+                  <img src={img.url} alt={img.label} className="max-w-full max-h-full object-contain" />
                 </button>
               ))}
             </div>

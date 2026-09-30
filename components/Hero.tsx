@@ -24,20 +24,35 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center bg-pinheirao-black overflow-hidden pt-20 pb-12">
       
-      {/* Background Slideshow with Smooth Crossfade */}
-      <div className="absolute inset-0 z-0">
-        {HERO_IMAGES.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Casas Pinheirão - Especialista em Casas Pré-Fabricadas e Alvenaria ${index + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-70 scale-100' : 'opacity-0 scale-105'
-            }`}
-            loading={index === 0 ? "eager" : "lazy"}
-          />
-        ))}
-        {/* Original professional dark gradient overlays */}
+      {/* Background Container */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Mobile Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 opacity-75 filter brightness-90 contrast-105"
+          src="https://img.supremasite.com.br/pinheirao/casa.mp4"
+        />
+
+        {/* Desktop Background Slideshow with Smooth Crossfade */}
+        <div className="hidden sm:block absolute inset-0 w-full h-full">
+          {HERO_IMAGES.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`Casas Pinheirão - Especialista em Casas Pré-Fabricadas e Alvenaria ${index + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-70 scale-100' : 'opacity-0 scale-105'
+              }`}
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          ))}
+        </div>
+
+        {/* Professional dark gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-pinheirao-black via-pinheirao-black/80 to-pinheirao-black/40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-pinheirao-black via-transparent to-pinheirao-black/60"></div>
       </div>

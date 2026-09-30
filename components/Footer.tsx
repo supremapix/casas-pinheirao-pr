@@ -44,12 +44,24 @@ export function SupremaCredit() {
 export const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#0A0C0E] text-white pt-20 pb-10 border-t-2 border-pinheirao-green overflow-hidden">
-      {/* Real Background Image with high visibility on mobile and PC */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Background Container */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Mobile Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="sm:hidden absolute inset-0 w-full h-full object-cover object-center scale-105 opacity-55 filter brightness-90 contrast-105"
+          src="https://img.supremasite.com.br/pinheirao/casa.mp4"
+        />
+
+        {/* Desktop Background Image */}
         <img
           src="https://img.supremasite.com.br/pinheirao/casas-pinhais-pr.jpg"
           alt="Casas Pinheirão - Sede e Showroom em Pinhais PR"
-          className="w-full h-full object-cover object-center scale-105 opacity-45 sm:opacity-55 filter brightness-90 contrast-105 transition-opacity duration-700"
+          className="hidden sm:block w-full h-full object-cover object-center scale-105 opacity-55 filter brightness-90 contrast-105 transition-opacity duration-700"
           loading="lazy"
         />
         {/* Balanced Photographic Tint - Enhances image visibility while preserving crystal-clear typography */}

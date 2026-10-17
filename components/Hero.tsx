@@ -24,17 +24,17 @@ export const Hero: React.FC = () => (
       </div>
       <figure className="home-hero__visual">
         <img
-          src="/hero-catalogo-1280.webp"
-          srcSet="/hero-catalogo-480.webp 480w, /hero-catalogo-800.webp 800w, /hero-catalogo-1280.webp 1280w, /hero-catalogo-1920.webp 1920w"
+          src="/hero-sede-real-680.webp"
+          srcSet="/hero-sede-real-400.webp 400w, /hero-sede-real-680.webp 680w"
           sizes="(min-width: 1280px) 680px, (min-width: 900px) 55vw, 100vw"
-          width="2048"
-          height="1082"
-          alt="Modelo de casa de madeira do catálogo Casas Pinheirão, com telhado de duas águas e varanda lateral"
+          width="680"
+          height="409"
+          alt="Fotografia das casas de exposição na sede da Casas Pinheirão em Pinhais"
           fetchPriority="high"
           loading="eager"
           decoding="async"
         />
-        <figcaption>Casas Pinheirão <span>Madeira e alvenaria sob medida</span></figcaption>
+        <figcaption>Casas de exposição <span>Nossa sede em Pinhais / PR</span></figcaption>
       </figure>
     </div>
   </section>

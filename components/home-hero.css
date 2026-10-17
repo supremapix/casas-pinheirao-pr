@@ -18,8 +18,9 @@
 .home-hero__hint { display: block; font-size: 10px; line-height: 1.5; margin-top: 4px; color: #59635d; }
 .home-hero__location { display: flex; align-items: center; gap: 6px; margin: 18px 0 0; font-size: 11px; color: #59635d; }
 .home-hero__visual { grid-row: 1; margin: 0; min-width: 0; background: #edf3f2; }
-.home-hero__visual img { display: block; width: 100%; height: auto; aspect-ratio: 2048 / 1082; object-fit: contain; }
-.home-hero__visual figcaption { display: none; }
+.home-hero__visual img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 409; object-fit: contain; }
+.home-hero__visual figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 10px 20px; background: #fff; color: #006b60; font-size: 10px; line-height: 1.5; font-weight: 700; }
+.home-hero__visual figcaption span { color: #59635d; font-weight: 500; }
 @media (min-width: 600px) {
   .home-hero__copy { padding: 32px; }
   .home-hero__actions { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 560px; }

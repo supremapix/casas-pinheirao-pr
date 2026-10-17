@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'}`}>
+    <nav aria-label="Navegação principal" onKeyDown={(event) => { if (event.key === "Escape") { setIsOpen(false); (event.currentTarget.querySelector("[aria-controls=primary-mobile-menu]") as HTMLButtonElement | null)?.focus(); } }} className={`fixed w-full z-50 transition-all duration-300 motion-reduce:transition-none ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex-shrink-0 flex items-center">
@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
             />
           </Link>
 
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden xl:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center space-x-6">
+          <div className="hidden xl:flex items-center space-x-6">
             <a href="tel:4136678015" className="flex items-center text-sm font-bold text-pinheirao-black hover:text-pinheirao-green">
               <Phone size={16} className="mr-2 text-pinheirao-green" />
               (41) 3667-8015
@@ -68,15 +68,15 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-pinheirao-black p-2" aria-label="Menu">
+          <div className="xl:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-pinheirao-black p-2" aria-label={isOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={isOpen} aria-controls="primary-mobile-menu">
               {isOpen ? <X size={32} /> : <Menu size={32} />}
             </button>
           </div>
         </div>
       </div>
 
-      <div className={`lg:hidden transition-all duration-300 overflow-hidden bg-white shadow-2xl ${isOpen ? 'max-h-[85vh] overflow-y-auto border-t' : 'max-h-0'}`}>
+      <div id="primary-mobile-menu" inert={!isOpen} aria-hidden={!isOpen} className={`xl:hidden transition-all duration-300 overflow-hidden bg-white shadow-2xl ${isOpen ? 'max-h-[calc(100dvh-96px)] overflow-y-auto border-t' : 'max-h-0'}`}>
         <div className="px-5 pt-4 pb-8 space-y-3">
           <div className="text-xs font-black uppercase tracking-widest text-pinheirao-green mb-2">Menu Principal (Escolha)</div>
           {navLinks.map((link) => (

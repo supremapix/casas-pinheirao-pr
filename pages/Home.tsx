@@ -215,20 +215,22 @@ export const Home: React.FC = () => {
 
               <div className="relative rounded-sm overflow-hidden shadow-2xl bg-pinheirao-black border border-gray-200/80">
                 {/* Top Location Tag */}
-                <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 px-3 py-1 bg-[#0F1115]/90 backdrop-blur-sm border border-white/15 rounded-sm text-white text-[10px] font-bold uppercase tracking-wider">
+                <div className="relative m-4 inline-flex items-center gap-1.5 px-3 py-1 bg-[#0F1115]/90 backdrop-blur-sm border border-white/15 rounded-sm text-white text-[10px] font-bold uppercase tracking-wider">
                   <MapPin size={12} className="text-pinheirao-green" />
                   <span>Sede Própria • Pinhais/PR</span>
                 </div>
 
                 <img
-                  src="/tradicao-em-pinhais.webp"
-                  alt="Tradição em Pinhais - Casas Pinheirão"
-                  className="w-full h-[460px] object-cover opacity-95"
+                  src="/nossa-jornada-empresa.webp"
+                  alt="Fachada da sede Casas Pinheirão em Pinhais, com letreiro e entrada de atendimento"
+                  width="680"
+                  height="383"
+                  loading="lazy"
+                  decoding="async"
+                  className="block w-full h-auto object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                
-                {/* High-Contrast CREA Badge Overlay */}
-                <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 left-4 sm:left-auto z-10 bg-[#0F1115] border-2 border-pinheirao-green shadow-2xl p-3.5 sm:p-4 rounded-sm flex items-center gap-3.5 max-w-sm">
+                {/* Registration details below the photo keep the facade unobstructed. */}
+                <div className="relative m-4 sm:m-6 bg-[#0F1115] border-2 border-pinheirao-green shadow-2xl p-3.5 sm:p-4 rounded-sm flex items-center gap-3.5">
                   <div className="p-1.5 bg-white rounded-sm shrink-0 shadow-sm flex items-center justify-center">
                     <img
                       src="/crea-pr-pinhais-1.png"

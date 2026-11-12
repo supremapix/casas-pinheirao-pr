@@ -130,8 +130,8 @@ export const Home: React.FC = () => {
   return (
     <div className="overflow-hidden bg-white">
       <EnhancedSEO
-        title="Realize o Sonho da Casa Própria"
-        description="Casas Pinheirão: Especialista em casas pré-fabricadas de madeira e alvenaria em Curitiba e Região. Mais de 20 anos de tradição e qualidade. Financiamento facilitado."
+        title="Casas pré-fabricadas em Curitiba e região"
+        description="Compare modelos de casas de madeira, alvenaria e sobrados da Casas Pinheirão. Atendimento em Pinhais para Curitiba e região; consulte o projeto e o escopo do orçamento."
         canonical="/"
         keywords="casas pré-fabricadas, casas de madeira, casas de alvenaria, sobrados, casas Pinhais, casas Curitiba, casa própria Pinhais, financiamento casa, casas pré-fabricadas Curitiba, casas de madeira Pinhais"
         structuredData={structuredData}
@@ -163,6 +163,20 @@ export const Home: React.FC = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="planejar-casa" className="py-16 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="planejar-casa" className="text-2xl sm:text-3xl font-bold text-pinheirao-black mb-5">Casas pré-fabricadas em Curitiba e região: como preparar seu orçamento</h2>
+          <p className="max-w-4xl text-pinheirao-gray leading-relaxed mb-8">A Casas Pinheirão atende em Pinhais. Antes de escolher entre os modelos de madeira, alvenaria ou sobrado apresentados no catálogo, reúna as informações do terreno e dos ambientes desejados. A metragem de uma planta é uma referência de comparação, não o valor final de uma obra no seu endereço.</p>
+          <div className="grid md:grid-cols-3 gap-6 text-pinheirao-gray leading-relaxed">
+            <div className="border border-gray-200 rounded-sm p-6"><h3 className="font-bold text-pinheirao-black mb-3">1. Terreno e necessidades</h3><p>Informe município, bairro, dimensões do lote e condições conhecidas de acesso. Descreva quantos quartos e banheiros pretende ter e se precisa de garagem ou dois pavimentos. A escolha deve ser conferida com o projeto e as exigências aplicáveis ao imóvel.</p></div>
+            <div className="border border-gray-200 rounded-sm p-6"><h3 className="font-bold text-pinheirao-black mb-3">2. Modelo e materiais</h3><p>Compare a distribuição dos cômodos, a área considerada e os materiais especificados. Peça detalhes de paredes, cobertura, esquadrias e acabamentos. Madeira e alvenaria têm soluções diferentes; o nome do modelo não substitui a descrição do que será executado.</p></div>
+            <div className="border border-gray-200 rounded-sm p-6"><h3 className="font-bold text-pinheirao-black mb-3">3. Escopo por escrito</h3><p>Confira separadamente projeto, preparação do terreno, fundação, estrutura, instalações, acabamentos e transporte. Pergunte quais itens estão incluídos, quem fica responsável por cada etapa e quais condições podem alterar o prazo ou o orçamento.</p></div>
+          </div>
+          <details className="mt-8 border-t border-gray-200 pt-5 text-pinheirao-gray leading-relaxed"><summary className="font-bold text-pinheirao-black cursor-pointer">O preço por metro quadrado já inclui a casa pronta?</summary><p className="mt-3 max-w-4xl">Não necessariamente. Compare propostas com a mesma área e os mesmos itens. Solicite a relação do que está incluído e excluído, as condições de pagamento e o cronograma aplicável ao seu projeto antes de contratar. Confirme diretamente com a equipe qualquer condição de financiamento ou garantia.</p></details>
+          <div className="flex flex-wrap gap-4 mt-8"><Link to="/projetos" className="inline-flex min-h-12 items-center px-6 py-3 rounded-sm bg-pinheirao-green text-white font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pinheirao-green">Comparar modelos de casas</Link><Link to="/envie-seu-projeto" className="inline-flex min-h-12 items-center px-6 py-3 rounded-sm border border-pinheirao-green text-pinheirao-green font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pinheirao-green">Enviar informações do meu projeto</Link></div>
         </div>
       </section>
 

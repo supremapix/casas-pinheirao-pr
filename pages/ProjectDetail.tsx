@@ -158,12 +158,12 @@ export const ProjectDetail: React.FC = () => {
                   <div className="flex flex-col items-center text-center p-4 bg-pinheirao-concrete/10 rounded-sm">
                     <Bed size={24} className="text-pinheirao-green mb-3" />
                     <p className="text-[8px] font-black text-pinheirao-gray uppercase tracking-widest mb-1">Dormitórios</p>
-                    <p className="text-sm font-black text-pinheirao-black">2-3 Quartos</p>
+                    <p className="text-sm font-black text-pinheirao-black">Conferir planta</p>
                   </div>
                   <div className="flex flex-col items-center text-center p-4 bg-pinheirao-concrete/10 rounded-sm">
                     <Bath size={24} className="text-pinheirao-green mb-3" />
                     <p className="text-[8px] font-black text-pinheirao-gray uppercase tracking-widest mb-1">Banheiros</p>
-                    <p className="text-sm font-black text-pinheirao-black">1-2 WCs</p>
+                    <p className="text-sm font-black text-pinheirao-black">Conferir planta</p>
                   </div>
                 </div>
               </div>
@@ -176,14 +176,15 @@ export const ProjectDetail: React.FC = () => {
                   <p className="text-pinheirao-gray text-sm leading-relaxed font-medium">
                     {project.description}
                   </p>
+                  <p className="text-pinheirao-gray text-sm leading-relaxed mt-4">Confira a planta e o memorial descritivo antes de contratar. A quantidade de ambientes, áreas cobertas e itens incluídos deve constar na proposta específica para seu terreno; as imagens e referências do catálogo não substituem essa conferência.</p>
                 </div>
                 
                 <div className="bg-pinheirao-black text-white p-6 rounded-sm">
                   <h4 className="flex items-center font-black uppercase tracking-widest text-[10px] mb-4 text-pinheirao-green">
-                    <ShieldCheck size={16} className="mr-2" /> Incluso neste Modelo
+                    <ShieldCheck size={16} className="mr-2" /> Confirmar na Proposta
                   </h4>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {['Estrutura Certificada', 'Piso e Forro Nobre', 'Esquadrias de Madeira', 'Montagem Especializada'].map((item, idx) => (
+                    {['Materiais da estrutura', 'Pisos e forros', 'Portas e janelas', 'Escopo da montagem'].map((item, idx) => (
                       <li key={idx} className="flex items-center text-[10px] font-bold uppercase tracking-widest">
                         <CheckCircle size={12} className="mr-2 text-pinheirao-green" /> {item}
                       </li>
@@ -206,7 +207,7 @@ export const ProjectDetail: React.FC = () => {
 
                 <div className="flex flex-col">
                   <a 
-                    href={`https://api.whatsapp.com/send?phone=5541996301028&text=Olá! Me interessei pelo modelo: ${project.title}`}
+                    href={`https://api.whatsapp.com/send?phone=5541996301028&text=${encodeURIComponent(`Olá! Me interessei pelo modelo: ${project.title}`)}`}
                     target="_blank"
                     rel="noopener"
                     className="w-full border border-pinheirao-black hover:bg-pinheirao-black hover:text-white text-pinheirao-black py-4 rounded-sm font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2"
@@ -214,7 +215,7 @@ export const ProjectDetail: React.FC = () => {
                     <MessageSquare size={16} />
                     <span>Falar no WhatsApp</span>
                   </a>
-                  <span className="text-[10px] text-pinheirao-gray mt-1 text-center font-medium tracking-wide">Atendimento imediato</span>
+                  <span className="text-[10px] text-pinheirao-gray mt-1 text-center font-medium tracking-wide">Consulte disponibilidade de atendimento</span>
                 </div>
               </div>
             </div>
@@ -358,7 +359,7 @@ export const ProjectDetail: React.FC = () => {
           {/* Bottom Bar with Direct Close Button */}
           <div className="w-full max-w-5xl pt-3 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/10 shrink-0" onClick={(e) => e.stopPropagation()}>
             <p className="text-xs text-gray-400 font-medium text-center sm:text-left">
-              Estrutura em {project.type} com responsabilidade técnica registrada no CREA-PR.
+              Confirme com a equipe o responsável técnico e a documentação aplicável ao seu projeto.
             </p>
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button

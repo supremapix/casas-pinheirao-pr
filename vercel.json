@@ -27,6 +27,17 @@
       "dest": "/blog/como-construir-no-seu-terreno-com-economia/index.html"
     },
     {
+      "src": "/blog/custo-da-construcao-2026-e-cenarios-2027-parana$",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/custo-da-construcao-2026-e-cenarios-2027-parana/"
+      }
+    },
+    {
+      "src": "/blog/custo-da-construcao-2026-e-cenarios-2027-parana/$",
+      "dest": "/blog/custo-da-construcao-2026-e-cenarios-2027-parana/index.html"
+    },
+    {
       "handle": "filesystem"
     },
     {

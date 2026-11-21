@@ -3,10 +3,39 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
   "installCommand": "yarn install",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/blog$",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/"
+      }
+    },
+    {
+      "src": "/blog/como-construir-no-seu-terreno-com-economia$",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/como-construir-no-seu-terreno-com-economia/"
+      }
+    },
+    {
+      "src": "/blog/$",
+      "dest": "/blog/index.html"
+    },
+    {
+      "src": "/blog/como-construir-no-seu-terreno-com-economia/$",
+      "dest": "/blog/como-construir-no-seu-terreno-com-economia/index.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/blog/.*",
+      "status": 404
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { BedroomGuide } from '../components/BedroomGuide';
 import { Hero } from '../components/Hero';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { TestimonialsCarousel } from '../components/TestimonialsCarousel';
@@ -139,6 +140,15 @@ export const Home: React.FC = () => {
       
       {/* 1. Hero Principal */}
       <Hero />
+      <BedroomGuide compact />
+      <section aria-labelledby="guia-obra" className="bg-white py-12 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="font-bold uppercase tracking-widest text-[#285b4e] text-sm">Guia da casa própria</p>
+          <h2 id="guia-obra" className="mt-2 text-3xl font-black text-[#142f28]">Como economizar sem comparar orçamentos diferentes?</h2>
+          <p className="mt-3 text-base text-[#344d45] max-w-2xl">Veja o que perguntar sobre terreno, materiais, etapas e responsabilidades antes de escolher uma construtora.</p>
+          <a href="/blog/" className="mt-5 inline-flex min-h-12 items-center rounded-md bg-[#145442] px-5 py-3 text-white font-bold">Ler o blog</a>
+        </div>
+      </section>
 
       {/* 2. Destaques / Métricas de Confiança */}
       <section className="bg-gray-50 py-8 sm:py-10 border-b border-gray-200/60">

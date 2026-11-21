@@ -23,7 +23,7 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Empresa', path: '/empresa' },
-    { name: 'Projetos', path: '/projetos' },
+    { name: 'Modelos', path: '/projetos' },
     { name: 'Envie seu Projeto', path: '/envie-seu-projeto' },
     { name: 'Contato', path: '/contato' },
   ];
@@ -52,6 +52,7 @@ export const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
+            <a href="/blog/" className="text-xs font-bold uppercase tracking-widest text-pinheirao-black hover:text-pinheirao-green">Blog</a>
           </div>
 
           <div className="hidden xl:flex items-center space-x-6">
@@ -91,6 +92,8 @@ export const Navbar: React.FC = () => {
             </Link>
           ))}
           
+          <a href="/blog/" className="block px-4 py-3 text-sm font-bold uppercase tracking-wider rounded-md text-pinheirao-black bg-gray-50">Blog</a>
+
           <div className="pt-4 border-t border-gray-200 space-y-3">
             <div className="text-xs font-black uppercase tracking-widest text-pinheirao-green">Atendimento Direto & Decisão</div>
             <a href="tel:4136678015" className="flex items-center justify-center py-3.5 text-sm bg-pinheirao-concrete rounded-md text-pinheirao-black font-black shadow-sm">

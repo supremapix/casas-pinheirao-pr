@@ -158,7 +158,7 @@ export const ProjectDetail: React.FC = () => {
                   <div className="flex flex-col items-center text-center p-4 bg-pinheirao-concrete/10 rounded-sm">
                     <Bed size={24} className="text-pinheirao-green mb-3" />
                     <p className="text-[8px] font-black text-pinheirao-gray uppercase tracking-widest mb-1">Dormitórios</p>
-                    <p className="text-sm font-black text-pinheirao-black">Conferir planta</p>
+                    <p className="text-sm font-black text-pinheirao-black">{project.id === '1' ? '3 (1 suíte)' : 'Conferir planta'}</p>
                   </div>
                   <div className="flex flex-col items-center text-center p-4 bg-pinheirao-concrete/10 rounded-sm">
                     <Bath size={24} className="text-pinheirao-green mb-3" />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import { BedroomGuide, bedroomChoices } from '../components/BedroomGuide';
 import { EnhancedSEO } from '../components/EnhancedSEO';
 import { PROJECTS } from '../data';
 import { ConstructionType, Project } from '../types';
@@ -10,6 +11,9 @@ import {
 } from 'lucide-react';
 
 export const Projects: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedRooms = searchParams.get('quartos');
+  const selectedBedroom = bedroomChoices.find(choice => String(choice.rooms) === requestedRooms);
   const [filter, setFilter] = useState<ConstructionType | 'ALL'>('ALL');
   const [lightbox, setLightbox] = useState<{ project: Project; index: number } | null>(null);
 
@@ -99,6 +103,25 @@ export const Projects: React.FC = () => {
         </div>
       </section>
 
+      <nav aria-label="Selecionar quantidade de quartos" className="bg-white px-4 py-5">
+        <div className="max-w-7xl mx-auto flex flex-wrap gap-2 justify-center">
+          {['Todos', '1 quarto', '2 quartos', '3 quartos'].map((label, idx) => (
+            <button type="button" key={label} onClick={() => setSearchParams(idx ? {quartos: String(idx)} : {})}
+              aria-pressed={idx === (selectedBedroom?.rooms ?? 0)}
+              className={`min-h-12 px-4 rounded-md border text-sm font-bold ${idx === (selectedBedroom?.rooms ?? 0) ? 'bg-[#145442] border-[#145442] text-white' : 'bg-white border-[#a8c6bb] text-[#145442]'}`}>{label}</button>
+          ))}
+        </div>
+      </nav>
+      {selectedBedroom && <section className="max-w-7xl mx-auto px-4 py-6" aria-live="polite">
+        <div className="rounded-xl border border-[#ceded7] p-5 bg-[#eef5f2]">
+          <h2 className="text-2xl font-bold text-[#142f28]">{selectedBedroom.title}</h2>
+          <p className="mt-2 text-base text-[#344d45]">{selectedBedroom.detail}</p>
+          {selectedBedroom.photo ? <a href={selectedBedroom.photo} className="mt-3 inline-flex min-h-12 items-center text-[#145442] font-bold underline">{selectedBedroom.action}</a> :
+            selectedBedroom.to && <Link to={selectedBedroom.to} className="mt-3 inline-flex min-h-12 items-center text-[#145442] font-bold underline">{selectedBedroom.action}</Link>}
+        </div>
+      </section>}
+      {!selectedBedroom && <BedroomGuide />}
+      <div hidden={!!selectedBedroom}>
       {/* Segmented Filter Bar */}
       <section className="py-4 bg-white sticky top-16 md:top-20 z-40 border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,7 +218,7 @@ export const Projects: React.FC = () => {
                     <span>·</span>
                     <div className="flex items-center gap-1.5 text-pinheirao-black">
                       <Bed size={14} className="text-pinheirao-green" />
-                      <span>2-3 Quartos</span>
+                      <span>{project.id === '1' ? '3 quartos' : 'Conferir planta'}</span>
                     </div>
                   </div>
 
@@ -271,6 +294,7 @@ export const Projects: React.FC = () => {
         </div>
       </section>
 
+      </div>
       {/* Semantic Lightbox Modal */}
       {lightbox && (
         <div 

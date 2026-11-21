@@ -130,6 +130,8 @@ export const CustomHomeSection: React.FC = () => {
               <img
                 src={projectImages[activeImage].url}
                 alt={projectImages[activeImage].label}
+                loading="lazy"
+                decoding="async"
                 className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-500 group-hover:scale-105 select-none"
               />
               
@@ -177,7 +179,7 @@ export const CustomHomeSection: React.FC = () => {
                   }`}
                   aria-label={`Ver modelo ${img.label}`}
                 >
-                  <img src={img.url} alt={img.label} className="max-w-full max-h-full object-contain" />
+                  <img src={img.url} alt={img.label} loading="lazy" decoding="async" className="max-w-full max-h-full object-contain" />
                 </button>
               ))}
             </div>

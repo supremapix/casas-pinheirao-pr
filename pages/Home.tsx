@@ -89,10 +89,10 @@ export const Home: React.FC = () => {
   };
 
   const constructionTypes = [
-    { type: ConstructionType.WOOD, image: '/casas-madeira-nossos_modelos.png', desc: 'Conforto térmico natural e beleza das madeiras de lei certificadas.' },
-    { type: ConstructionType.MASONRY, image: '/casas-alvenaria-nossos_modelos.png', desc: 'Solidez e durabilidade da alvenaria tradicional sob medida.' },
-    { type: ConstructionType.SOBRADO, image: '/sobrado-nossos_modelos.png', desc: 'Dois pavimentos com aproveitamento inteligente do terreno.' },
-    { type: ConstructionType.TRIPLEX, image: 'https://customer-assets.emergentagent.com/job_080d002f-6297-4f5e-a48d-6da71945e6dc/artifacts/21ubrgoy_triplex.png', desc: 'Máxima amplitude, iluminação e espaço para sua família.' },
+    { type: ConstructionType.WOOD, image: 'madeira', desc: 'Conforto térmico natural e beleza das madeiras de lei certificadas.' },
+    { type: ConstructionType.MASONRY, image: 'alvenaria', desc: 'Solidez e durabilidade da alvenaria tradicional sob medida.' },
+    { type: ConstructionType.SOBRADO, image: 'sobrado', desc: 'Dois pavimentos com aproveitamento inteligente do terreno.' },
+    { type: ConstructionType.TRIPLEX, image: 'triplex', desc: 'Máxima amplitude, iluminação e espaço para sua família.' },
   ];
 
   const steps = [
@@ -257,8 +257,12 @@ export const Home: React.FC = () => {
                 <div className="relative m-4 sm:m-6 bg-[#0F1115] border-2 border-pinheirao-green shadow-2xl p-3.5 sm:p-4 rounded-sm flex items-center gap-3.5">
                   <div className="p-1.5 bg-white rounded-sm shrink-0 shadow-sm flex items-center justify-center">
                     <img
-                      src="/crea-pr-pinhais-1.png"
+                      src="/optimized/crea-pr-96.webp"
+                      width="92"
+                      height="96"
                       alt="CREA-PR Empresa Registrada"
+                      loading="lazy"
+                      decoding="async"
                       className="w-10 h-10 object-contain"
                     />
                   </div>
@@ -317,6 +321,7 @@ export const Home: React.FC = () => {
                   key={videoTours[selectedVideo].id}
                   src={`https://www.youtube.com/embed/${videoTours[selectedVideo].id}?autoplay=0&rel=0&modestbranding=1`}
                   title={videoTours[selectedVideo].title}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full border-0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -469,8 +474,12 @@ export const Home: React.FC = () => {
             {constructionTypes.map((item) => (
               <div key={item.type} className="group relative overflow-hidden bg-pinheirao-black h-[420px] rounded-sm shadow-lg">
                 <img 
-                  src={item.image} 
-                  alt={item.type} 
+                  src={`/optimized/${item.image}-768.webp`}
+                  srcSet={`/optimized/${item.image}-480.webp 480w, /optimized/${item.image}-768.webp 768w`}
+                  sizes="(min-width: 1280px) 287px, (min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" 
+                  alt={item.type}
+                  loading="lazy"
+                  decoding="async" 
                   className="w-full h-full object-cover opacity-75 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
@@ -508,8 +517,12 @@ export const Home: React.FC = () => {
 
             <div className="relative z-10 lg:col-span-6 rounded-sm overflow-hidden h-[300px] sm:h-[380px] shadow-lg border border-white/10">
               <img
-                src="https://img.supremasite.com.br/pinheirao/casa-45mts.png"
+                src="/optimized/casa-45m-640.webp"
+                srcSet="/optimized/casa-45m-640.webp 640w, /optimized/casa-45m-1000.webp 1000w"
+                sizes="(min-width: 1280px) 546px, (min-width: 1024px) 48vw, 100vw"
                 alt="Casa de Madeira 45m² - Casas Pinheirão"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

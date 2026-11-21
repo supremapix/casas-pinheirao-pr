@@ -26,7 +26,7 @@ export const Hero: React.FC = () => (
         <img
           src="/hero-sede-real-680.webp"
           srcSet="/hero-sede-real-400.webp 400w, /hero-sede-real-680.webp 680w"
-          sizes="(min-width: 1280px) 680px, (min-width: 900px) 55vw, 100vw"
+          sizes="(min-width: 1440px) 704px, (min-width: 900px) calc((100vw - 100px) * 0.525), 100vw"
           width="680"
           height="409"
           alt="Fotografia das casas de exposição na sede da Casas Pinheirão em Pinhais"

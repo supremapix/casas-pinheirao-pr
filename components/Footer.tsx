@@ -49,40 +49,45 @@ const FOOTER_VIDEOS = [
 
 export const Footer: React.FC = () => {
   const [currentVideoIdx, setCurrentVideoIdx] = useState(0);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [loadVideos, setLoadVideos] = useState(false);
+  const footerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const activeVideo = videoRefs.current[currentVideoIdx];
-    if (activeVideo) {
-      activeVideo.currentTime = 0;
-      activeVideo.play().catch(() => {});
-    }
-  }, [currentVideoIdx]);
+    const footer = footerRef.current;
+    if (!footer || !('IntersectionObserver' in window)) return;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion.matches) return;
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      setLoadVideos(true);
+      observer.disconnect();
+    }, { rootMargin: '0px 0px 320px 0px' });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   const handleVideoEnded = () => {
     setCurrentVideoIdx((prev) => (prev + 1) % FOOTER_VIDEOS.length);
   };
 
   return (
-    <footer className="relative bg-[#0A0C0E] text-white pt-20 pb-10 border-t-2 border-pinheirao-green overflow-hidden">
+    <footer ref={footerRef} className="relative bg-[#0A0C0E] text-white pt-20 pb-10 border-t-2 border-pinheirao-green overflow-hidden">
       {/* Background Container */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* 3 Sequential Background Videos with Smooth Crossfade & Maximum Visibility on PC and Mobile */}
-        {FOOTER_VIDEOS.map((videoSrc, idx) => (
+        {/* Only one decorative video, and only when the footer approaches. */}
+        {loadVideos && (
           <video
-            key={videoSrc}
-            ref={(el) => { videoRefs.current[idx] = el; }}
-            src={videoSrc}
-            autoPlay={idx === 0}
+            key={currentVideoIdx}
+            src={FOOTER_VIDEOS[currentVideoIdx]}
+            autoPlay
             muted
             playsInline
-            preload="auto"
+            aria-hidden="true"
+            preload="none"
             onEnded={handleVideoEnded}
-            className={`absolute inset-0 w-full h-full object-cover object-center scale-105 filter brightness-95 contrast-105 transition-opacity duration-1000 ease-in-out ${
-              idx === currentVideoIdx ? 'opacity-75 z-10' : 'opacity-0 z-0'
-            }`}
+            className="absolute inset-0 z-10 h-full w-full scale-105 object-cover object-center opacity-75 filter brightness-95 contrast-105"
           />
-        ))}
+        )}
 
         {/* Balanced Photographic Tint - Enhances video visibility while preserving crystal-clear typography */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0C0E]/85 via-[#0C0E12]/70 to-[#0A0C0E]/90 z-10" />

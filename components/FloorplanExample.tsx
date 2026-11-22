@@ -27,13 +27,13 @@ export const FloorplanExample: React.FC = () => {
         <h2 id="pin-plan-title">Exemplo ilustrativo de planta baixa</h2>
         <p>{note}</p>
         <p>Uma planta baixa mostra, de cima, como cômodos como sala, cozinha, banheiro e quartos se distribuem. Observe quais ambientes ficam lado a lado e quais percursos seriam feitos entre eles.</p>
-        <p><strong>As medidas da imagem são apenas ilustrativas.</strong> A imagem não corresponde a um modelo do catálogo nem substitui o projeto técnico.</p>
+        <p><strong>As medidas das imagens são apenas ilustrativas.</strong> Os exemplos não representam modelos do catálogo nem substituem o projeto técnico.</p>
       </div>
-      <figure>
+      <div className="pin-plan__pair"><figure>
         <img src="/exemplo-planta/planta-baixa-360.webp" srcSet="/exemplo-planta/planta-baixa-360.webp 360w, /exemplo-planta/planta-baixa-600.webp 600w" sizes="(max-width:620px) 17rem, 19rem" width={360} height={447} alt="Vista de cima de uma marcação no terreno com dois quartos, banheiro, cozinha e sala" loading="lazy" decoding="async" />
         <figcaption>Ilustração da divisão dos cômodos no terreno.</figcaption>
-        <a className="pin-plan-open" href="/exemplo-planta/planta-baixa-1290.webp">Ampliar imagem</a>
-      </figure>
+        <a className="pin-plan-open" href="/exemplo-planta/planta-baixa-1290.webp">Ampliar marcação</a>
+      </figure><figure><img src="/exemplo-planta/planta-mobiliada-360.webp" srcSet="/exemplo-planta/planta-mobiliada-360.webp 360w, /exemplo-planta/planta-mobiliada-600.webp 600w" sizes="(max-width:620px) 17rem, 19rem" width={360} height={450} alt="Vista mobiliada de dois quartos, banheiro, sala e cozinha integrada" loading="lazy" decoding="async" /><figcaption>Vista mobiliada: observe a passagem entre sala e cozinha e o espaço ao redor da mesa.</figcaption><a className="pin-plan-open" href="/exemplo-planta/planta-mobiliada-1080.webp" data-kind="furnished">Ampliar vista mobiliada</a></figure></div>
     </section>
   );
 };

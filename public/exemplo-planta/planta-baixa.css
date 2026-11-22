@@ -1,9 +1,9 @@
-.pin-plan{box-sizing:border-box;width:min(100% - 2rem,70rem);margin:2.5rem auto;padding:clamp(1rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,20rem);align-items:center;gap:clamp(1.25rem,4vw,3rem);border:1px solid #cbdad5;border-radius:.65rem;background:#f1f6f4;color:#173d31;text-align:left}
+.pin-plan{box-sizing:border-box;width:min(100% - 2rem,70rem);margin:2.5rem auto;padding:clamp(1rem,3vw,2rem);display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:clamp(1.25rem,4vw,3rem);border:1px solid #cbdad5;border-radius:.65rem;background:#f1f6f4;color:#173d31;text-align:left}
 .pin-plan__eyebrow{margin:0 0 .35rem;color:#356b56;font-size:.875rem;font-weight:750}
 .pin-plan h2{margin:0 0 .7rem;font-size:clamp(1.4rem,3vw,2.15rem);font-weight:850;line-height:1.16;color:#173d31}
 .pin-plan p{margin:.55rem 0;line-height:1.65;color:#294139}
 .pin-plan figure{min-width:0;margin:0;text-align:center}
-.pin-plan figure img{display:block;margin:0 auto;width:min(100%,19rem);height:auto;aspect-ratio:1290/1602;object-fit:contain;border-radius:.45rem;background:#dde8e4}
+.pin-plan figure img{display:block;margin:0 auto;width:min(100%,19rem);height:auto;object-fit:contain;border-radius:.45rem;background:#dde8e4}
 .pin-plan figcaption{margin:.45rem auto 0;font-size:.88rem;line-height:1.35;color:#33564b}
 .pin-plan a.pin-plan-open,.pin-plan-dialog button{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin:.65rem 0 0;padding:.55rem .85rem;border:1px solid #225341;border-radius:.4rem;background:#225341;color:#fff;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
 .pin-plan a.pin-plan-open:focus-visible,.pin-plan-dialog button:focus-visible{outline:3px solid #a26915;outline-offset:3px}
@@ -15,3 +15,7 @@
 .pin-plan-dialog p{margin:.65rem 0;font:400 .95rem/1.42 system-ui}
 .pin-plan-dialog img{display:block;width:100%;height:auto;max-height:65vh;max-height:65dvh;object-fit:contain;background:#e8eeeb;border-radius:.4rem}
 @media(max-width:620px){.pin-plan{grid-template-columns:minmax(0,1fr)}.pin-plan figure img{width:min(100%,17rem)}}
+
+.pin-plan__pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(.75rem,2vw,1.5rem)}
+.pin-plan__pair figure{display:flex;flex-direction:column;align-items:center;padding:.7rem;border:1px solid #cbdad5;border-radius:.5rem;background:#fff}.pin-plan__pair figcaption{flex:1}.pin-plan__pair img{aspect-ratio:4/5}
+@media(max-width:620px){.pin-plan__pair{grid-template-columns:minmax(0,1fr)}}

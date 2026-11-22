@@ -22,6 +22,10 @@
     if (!trigger || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const active=dialog ?? build(), img=active.querySelector('img');
     openedBy=trigger;
+    const furnished=trigger.dataset.kind==='furnished';
+    active.querySelector('h2').textContent=furnished?'Vista mobiliada ilustrativa':'Marcação ilustrativa no terreno';
+    img.width=furnished?1080:1290;
+    img.height=furnished?1350:1602;
     img.alt=trigger.closest('figure').querySelector('img').alt;
     if (img.getAttribute('src')!==trigger.getAttribute('href')) img.src=trigger.getAttribute('href');
     try { active.showModal(); event.preventDefault(); }

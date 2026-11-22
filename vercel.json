@@ -38,6 +38,15 @@
       "dest": "/blog/custo-da-construcao-2026-e-cenarios-2027-parana/index.html"
     },
     {
+      "src": "/blog/historia-casas-madeira-pre-fabricadas$",
+      "status": 308,
+      "headers": { "Location": "/blog/historia-casas-madeira-pre-fabricadas/" }
+    },
+    {
+      "src": "/blog/historia-casas-madeira-pre-fabricadas/$",
+      "dest": "/blog/historia-casas-madeira-pre-fabricadas/index.html"
+    },
+    {
       "handle": "filesystem"
     },
     {
@@ -50,3 +59,4 @@
     }
   ]
 }
+

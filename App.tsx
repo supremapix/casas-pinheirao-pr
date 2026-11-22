@@ -13,6 +13,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CookieConsent } from './components/CookieConsent';
+import { FloorplanExample } from './components/FloorplanExample';
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
             <Route path="/atualizacoes" element={<Updates />} />
             <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
           </Routes>
+          <FloorplanExample />
         </main>
         <Footer />
         <FloatingWhatsApp />

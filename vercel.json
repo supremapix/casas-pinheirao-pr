@@ -40,11 +40,24 @@
     {
       "src": "/blog/historia-casas-madeira-pre-fabricadas$",
       "status": 308,
-      "headers": { "Location": "/blog/historia-casas-madeira-pre-fabricadas/" }
+      "headers": {
+        "Location": "/blog/historia-casas-madeira-pre-fabricadas/"
+      }
     },
     {
       "src": "/blog/historia-casas-madeira-pre-fabricadas/$",
       "dest": "/blog/historia-casas-madeira-pre-fabricadas/index.html"
+    },
+    {
+      "src": "/blog/kit-montagem-obra-completa-casa-pre-fabricada$",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/kit-montagem-obra-completa-casa-pre-fabricada/"
+      }
+    },
+    {
+      "src": "/blog/kit-montagem-obra-completa-casa-pre-fabricada/$",
+      "dest": "/blog/kit-montagem-obra-completa-casa-pre-fabricada/index.html"
     },
     {
       "handle": "filesystem"
@@ -59,4 +72,3 @@
     }
   ]
 }
-
